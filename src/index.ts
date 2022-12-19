@@ -1,4 +1,6 @@
 import './styles.css'
 import { products } from './json'
+import { ShoppingCart } from './components/shoppingCart/shoppingCart'
 
-console.log(products)
+const shopping  = new ShoppingCart();
+shopping.hi()

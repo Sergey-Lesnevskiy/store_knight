@@ -1,13 +1,21 @@
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .shopping-cart {
     max-width: 1280px;
     margin: 0 auto;
+    display: none;
 }
-.remove-cart {
-    width: 142px;
+.shopping-cart__remove-card{
+    width: 860px;
+    display: flex;
+    justify-content: end;
     height: 19px;
+    margin: 11px 0px;
 }
-.remove-cart p{
+.shopping-cart__remove-card p{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -28,7 +36,9 @@
 .shopping-cart__card{
     padding: 21px 30px 21px 29px;
     display: flex;
-    background: #D9D9D9;
+    justify-content: space-between;
+    background: var(--color-gray);
+    margin-bottom: 26px;
 }
 .shopping-cart__img{
     background-image: url('../../images/armor/chain_mail/chainMail2.jpg');
@@ -38,12 +48,19 @@
    width: 169px;
    height: 176px;
 }
-.shopping-cart__description{
-    max-width: 696px;
-    padding-top: 17px;
-    padding-left: 31px;
+.shopping-cart__description-conteiner{
+    display: flex;
+    margin-bottom:5px ;
+    padding-top: 10px;
 }
+.shopping-cart__description{
+    max-width: 686px;
+ 
+}
+.shopping-cart__description-wrapper{
+    max-width: 665px;
 
+}
 .shopping-cart__description-title{
     
 font-family: 'Inter';
@@ -60,7 +77,7 @@ font-style: normal;
 font-weight: 400;
 font-size: 12px;
 line-height: 15px;
-color: #797979;
+color: var( --color-dark-gray);
 margin-bottom: 8px;
 }
 
@@ -71,15 +88,124 @@ font-style: normal;
 font-weight: 400;
 font-size: 14px;
 line-height: 17px;
+margin-bottom:21px ;
 }
 .shopping-cart__description-trash{
     width: 19.2px;
     height: 20.4px;
-    background-image: url('../../images/icon/trash.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
+} 
 .shopping-cart__price-wrapper{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+.shopping-cart__price-add{
+    width: 106px;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--color-white);
+    margin-right: 300px;
+}
+.shopping-cart__price-minus,
+.shopping-cart__price-total-product,
+.shopping-cart__price-plus{
+    width: 15px;
+    height: 24px;
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+cursor: pointer;
+justify-content: center;
+color: #000000;
+}
+.shopping-cart__price-minus{
+    margin-top: -5px;
+}
+.shopping-cart__price-calc{
+color:var( --color-dark-gray);
+font-size: 14px;
+line-height: 17px;
+}
+.shopping-cart__price-total-bold{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+color: #000000;
+
+}
+.shopping-cart__score{
+    background-color: var(--color-gray);
+    height: 465px;
+    padding: 42px 24px 29px 35px;
+}
+.shopping-cart__all-scope-wrapper,
+.shopping-cart__promo-wrapper,
+.shopping-cart__total-wrapper,
+.shopping-cart__promo-input-wrapper{
+    display: flex;
+    justify-content:space-between;
+    margin-bottom: 8px;
+}
+.shopping-cart__total-wrapper{
+    margin-bottom: 164px;
+}
+.shopping-cart__promo-wrapper{
+    margin-bottom: 41px;
+}
+.shopping-cart__all-scope-title,
+.shopping-cart__all-scope-number,
+.shopping-cart__promo-title,
+.shopping-cart__promo-number{
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+}
+.shopping-cart__total-title{
+    font-weight: 700;
+font-size: 18px;
+line-height: 22px;
+}
+.shopping-cart__total-number{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+
+}
+.shopping-cart__promo-input-wrapper{
+display: flex;
+margin-bottom: 32px;
+}
+.shopping-cart__promo-input{
+    width: 125px;
+    height: 28px;
+    border: none;
+}
+.shopping-cart__promo-input::placeholder{
+   text-align: center;
+}
+.shopping-cart__promo-input-title{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+}
+.shopping-cart__button{
+width: 255px;
+height: 43px;
+background: #FFFFFF;
+border: none;
+font-size: 18px;
+line-height: 22px;
+}
+
+
