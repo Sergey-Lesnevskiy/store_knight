@@ -1,0 +1,60 @@
+:root {
+    --color-main: #FF8906;
+    --color-secondary: #F25F4C;
+    --color-error: #E53170;
+    --color-success: #2CB67D;
+    --color-black: #0F0E17;
+    --color-dark-gray: #A7A9BE;
+    --color-gray: #E6E7EC;
+    --color-white: #FFFEF8;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: local("Roboto LightItalic"),
+        local("Roboto-LightItalic"),
+        url("./fonts/Roboto-LightItalic.woff2") format("woff2");
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: local("Roboto Regular"),
+        local("Roboto-Regular"),
+        url("./fonts/Roboto-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: local("Roboto Bold"),
+        local("Roboto-Bold"),
+        url("./fonts/Roboto-Bold.woff2") format("woff2");
+    font-weight: bold;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Deutsch-Gothic";
+    src: local("DeutschGothicRegular"),
+        local("Deutsch-Gothic-Regular"),
+        url("./fonts/Deutsch-Gothic-Regular.woff") format("woff");
+    font-weight: normal;
+    font-display: swap;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: Roboto, Arial, sans-serif;
+    background-color: tomato;
+}
+
+.img {
+    height: 80px;
+    width: 80px;
+    background-image: url('./images/armor/complete_set/complect2.jpg');
+    width: 100%;
+}
