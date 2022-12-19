@@ -45,16 +45,3 @@
     font-display: swap;
 }
 
-body {
-    display: flex;
-    flex-wrap: wrap;
-    font-family: Roboto, Arial, sans-serif;
-    background-color: tomato;
-}
-
-.img {
-    height: 80px;
-    width: 80px;
-    background-image: url('./images/armor/complete_set/complect2.jpg');
-    width: 100%;
-}
