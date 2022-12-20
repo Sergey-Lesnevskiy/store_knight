@@ -1,0 +1,36 @@
+.sort {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* width: 100%; */
+  padding: 4px 18px;
+
+  border: 1px solid var(--color-white);
+  border-radius: 6px;
+}
+
+.sort__info {
+  margin: 0;
+  color: var(--color-dark-gray);
+}
+
+.sort__info span {
+  color: var(--color-white);
+}
+
+.sort__view {
+  display: flex;
+  align-items: center;
+}
+
+.sort__view-btn {
+  color: var(--color-white);
+}
+
+.sort__view-btn--active {
+  color: var(--color-main);
+}
+
+.sort__view-counts {
+  margin-left: 8px;
+}
