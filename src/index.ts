@@ -5,6 +5,8 @@ import { PageHeader } from './components/pageHeader/pageHeader'
 import { CategoryFilter } from './components/categoryFilter/categoryFilter'
 import { Filters } from './components/filters/filters'
 import { SortSection } from './components/sortSection/sortSection'
+import { Store } from './components/store/store'
+import { StoreItem } from './components/storeItem/storeItem'
 
 const shopping  = new ShoppingCart();
 shopping.hi()
@@ -20,3 +22,9 @@ filters.hi();
 
 const sort = new SortSection();
 sort.hi();
+
+const store = new Store();
+store.hi();
+
+const storeItem = new StoreItem();
+storeItem.hi();
