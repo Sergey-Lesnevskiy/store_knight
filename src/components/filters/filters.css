@@ -22,3 +22,37 @@
   margin-left: auto;
   margin-right: 8px;
 }
+
+.filters__body {
+  padding: 18px;
+  color: var(--color-black)
+}
+
+.search-filter__input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  color: var(--color-black);
+  border-radius: 6px;
+}
+
+[class$="-filter__title"] {
+  margin: 0;
+  margin-top: 36px;
+}
+
+[class$="-filter__list"] {
+  margin:0;
+  padding-left: 8px;
+  list-style:none;
+
+  margin-top: 14px;
+}
+
+[class$="-filter__item"] {
+  margin-top: 8px;
+}
+
+[class$="-filter__item"] label {
+  cursor: pointer;
+}

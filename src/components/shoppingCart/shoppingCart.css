@@ -1,8 +1,8 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+} */
 .shopping-cart {
     max-width: 1280px;
     margin: 0 auto;
@@ -55,14 +55,14 @@
 }
 .shopping-cart__description{
     max-width: 686px;
- 
+
 }
 .shopping-cart__description-wrapper{
     max-width: 665px;
 
 }
 .shopping-cart__description-title{
-    
+
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -82,7 +82,7 @@ margin-bottom: 8px;
 }
 
 .shopping-cart__description-subtitle{
-    
+
 font-family: 'Inter';
 font-style: normal;
 font-weight: 400;
@@ -93,7 +93,7 @@ margin-bottom:21px ;
 .shopping-cart__description-trash{
     width: 19.2px;
     height: 20.4px;
-} 
+}
 .shopping-cart__price-wrapper{
     display: flex;
     justify-content: space-between;
