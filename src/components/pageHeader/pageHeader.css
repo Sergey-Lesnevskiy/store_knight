@@ -45,6 +45,7 @@
 }
 
 .menu__link {
+  display: inline-block;
   font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
@@ -54,7 +55,7 @@
 
 .menu__link:hover,
 .menu__link:focus {
-  color: var(--color-secondary);
+  color: var(--color-main);
 }
 
 /*    Mobile menu   ↙ */

@@ -19,7 +19,7 @@
 
 .item__title {
   margin-top: 8px;
-  font-size: 22px;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -39,7 +39,7 @@
 
 .item__price {
   margin-top: 18px;
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 700;
 }
 
@@ -47,7 +47,15 @@
   width: 100%;
   margin-top: auto;
   padding: 10px 0;
-  background: var(--color-main);
+  font-size: 18px;
+  background-color: var(--color-main);
   border: 1px solid var(--color-black);
   border-radius: 6px;
+
+  transition: background-color 0.1s ease-in;
+}
+
+.item__btn:hover,
+.item__btn:focus {
+  background-color: var(--color-secondary);
 }

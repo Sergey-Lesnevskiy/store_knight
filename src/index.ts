@@ -7,6 +7,8 @@ import { Filters } from './components/filters/filters'
 import { SortSection } from './components/sortSection/sortSection'
 import { Store } from './components/store/store'
 import { StoreItem } from './components/storeItem/storeItem'
+import { Pagination } from './components/pagination/pagination'
+import { PageFooter } from './components/pageFooter/pageFooter'
 
 const shopping  = new ShoppingCart();
 shopping.hi()
@@ -28,3 +30,9 @@ store.hi();
 
 const storeItem = new StoreItem();
 storeItem.hi();
+
+const pagination = new Pagination();
+pagination.hi();
+
+const footer = new PageFooter();
+footer.hi();

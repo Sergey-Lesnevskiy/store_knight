@@ -82,16 +82,13 @@ body {
 
 
 /* Для разделения секция фильтров(слева) / секция сортировки и товаров (справа) */
+.page {
+    padding-bottom: 60px;
+}
 .page__wrapper {
     display: flex;
 }
 .page__right-side {
     width: 100%;
     margin-left: 20px;
-}
-
-/* Пагинация */
-.pagination {
-    padding: 18px 0;
-    text-align: right;
 }
