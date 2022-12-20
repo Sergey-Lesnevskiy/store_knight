@@ -1,0 +1,17 @@
+.footer {
+  background-image: linear-gradient(180deg, #373633 0%, #0F0E17 40%, #0F0E17 98%);
+}
+
+.footer__container {
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+.footer a:last-of-type {
+  margin-left: 18px;
+}
+
+.footer span {
+  margin-left: auto;
+}

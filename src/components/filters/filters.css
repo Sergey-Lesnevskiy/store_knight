@@ -41,7 +41,8 @@
   margin-top: 36px;
 }
 
-[class$="-filter__list"] {
+.type-filter__list,
+.sale-filter__list {
   margin:0;
   padding-left: 8px;
   list-style:none;
