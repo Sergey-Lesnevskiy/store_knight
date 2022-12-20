@@ -15,7 +15,55 @@
           stroke="#FFFEF8" stroke-width="2" stroke-linecap="round" />
       </svg></button>
   </div>
+
   <div class="filters__body">
+
+    <div class="search-filter">
+      <input class="search-filter__input" type="text" name="text" placeholder="Search product" value="">
+    </div>
+
+    <div class="type-filter">
+      <h3 class="type-filter__title">Тип:</h3>
+      <ul class="type-filter__list">
+        <li class="type-filter__item">
+          <input type="checkbox" id="head">
+          <label for="head">Защита головы</label>
+        </li>
+        <li class="type-filter__item">
+          <input type="checkbox" id="body">
+          <label for="body">Защита корпуса</label>
+        </li>
+        <li class="type-filter__item">
+          <input type="checkbox" id="hand">
+          <label for="hand">Защита кистей</label>
+        </li>
+        <li class="type-filter__item">
+          <input type="checkbox" id="foot">
+          <label for="foot">Защита ног</label>
+        </li>
+        <li class="type-filter__item">
+          <input type="checkbox" id="other">
+          <label for="other">Прочие элементы</label>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sale-filter">
+      <h3 class="sale-filter__title">Скидки:</h3>
+      <ul class="sale-filter__list">
+        <li class="sale-filter__item">
+          <input type="checkbox" id="sale">
+          <label for="sale">Товары со скидкой</label>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sale-filter">
+    </div>
+    <div class="stock-filter">
+    </div>
+    <div class="price-filter">
+    </div>
 
   </div>
 </aside>
