@@ -4,8 +4,9 @@
     --color-error: #E53170;
     --color-success: #2CB67D;
     --color-black: #0F0E17;
-    --color-dark-gray: #A7A9BE;
-    --color-gray: #E6E7EC;
+    --color-gray-dark: #585858;
+    --color-gray: #A7A9BE;
+    --color-gray-light: #E6E7EC;
     --color-white: #FFFEF8;
 }
 
@@ -80,11 +81,17 @@ body {
 }
 
 
-/* Для разделения секция фильтров слева / секция сортировки и товаров справа */
+/* Для разделения секция фильтров(слева) / секция сортировки и товаров (справа) */
 .page__wrapper {
     display: flex;
 }
 .page__right-side {
     width: 100%;
     margin-left: 20px;
+}
+
+/* Пагинация */
+.pagination {
+    padding: 18px 0;
+    text-align: right;
 }

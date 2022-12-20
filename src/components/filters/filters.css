@@ -49,7 +49,7 @@
   margin-top: 14px;
 }
 
-[class$="-filter__item"] {
+.filters [class$="-filter__item"] {
   margin-top: 8px;
 }
 
