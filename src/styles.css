@@ -78,3 +78,13 @@ body {
     margin: 0 auto;
     padding: 0 12px;
 }
+
+
+/* Для разделения секция фильтров слева / секция сортировки и товаров справа */
+.page__wrapper {
+    display: flex;
+}
+.page__right-side {
+    width: 100%;
+    margin-left: 20px;
+}
