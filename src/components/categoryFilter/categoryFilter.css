@@ -1,0 +1,30 @@
+.category-filter {
+  margin-top: 110px;
+  margin-bottom: 24px;
+}
+
+.category-filter__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 20px;
+  text-transform: uppercase;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  border-top: 8px solid var(--color-main);
+  border-bottom: 8px solid var(--color-main);
+}
+
+.category-filter__item {
+  padding: 16px 32px;
+}
+
+.category-filter__item--active {
+  font-weight: 700;
+  color: var(--color-white);
+  background-color: var(--color-main);
+}
