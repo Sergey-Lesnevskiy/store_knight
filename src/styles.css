@@ -51,12 +51,20 @@
     box-sizing: border-box;
 }
 
-/* Button styles reset */
+/*   Reset styles for button */
 button {
     padding: 0;
     border: none;
     background-color: transparent;
     cursor: pointer;
+}
+
+/*   Reset styles for input */
+input {
+    border: 1px solid var(--color-black);
+    background-image: none;
+    background-color: transparent;
+    box-shadow: none;
 }
 
 body {
