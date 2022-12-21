@@ -9,6 +9,7 @@ import { Store } from './components/store/store'
 import { StoreItem } from './components/storeItem/storeItem'
 import { Pagination } from './components/pagination/pagination'
 import { PageFooter } from './components/pageFooter/pageFooter'
+import { Product } from './components/product/product'
 
 const shopping  = new ShoppingCart();
 shopping.hi()
@@ -36,3 +37,6 @@ pagination.hi();
 
 const footer = new PageFooter();
 footer.hi();
+
+const product = new Product();
+product.hi();
