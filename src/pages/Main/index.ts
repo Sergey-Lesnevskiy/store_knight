@@ -1,5 +1,5 @@
 import { Page } from "../../core/templates/page";
- import '../../components/pageFooter/pageFooter'
+import '../../components/pageFooter/pageFooter'
 import '../../components/storeItem/storeItem'
 import '../../components/filters/filters'
 import '../../components/pagination/pagination'
@@ -8,10 +8,10 @@ import '../../components/store/store'
 import '../../components/categoryFilter/categoryFilter'
 import '../../components/filters/filters'
 
-export class MainPage extends Page{
+export class MainPage extends Page {
 
-static TextObgect = {
-  MainTitle: `<main class="page">
+  static TextObject = {
+    MainTitle: `<main class="page">
   <div class="page__container">
 
     <div class="category-filter">
@@ -254,16 +254,16 @@ static TextObgect = {
     <span>©2023</span>
   </div>
 </footer>`
-}
+  }
 
-constructor(id:string){
-  super(id);
+  constructor(id: string) {
+    super(id);
 
-}
+  }
 
-render(){
-const title = this.createHeaderTitle(MainPage.TextObgect.MainTitle);
-this.container.append(title)
-return this.container;
-}
+  render() {
+    const title = this.createHeaderTitle(MainPage.TextObject.MainTitle);
+    this.container.append(title)
+    return this.container;
+  }
 }
