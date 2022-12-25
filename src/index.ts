@@ -37,7 +37,7 @@ import './styles.css'
 // const footer = new PageFooter();
 // footer.hi();
 
-import { App } from "./pages/app";
+import { App } from "./pages/app/app";
 
 const app = new App();
 app.run();
