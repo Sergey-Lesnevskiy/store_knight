@@ -3,6 +3,7 @@ const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const EslingPlugin = require('eslint-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 const baseConfig = {
     entry: path.resolve(__dirname, './src/index.ts'),
@@ -19,7 +20,7 @@ const baseConfig = {
                 loader: 'file-loader',
                 options: {
                   outputPath:  'images' }
-               },
+                },
                {
                 test: /\.svg$/,
                 loader: 'svg-inline-loader'
@@ -41,6 +42,14 @@ const baseConfig = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html'),
             filename: 'index.html',
+        }),
+        new CopyPlugin({
+       patterns:[
+        {
+          from: path.resolve(__dirname, './src/images'),
+          to: path.resolve(__dirname, './dist/images')
+        }
+       ]
         }),
         new CleanWebpackPlugin(),
         new EslingPlugin({ extensions: 'ts' }),

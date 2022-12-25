@@ -12,6 +12,12 @@ export abstract class Page {
         headerTitle.innerHTML = text;
         return headerTitle;
     }
+    protected createElement(text: string ) {
+      const headerTitle = document.querySelector('.shopping-cart__content');
+      if(headerTitle)
+      headerTitle.innerHTML = text;
+      return headerTitle;
+  }
     render() {
         return this.container;
     }

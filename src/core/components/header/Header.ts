@@ -1,21 +1,8 @@
 import '../../../components/pageHeader/pageHeader'
 import { Component } from "../../templates/components";
-import { PageId } from "../../../pages/app";
+import { PageId } from "../../../pages/app/app";
 
-const Button = [
-  {
-    id: PageId.MainPage,
-    text: 'Main Page'
-  },
-  {
-    id: PageId.CartPage,
-    text: 'Cart Page'
-  },
-  {
-    id: PageId.ProductPage,
-    text: 'Product Page'
-  }
-]
+
 
 export class Header extends Component {
   constructor(tagName: string, className: string){
@@ -78,12 +65,7 @@ renderPageButtons(){
   </div>
 </header>`
 
-  // Button.forEach((button) => {
-  //   const buttonHTML = document.createElement('a');
-  //   buttonHTML.href = `#${button.id}`  
-  //   buttonHTML.innerHTML = button.text;
-  //   pageButtons.append(buttonHTML);
-  // })
+
   this.container.append(pageButtons)
 }
 
