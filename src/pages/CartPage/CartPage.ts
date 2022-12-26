@@ -34,8 +34,7 @@ constructor(id:string){
 
 }
 listeningdeleteOneCard(){
-  // shopping-cart__info-trash
-  // shopping-cart__products
+ 
   const deleteCard =  document.querySelector('.shopping-cart__products')
 
 if(deleteCard){
@@ -44,7 +43,8 @@ if(deleteCard){
     console.log(e.target);
    
   //закончить с удалением карточки и сделать через массив
-    const el = e.target as HTMLInputElement
+    const el = e.target as HTMLElement
+
     if(el.classList.contains('svg1')){
      
        const numb =el.getAttribute('data-delete')

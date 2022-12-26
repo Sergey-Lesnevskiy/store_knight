@@ -1,4 +1,5 @@
 .footer {
+  order: 3;
   background-image: linear-gradient(180deg, #373633 0%, #0F0E17 40%, #0F0E17 98%);
 }
 

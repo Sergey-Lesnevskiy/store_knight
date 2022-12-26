@@ -17,7 +17,7 @@ export class App {
     private static defaultPageId: string = 'current-page';
     private header: Header;
     private footer: Footer;
-     private  initialPage: MainPage;
+    private  initialPage: MainPage;
     private  cartPage: CartPage;
 
     //функция рендерит страницу в зависимости от смены url
@@ -29,7 +29,7 @@ export class App {
        this.initialPage.listeningCategory();
        this.cartPage.listeningClearCart();
        this.cartPage.listeningdeleteOneCard();
-
+      
       })
 
     }
@@ -65,8 +65,7 @@ export class App {
             pageHTML.id = App.defaultPageId;
            App.container.append(pageHTML);
            
-          //  MainPage.listeningCategory();
-          //  CartPage.listenningClearCart()
+         
         }
     }
 
@@ -75,14 +74,9 @@ export class App {
       App.container.append(this.header.render())
       App.renderNewPage('main-page');
         this.enableRoutChange();
-        //  this.initialPage.listeningCategory();
-        //  this.initialPage.listeningCartButton();
-        //  console.log('change')
-        //  CartPage.listeningClearCart()
-      // if(window.location.hash ==='#cart-page'){
-      //   console.log('click App')
-
-      // }
-        //  App.container.append(this.footer.render())
+         this.initialPage.listeningCategory();
+         this.initialPage.listeningCartButton();
+      
+         App.container.append(this.footer.render())
     }
 }
