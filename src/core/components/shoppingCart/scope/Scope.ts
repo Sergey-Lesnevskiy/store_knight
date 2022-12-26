@@ -34,21 +34,21 @@ export class CardScope extends Component {
                  <button class="shopping-cart__button">Оформить заказ</button>
              </div>
          </div>
-   
-   
+
+
 `
 this.container.append(scope)
   }
 
-  
-  
-//  renderPageButtons(){
-//        const pageButtons = document.createElement('div');
-//     pageButtons.innerHTML = `   
-     
-     
+
+
+//  renderPageHeader(){
+//        const pageHeader = document.createElement('div');
+//     pageHeader.innerHTML = `
+
+
 //            <div class="shopping-cart__products">
-        
+
 //            <div class="shopping-cart__score">
 //                <div class="shopping-cart__all-scope-wrapper">
 //                    <div class="shopping-cart__all-scope-title">Все товары:</div>
@@ -69,16 +69,16 @@ this.container.append(scope)
 //                </div>
 //                <button class="shopping-cart__button">Оформить заказ</button>
 //            </div>
-      
+
 // `
-  
-//    this.container.append(pageButtons)
+
+//    this.container.append(pageHeader)
 // }
 
 
   render (){
  this.renderPage1()
-  
+
     return  this.container;
   }
 }

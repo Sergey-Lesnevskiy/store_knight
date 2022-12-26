@@ -9,11 +9,11 @@ export class Footer extends Component {
     super(tagName, className)
   }
 
-renderPageButtons(){
-       const pageBFooter = document.createElement('div');
-       pageBFooter.classList.add('footer__container')
-       pageBFooter.innerHTML=
-  
+renderPageFooter(){
+       const pageFooter = document.createElement('div');
+       pageFooter.classList.add('footer__container')
+       pageFooter.innerHTML=
+
   `
     <a href="#"><img src="" alt="GitHub"></a>
     <a href="#"><img src="" alt="RS School"></a>
@@ -22,11 +22,11 @@ renderPageButtons(){
 `
 
 
-  this.container.append(pageBFooter)
+  this.container.append(pageFooter)
 }
 
   render (){
-    this.renderPageButtons()
+    this.renderPageFooter()
     return  this.container;
   }
 }

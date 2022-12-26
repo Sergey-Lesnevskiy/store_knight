@@ -1,12 +1,12 @@
 import { Page } from "../../core/templates/page";
 
 
-export class ProductPage extends Page{
+export class ProductPage extends Page {
 
-static TextObgect = {
+  static TextObject = {
     MainTitle: `<main class="page">
     <div class="page__container">
-  
+
       <div class="category-filter">
         <ul class="category-filter__list">
           <li class="category-filter__item">
@@ -31,9 +31,9 @@ static TextObgect = {
           </li>
         </ul>
       </div>
-  
+
       <div class="page__wrapper">
-  
+
         <aside class="filters">
           <div class="filters__header">
             <h2 class="filters__title">Фильтры</h2>
@@ -51,7 +51,7 @@ static TextObgect = {
                   stroke="#FFFEF8" stroke-width="2" stroke-linecap="round" />
               </svg></button>
           </div>
-  
+
           <div class="filters__body">
             <!-- Search -->
             <div class="search-filter">
@@ -100,10 +100,10 @@ static TextObgect = {
             </div>
             <div class="price-filter">
             </div>
-  
+
           </div>
         </aside>
-  
+
         <div class="page__right-side">
           <section class="sort">
             <!-- Добавить невидимый h2 для секции -->
@@ -115,11 +115,11 @@ static TextObgect = {
                 <option value="rating">По рейтингу</option>
               </select>
             </div>
-  
+
             <div class="sort__info">
               <p>Товаров <span>9</span> из <span>31</span></p>
             </div>
-  
+
             <div class="sort__view">
               <button class="sort__view-btn">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -153,7 +153,7 @@ static TextObgect = {
               </div>
             </div>
           </section>
-  
+
           <div class="pagination">
             <button class="pagination__btn pagination__btn--active">1</button>
             <button class="pagination__btn">2</button>
@@ -165,7 +165,7 @@ static TextObgect = {
               </svg>
             </button>
           </div>
-  
+
           <section class="store">
             <div class="store__item item">
               <div class="item__img">
@@ -177,7 +177,7 @@ static TextObgect = {
               <div class="item__price">42 400 руб</div>
               <button class="item__btn btn">В корзину</button>
             </div>
-  
+
             <div class="store__item item">
               <div class="item__img">
                 <!-- <img src="" alt=""> -->
@@ -188,7 +188,7 @@ static TextObgect = {
               <div class="item__price">42 400 руб</div>
               <button class="item__btn btn">В корзину</button>
             </div>
-  
+
             <div class="store__item item">
               <div class="item__img">
                 <!-- <img src="" alt=""> -->
@@ -199,7 +199,7 @@ static TextObgect = {
               <div class="item__price">42 400 руб</div>
               <button class="item__btn btn">В корзину</button>
             </div>
-  
+
             <div class="store__item item">
               <div class="item__img">
                 <!-- <img src="" alt=""> -->
@@ -210,7 +210,7 @@ static TextObgect = {
               <div class="item__price">42 400 руб</div>
               <button class="item__btn btn">В корзину</button>
             </div>
-  
+
             <div class="store__item item">
               <div class="item__img">
                 <!-- <img src="" alt=""> -->
@@ -222,7 +222,7 @@ static TextObgect = {
               <button class="item__btn btn">В корзину</button>
             </div>
           </section>
-  
+
           <div class="pagination">
             <button class="pagination__btn pagination__btn--active">1</button>
             <button class="pagination__btn">2</button>
@@ -234,10 +234,10 @@ static TextObgect = {
               </svg>
             </button>
           </div>
-  
+
         </div>
       </div>
-  
+
     </div>
   </main>
   <footer class="footer">
@@ -247,15 +247,15 @@ static TextObgect = {
       <span>©2023</span>
     </div>
   </footer>`
-}
+  }
 
-constructor(id:string){
-  super(id);
-}
+  constructor(id: string) {
+    super(id);
+  }
 
-render(){
-const title = this.createHeaderTitle(ProductPage.TextObgect.MainTitle);
-this.container.append(title);
-return this.container;
-}
+  render() {
+    const title = `<h1>Страница товара (пересмотреть/переделать ProductPage)</h1>`;
+    this.container.append(title);
+    return this.container;
+  }
 }
