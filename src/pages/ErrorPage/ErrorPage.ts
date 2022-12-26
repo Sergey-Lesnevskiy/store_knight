@@ -10,7 +10,7 @@ export class ErrorPage extends Page {
         this.errorType = errorType;
     }
     render() {
-        const title = this.createHeaderTitle(ErrorPage.TextObject[this.errorType]);
+        const title = ErrorPage.TextObject[this.errorType];
         this.container.append(title);
         return this.container;
     }

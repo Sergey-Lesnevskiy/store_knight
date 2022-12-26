@@ -2,21 +2,19 @@ import '../../../components/pageHeader/pageHeader'
 import { Component } from "../../templates/components";
 import { PageId } from "../../../pages/app/app";
 
-
-
 export class Header extends Component {
-  constructor(tagName: string, className: string){
+  constructor(tagName: string, className: string) {
     super(tagName, className)
   }
 
-renderPageButtons(){
-       const pageButtons = document.createElement('div');
-       pageButtons.innerHTML=
-  
-  `<header class="header">
-  <div class="header__container">
+  renderPageHeader() {
+    console.log(this.container);
 
-    <a href="#" class="header__logo">
+    const pageHeader = document.createElement('div');
+    pageHeader.classList.add('header__container')
+    pageHeader.innerHTML =
+
+      `<a href="#" class="header__logo">
       <img src="./images/icons/arrow-down.svg" alt="store logotype">
     </a>
 
@@ -61,16 +59,14 @@ renderPageButtons(){
         </ul>
       </nav>
 
-    </div>
-  </div>
-</header>`
+    </div>`
 
 
-  this.container.append(pageButtons)
-}
+    this.container.append(pageHeader)
+  }
 
-  render (){
-    this.renderPageButtons()
-    return  this.container;
+  render() {
+    this.renderPageHeader()
+    return this.container;
   }
 }

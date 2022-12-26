@@ -2,9 +2,9 @@
 import { Component } from "../../../templates/components";
 import {products}  from '../../../../json'
 
- 
- 
- 
+
+
+
 export class Card extends Component {
   constructor(tagName: string, className: string){
     super(tagName, className)
@@ -16,12 +16,12 @@ renderRemove(){
 
   const p = document.createElement('p')
   p.innerText ='Очистить корзину'
-  
+
   remove.append(p)
   return  remove
 }
 
- renderPageButtons(){
+ renderPageHeader(){
 
   let arrCart:string[] | undefined = []
  const items = localStorage.getItem('card')
@@ -35,7 +35,7 @@ if(arrCart){
        arrCart?.forEach((button) => {
     const cardHTML = document.createElement('div');
     cardHTML.classList.add('shopping-cart__card');
-    cardHTML.innerHTML = `   
+    cardHTML.innerHTML = `
                  <div class="shopping-cart__img">
                  <img src=${products[Number(button)-1].thumbnail} alt="">
                  </div>
@@ -82,7 +82,7 @@ if(arrCart){
                      </div>
                  </div>
              </div>
-             
+
 
 
 `
@@ -98,7 +98,7 @@ fragment.append(cardHTML);
     const  containerCard = document.createElement('div');
     containerCard.className = 'shopping-cart__products'
     containerCard.append(this.renderRemove())
-    containerCard.append(this.renderPageButtons())
+    containerCard.append(this.renderPageHeader())
     this.container.append(containerCard);
     return  this.container;
   }

@@ -3,17 +3,17 @@ import { Component } from "../../../templates/components";
 
 
 
- 
-export class CategogyFilters extends Component {
+
+export class CategoryFilters extends Component {
   constructor(tagName: string, className: string){
     super(tagName, className)
   }
 
  renderCart(){
-   
+
     const cardHTML = document.createElement('ul');
     cardHTML.classList.add('category-filter__list');
-    cardHTML.innerHTML = `   
+    cardHTML.innerHTML = `
       <li class="category-filter__item">
         <input type="radio" id="weapon" name="type" data-type='weapon'/>
         <label class="btn btn-default" for="weapon">Оружие</label>
@@ -34,7 +34,7 @@ export class CategogyFilters extends Component {
         <input type="radio" id="exotic" name="type" data-type='houseHold'/>
         <label class="btn btn-default" for="exotic">Предметы быта</label>
       </li>
-      
+
 `
    this.container.append(cardHTML)
 }
