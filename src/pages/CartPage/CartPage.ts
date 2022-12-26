@@ -2,18 +2,21 @@ import { Page } from "../../core/templates/page";
 import '../../components/shoppingCart/shoppingCart'
 import { Card } from "../../core/components/shoppingCart/card/card";
 import { CardScope } from "../../core/components/shoppingCart/scope/Scope";
+import { Header } from "../../core/components/header/Header";
 
 export class CartPage extends Page{
 
 
-
+  protected header: Header;
 protected card : Card;
 protected cardScope : CardScope;
+
 
 constructor(id:string){
   super(id);
  this.card= new Card('div', 'card')
  this.cardScope= new CardScope('div', 'shopping-cart__products')
+ this.header = new Header('header', 'header');
 }
 
  listeningClearCart(){
@@ -28,32 +31,58 @@ constructor(id:string){
       currentPageHTML.innerHTML ='';
     }
   })
- }else{
-  console.log('not cart');
  }
 
 }
 listeningDeleteOneCard(){
+  const deleteCard =  document.querySelectorAll('.shopping-cart__info-trash')
+ 
+  for (let i = 0; i < deleteCard.length; i++) {
+   deleteCard[i].addEventListener('click',(e)=>{
 
-  const deleteCard =  document.querySelector('.shopping-cart__products')
+    const el = e.currentTarget as HTMLElement
+    const lock = localStorage.getItem('card')
+    const arr : string[] | undefined = lock?.split(',')
+   
+    const arr2:string[] = []
+    arr?.forEach(item => {
+      
+      if(item!==el.getAttribute('data-delete')){
+        if(item){
+          arr2?.push(item)
+        }
+      }
+    })
+    const str = arr2?.join(',')
+    localStorage.removeItem('card')
+    if(str) {localStorage.setItem('card',str)}
 
-if(deleteCard){
-  deleteCard.addEventListener('click',(e)=>{
+   const currentPageHTML = document.querySelector(`.card`)
 
-    console.log(e.target);
+   if(currentPageHTML){
+     currentPageHTML.innerHTML =''
+     currentPageHTML.replaceWith(this.card.render());
+     this.listeningDeleteOneCard()
+   }
+   const CurrntScopeHTML = document.querySelector(`.shopping-cart__products`)
 
-  //закончить с удалением карточки и сделать через массив
-    const el = e.target as HTMLElement
+   if(CurrntScopeHTML){
+    CurrntScopeHTML.innerHTML =''
+    CurrntScopeHTML.replaceWith(this.cardScope.render());
+   }
 
-    if(el.classList.contains('svg1')){
+   const headerHTML = document.querySelector(`.header`)
 
-       const numb =el.getAttribute('data-delete')
+   if(headerHTML){
+     headerHTML.innerHTML =''
+     headerHTML.replaceWith(this.header.render());
+   }
+   })
+  }
 
-      const lock = localStorage.getItem('card')
-      console.log(lock?.replace(String(numb),''))
-    }
-  }, true)
-}
+
+
+
 
 
 }
