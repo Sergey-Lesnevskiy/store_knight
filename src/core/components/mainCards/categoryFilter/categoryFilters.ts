@@ -5,15 +5,19 @@ import { Component } from "../../../templates/components";
 
 
 export class CategoryFilters extends Component {
-  constructor(tagName: string, className: string){
+  constructor(tagName: string, className: string) {
     super(tagName, className)
   }
 
- renderCart(){
+  renderCart() {
 
     const cardHTML = document.createElement('ul');
     cardHTML.classList.add('category-filter__list');
     cardHTML.innerHTML = `
+      <li class="category-filter__item">
+        <input type="radio" id="all" name="type" data-type='all'/>
+        <label class="btn btn-default" for="all">Все товары</label>
+      </li>
       <li class="category-filter__item">
         <input type="radio" id="weapon" name="type" data-type='weapon'/>
         <label class="btn btn-default" for="weapon">Оружие</label>
@@ -28,7 +32,7 @@ export class CategoryFilters extends Component {
       </li>
       <li class="category-filter__item">
         <input type="radio" id="jewelry" name="type" data-type='jewelry'/>
-        <label class="btn btn-default" for="jewelry">Ювелирные украшения </label>
+        <label class="btn btn-default" for="jewelry">Ювелирка</label>
       </li>
       <li class="category-filter__item">
         <input type="radio" id="exotic" name="type" data-type='houseHold'/>
@@ -36,12 +40,12 @@ export class CategoryFilters extends Component {
       </li>
 
 `
-   this.container.append(cardHTML)
-}
+    this.container.append(cardHTML)
+  }
 
-  render (){
-      this.renderCart()
+  render() {
+    this.renderCart()
 
-    return  this.container;
+    return this.container;
   }
 }
