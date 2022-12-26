@@ -12,11 +12,14 @@ import { products } from '../../json'
 import { CategoryFilters } from '../../core/components/mainCards/categoryFilter/categoryFilters';
 import { AsideFilters1 } from '../../core/components/mainCards/asideFilters/asideFilters';
 import { MainCard } from '../../core/components/mainCards/mainCard/mainCard';
+import { Header } from '../../core/components/header/Header';
 
 export class MainPage extends Page {
   protected categoryFilter: CategoryFilters;
   protected asideFilters: AsideFilters1;
   protected mainCard: MainCard;
+  protected header: Header;
+  
 
   constructor(id: string) {
     super(id);
@@ -24,6 +27,8 @@ export class MainPage extends Page {
     this.categoryFilter = new CategoryFilters('div', 'category-filter');
     this.asideFilters = new AsideFilters1('div', 'page__wrapper');
     this.mainCard = new MainCard('section', 'store')
+    this.header = new Header('header', 'header');
+    
   }
 
   listeningCategory() {
@@ -67,13 +72,13 @@ export class MainPage extends Page {
       }
       localStorage.setItem('card', String(card));
 
-      //  const currentPageHTML = document.querySelector(`.store`)
 
-      //  if(currentPageHTML){
-      //    currentPageHTML.innerHTML =''
-      //    currentPageHTML.replaceWith(this.mainCard.render());
+      const headerHTML = document.querySelector(`.header`)
 
-      //  }
+      if(headerHTML){
+        headerHTML.innerHTML =''
+        headerHTML.replaceWith(this.header.render());
+      }
     })
 
   }

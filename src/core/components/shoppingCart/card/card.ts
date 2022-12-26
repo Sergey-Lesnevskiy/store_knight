@@ -48,8 +48,8 @@ if(arrCart){
                          </p>
                      </div>
 
-                     <button class="shopping-cart__info-trash" >
-                         <svg class='svg1' data-delete=${products[Number(button)-1].id} width="22" height="24" viewBox="0 0 22 24" fill="none"
+                     <button class="shopping-cart__info-trash" data-delete=${products[Number(button)-1].id} >
+                         <svg width="22" height="24" viewBox="0 0 22 24" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                              <path
                                  d="M1.40002 5.39999H20.6M8.60002 17.4V10.2M13.4 17.4V10.2M15.8 22.2H6.20002C4.87454 22.2 3.80002 21.1255 3.80002 19.8V6.59999C3.80002 5.93725 4.33728 5.39999 5.00002 5.39999H17C17.6628 5.39999 18.2 5.93725 18.2 6.59999V19.8C18.2 21.1255 17.1255 22.2 15.8 22.2ZM8.60002 5.39999H13.4C14.0628 5.39999 14.6 4.86273 14.6 4.19999V2.99999C14.6 2.33725 14.0628 1.79999 13.4 1.79999H8.60002C7.93728 1.79999 7.40002 2.33725 7.40002 2.99999V4.19999C7.40002 4.86273 7.93728 5.39999 8.60002 5.39999Z"
@@ -92,11 +92,11 @@ fragment.append(cardHTML);
    return fragment
 }
 
-// <div class="shopping-cart__products">
 
   render (){
-    const  containerCard = document.createElement('div');
-    containerCard.className = 'shopping-cart__products'
+    // const  containerCard = document.createElement('div');
+    // containerCard.className = 'shopping-cart__products'
+    const containerCard = new DocumentFragment();
     containerCard.append(this.renderRemove())
     containerCard.append(this.renderPageHeader())
     this.container.append(containerCard);
