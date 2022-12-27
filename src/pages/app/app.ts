@@ -37,7 +37,8 @@ export class App {
       const hash = window.location.hash.slice(1);
       App.renderNewPage(hash)
       this.initialPage.listeningCategory();
-      this.cartPage.listeningClearCart();
+      this.initialPage.searchProduct();
+      this.cartPage.listeningOpenModal();
       this.cartPage.listeningDeleteOneCard();
     })
   }
@@ -79,7 +80,7 @@ export class App {
     this.enableRoutChange();
     this.initialPage.listeningCategory();
     this.initialPage.listeningCartButton();
-
+    this.initialPage.searchProduct();
     App.container.append(this.footer.render())
   }
 }

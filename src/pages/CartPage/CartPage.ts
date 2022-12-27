@@ -3,11 +3,11 @@ import '../../components/shoppingCart/shoppingCart'
 import { Card } from "../../core/components/shoppingCart/card/card";
 import { CardScope } from "../../core/components/shoppingCart/scope/Scope";
 import { Header } from "../../core/components/header/Header";
+import '../../components/modalConfirm/modalOrder'
 
 export class CartPage extends Page{
 
-
-  protected header: Header;
+protected header: Header;
 protected card : Card;
 protected cardScope : CardScope;
 
@@ -18,22 +18,24 @@ constructor(id:string){
  this.cardScope= new CardScope('div', 'shopping-cart__products')
  this.header = new Header('header', 'header');
 }
+// пока пусть висит, но наверное она не нужна
 
- listeningClearCart(){
- const remove =  document.querySelector('.shopping-cart__remove-card')
- if(remove){
-   remove.addEventListener('click', ()=>{
-    localStorage.removeItem('card')
+//  listeningClearCart(){
+//  const remove =  document.querySelector('.shopping-cart__remove-card')
+//  if(remove){
+//    remove.addEventListener('click', ()=>{
+//     localStorage.removeItem('card')
 
-    const currentPageHTML = document.querySelector(`.shopping-cart__products`)
+//     const currentPageHTML = document.querySelector(`.shopping-cart__products`)
 
-    if(currentPageHTML){
-      currentPageHTML.innerHTML ='';
-    }
-  })
- }
+//     if(currentPageHTML){
+//       currentPageHTML.innerHTML ='';
+//     }
+//   })
+//  }
 
-}
+// }
+
 listeningDeleteOneCard(){
   const deleteCard =  document.querySelectorAll('.shopping-cart__info-trash')
  
@@ -79,16 +81,31 @@ listeningDeleteOneCard(){
    }
    })
   }
-
-
-
-
-
-
 }
+//modal
+listeningOpenModal(){
+  const modal =  document.querySelector('.shopping-cart__button')
+  if(modal){
+    modal.addEventListener('click', ()=>{
+     document.querySelector('.modal')?.classList.add('modal--show')
+     document.querySelector('body')?.classList.add('lock')
+     this.listeningCloseModal()
+   })
+  }
+}
+listeningCloseModal(){
+  const crose =  document.querySelector('.modal__btn-close')
+if(crose){
+  crose.addEventListener('click',(e)=>{
 
-
-
+     e.preventDefault()
+     document.querySelector('.modal')?.classList.remove('modal--show')
+     document.querySelector('body')?.classList.remove('lock')
+  })
+ 
+}
+}
+//modal
 render(){
 
   const  containerCard = document.createElement('div');
