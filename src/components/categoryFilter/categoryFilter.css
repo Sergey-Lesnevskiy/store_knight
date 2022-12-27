@@ -1,7 +1,9 @@
 .category-filter {
   margin-bottom: 24px;
 }
-
+.hide{
+  display: none;
+}
 .category-filter__list {
   margin: 0;
   padding: 0;
