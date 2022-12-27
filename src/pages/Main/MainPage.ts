@@ -19,7 +19,7 @@ export class MainPage extends Page {
   protected asideFilters: AsideFilters1;
   protected mainCard: MainCard;
   protected header: Header;
-  
+
 
   constructor(id: string) {
     super(id);
@@ -28,17 +28,17 @@ export class MainPage extends Page {
     this.asideFilters = new AsideFilters1('div', 'page__wrapper');
     this.mainCard = new MainCard('section', 'store')
     this.header = new Header('header', 'header');
-    
+
   }
 
   listeningCategory() {
     document.querySelector('.category-filter__list')?.addEventListener('click', (e) => {
       //вызвать функцию сортировки
       const el = e.target as HTMLInputElement
-      const type = el.getAttribute("data-type");
+      const category = el.getAttribute("data-category");
 
       //ввынести в отдельную функцию
-      const arr = products.filter(item => item.category === type)
+      const arr = products.filter(item => item.category === category)
 
       const arr2: string[] = [];
       arr.forEach(item => {
