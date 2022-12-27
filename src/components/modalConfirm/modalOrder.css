@@ -1,0 +1,114 @@
+.modal {
+  position: fixed;
+  display: none;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.modal__content {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  margin-top: 15vh;
+  padding: 64px 42px;
+  font-size: 26px;
+  color: var(--color-black);
+  background-image: linear-gradient(180deg, #FFD39F 20%, #F8EACA 80%);
+  border: 6px solid var(--color-white);
+  border-radius: 6px;
+}
+
+.modal--show {
+  display: block;
+}
+
+.modal--show .modal__content {
+  animation-name: bounce;
+  animation-duration: 0.38s;
+}
+
+.modal__title {
+  margin: 0;
+  margin-bottom: 48px;
+}
+
+.modal__btn-close {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  padding: 0.3em 0.5em;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--color-error);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.modal__btn-confirm {
+  display: block;
+  width: 220px;
+  margin: 0 auto;
+  margin-top: 60px;
+  padding: 18px 36px;
+  font-size: 20px;
+  letter-spacing: 1.2px;
+  background-color: var(--color-main);
+  border-radius: 6px;
+  transition: background-color 0.1s ease-in;
+}
+
+.modal__btn-confirm:hover,
+.modal__btn-confirm:focus {
+  background-color: var(--color-secondary);
+}
+
+.form {
+  display: flex;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form__field label {
+  margin-bottom: 4px;
+  font-size: 18px;
+}
+
+.form__field input {
+  width: 80%;
+  padding: 8px;
+  font-size: 16px;
+  background-color: var(--color-white);
+  border-radius: 6px;
+}
+
+.form__field--card-id input {
+  width: 90%;
+}
+
+.form__user-info {
+  width: 50%;
+}
+.form__card-info {
+  align-self: center;
+  width: 50%;
+  padding: 32px 26px;
+  background-color: var(--color-success);
+  border-radius: 6px;
+}
+
+.form__card-info-wrapper {
+  display: flex;
+}
+
+.form__card-info label {
+  color: var(--color-white);
+}
