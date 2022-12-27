@@ -1,6 +1,8 @@
 .filters {
+  align-self: flex-start;
   width: 25%;
-  height: 560px;
+  padding-bottom: 64px;
+  /* height: 560px; */
 
   background-color: var(--color-white);
   border: 1px solid var(--color-white);
@@ -57,3 +59,79 @@
 [class$="-filter__item"] label {
   cursor: pointer;
 }
+
+.stock-filter__slider,
+.price-filter__slider {
+  display: flex;
+  flex-direction: column;
+  margin-top: 14px;
+}
+
+
+.stock-filter__input,
+.price-filter__input {
+  position: relative;
+  display: inline-block;
+  margin-left: 8px;
+  padding: 4px 8px;
+  width: 80px;
+  color: var(--color-black);
+  line-height: 20px;
+  text-align: center;
+  background: white;
+  border: 2px solid var(--color-black);
+  border-radius: 6px;
+}
+
+.stock-filter__range,
+.price-filter__range {
+  -webkit-appearance: none;
+  width: 94%;
+  height: 4px;
+  margin: 0;
+  margin-top: 18px;
+  margin-left: 8px;
+  padding: 0;
+  border-radius: 4px;
+  background: var(--color-gray);
+}
+
+/* Range Handle */
+.stock-filter__range::-webkit-slider-thumb,
+.price-filter__range::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-black);
+  cursor: pointer;
+}
+.stock-filter__range::-moz-range-thumb,
+.price-filter__range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-black);
+  cursor: pointer;
+}
+
+.price-filter__input-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price-filter__range-group {
+  position: relative;
+}
+
+.price-filter__range {
+  position: absolute;
+}
+
+.price-filter__range::-webkit-slider-thumb {
+  z-index: 2;
+  position: relative;
+}
+/* Реализация работы слайдера цены JS */
+/* https://codepen.io/blueocto/pen/KvJmEW?editors=1100 */
