@@ -93,12 +93,28 @@ export class ProductPage extends Page {
                 </li>
               </ul>
             </div>
-            <!-- Others TO DO -->
-            <div class="sale-filter">
-            </div>
+            <!-- In stock -->
             <div class="stock-filter">
+              <h3 class="stock-filter__title">В наличии:</h3>
+              <div class="stock-filter__slider">
+                <input class="stock-filter__input" type="number" value="1" min="0" max="34"/>
+                <input class="stock-filter__range" type="range" value="1" min="0" max="34">
+              </div>
             </div>
+            <!-- Price -->
             <div class="price-filter">
+              <h3 class="price-filter__title">Цена:</h3>
+              <div class="price-filter__slider">
+                <div class="price-filter__input-group">
+                  <input class="price-filter__input" type="number" value="1" min="0" max="999999"/>
+                  <input class="price-filter__input" type="number" value="999999" min="0" max="999999"/>
+                </div>
+
+                <div class="price-filter__range-group">
+                  <input class="price-filter__range" type="range" value="1" min="0" max="999999">
+                  <input class="price-filter__range" type="range" value="999999" min="0" max="999999">
+                </div>
+              </div>
             </div>
 
           </div>
