@@ -6,7 +6,7 @@
   height: 520px;
   padding: 18px;
   color: var(--color-black);
-  background-image: linear-gradient(180deg, #FFD39F 20%, #F8EACA 80%);
+  background-image: linear-gradient(180deg, #ffd39f 20%, #f8eaca 80%);
   border-radius: 6px;
 }
 

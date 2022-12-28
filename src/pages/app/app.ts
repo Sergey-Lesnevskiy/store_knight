@@ -9,7 +9,7 @@ import { Footer } from '../../core/components/footer/Footer';
 export const enum PageId {
   MainPage = 'main-page',
   CartPage = 'cart-page',
-  ProductPage = 'product-page'
+  ProductPage = 'product-page',
 }
 
 export class App {
@@ -22,7 +22,6 @@ export class App {
   //функция рендерит страницу в зависимости от смены url
   private enableRoutChange() {
     window.addEventListener('hashchange', () => {
-
       //вынести в отдельную функцию
       // const headerHTML = document.querySelector(`.header`)
 
@@ -33,15 +32,14 @@ export class App {
 
       //вынести в отдельную функцию
 
-      
       const hash = window.location.hash.slice(1);
-      App.renderNewPage(hash)
+      App.renderNewPage(hash);
       this.initialPage.listeningCategory();
       this.initialPage.searchProduct();
       this.initialPage.listeningSortPrice();
       this.cartPage.listeningOpenModal();
       this.cartPage.listeningDeleteOneCard();
-    })
+    });
   }
 
   constructor() {
@@ -65,7 +63,7 @@ export class App {
     } else if (idPage === PageId.ProductPage) {
       page = new ProductPage(idPage);
     } else {
-      page = new ErrorPage(idPage, '404')
+      page = new ErrorPage(idPage, '404');
     }
 
     if (page) {
@@ -74,15 +72,14 @@ export class App {
     }
   }
 
-
   run() {
-    App.container.append(this.header.render())
+    App.container.append(this.header.render());
     App.renderNewPage('main-page');
     this.enableRoutChange();
     this.initialPage.listeningCategory();
     this.initialPage.listeningCartButton();
     this.initialPage.searchProduct();
     this.initialPage.listeningSortPrice();
-    App.container.append(this.footer.render())
+    App.container.append(this.footer.render());
   }
 }

@@ -5,7 +5,7 @@
   width: 100%;
   z-index: 1001;
   background-color: var(--color-gray);
-  background-image: linear-gradient(180deg, #0E1017 0%, #0F0E17 40%, #373633 98%);
+  background-image: linear-gradient(180deg, #0e1017 0%, #0f0e17 40%, #373633 98%);
 }
 
 .header__container {

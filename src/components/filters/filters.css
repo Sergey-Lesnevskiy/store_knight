@@ -15,7 +15,7 @@
 
   height: 64px;
   padding: 0 18px;
-  background-image: linear-gradient(180deg, #0E1017 0%, #0F0E17 40%, #373633 98%);
+  background-image: linear-gradient(180deg, #0e1017 0%, #0f0e17 40%, #373633 98%);
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
@@ -27,7 +27,7 @@
 
 .filters__body {
   padding: 18px;
-  color: var(--color-black)
+  color: var(--color-black);
 }
 
 .search-filter__input {
@@ -38,25 +38,25 @@
   border-radius: 6px;
 }
 
-[class$="-filter__title"] {
+[class$='-filter__title'] {
   margin: 0;
   margin-top: 36px;
 }
 
 .type-filter__list,
 .sale-filter__list {
-  margin:0;
+  margin: 0;
   padding-left: 8px;
-  list-style:none;
+  list-style: none;
 
   margin-top: 14px;
 }
 
-.filters [class$="-filter__item"] {
+.filters [class$='-filter__item'] {
   margin-top: 8px;
 }
 
-[class$="-filter__item"] label {
+[class$='-filter__item'] label {
   cursor: pointer;
 }
 
@@ -66,7 +66,6 @@
   flex-direction: column;
   margin-top: 14px;
 }
-
 
 .stock-filter__input,
 .price-filter__input {

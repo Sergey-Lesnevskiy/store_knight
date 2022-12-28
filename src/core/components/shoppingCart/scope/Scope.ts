@@ -1,49 +1,47 @@
-import { Component } from "../../../templates/components";
-import {products}  from '../../../../json'
-
+import { Component } from '../../../templates/components';
+import { products } from '../../../../json';
 
 export class CardScope extends Component {
-  constructor(tagName: string, className: string){
-    super(tagName, className)
+  constructor(tagName: string, className: string) {
+    super(tagName, className);
   }
 
-  countThePrice(){
-    const id: string |null=  localStorage.getItem('card')
-    if(!id){
-      return 0
-     }
+  countThePrice() {
+    const id: string | null = localStorage.getItem('card');
+    if (!id) {
+      return 0;
+    }
 
-   let arr:string [] |undefined =[]
-   arr = id?.split(',')
-   
-   let count :number = 0
-   arr?.forEach(item=>{
-    count = count + products[Number(item)-1].price
-   })
+    let arr: string[] | undefined = [];
+    arr = id?.split(',');
+
+    let count: number = 0;
+    arr?.forEach((item) => {
+      count = count + products[Number(item) - 1].price;
+    });
     return count;
   }
-  countDiscount(){
-   const id: string | null=  localStorage.getItem('card')
-   if(!id){
-    return 0
-   }
-   let arr:string [] |undefined =[]
-   arr = id?.split(',')
-   
-   let count :number = 0
-   arr?.forEach(item=>{
-    count = count + products[Number(item)-1].discountPercentage
-   })
+  countDiscount() {
+    const id: string | null = localStorage.getItem('card');
+    if (!id) {
+      return 0;
+    }
+    let arr: string[] | undefined = [];
+    arr = id?.split(',');
+
+    let count: number = 0;
+    arr?.forEach((item) => {
+      count = count + products[Number(item) - 1].discountPercentage;
+    });
     return count;
   }
 
+  renderPage1() {
+    const allScope = this.countThePrice();
+    const discount = this.countDiscount();
 
-  renderPage1(){
-    const allScope = this.countThePrice()
-    const discount = this.countDiscount()
-
-    const scope = document.createElement('div')
-    scope.classList.add('shopping-cart__score')
+    const scope = document.createElement('div');
+    scope.classList.add('shopping-cart__score');
     scope.innerHTML = `
 
                  <div class="shopping-cart__all-scope-wrapper">
@@ -68,13 +66,13 @@ export class CardScope extends Component {
          </div>
 
 
-`
-     this.container.append(scope)
+`;
+    this.container.append(scope);
   }
 
-  render (){
- this.renderPage1()
+  render() {
+    this.renderPage1();
 
-    return  this.container;
+    return this.container;
   }
 }

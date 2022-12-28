@@ -1,8 +1,7 @@
-import './product.css'
+import './product.css';
 
 export class Product {
-
-    hi(){
-        console.log('its product!');
-    }
+  hi() {
+    console.log('its product!');
+  }
 }

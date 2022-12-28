@@ -1,4 +1,4 @@
-import './styles.css'
+import './styles.css';
 // import { products } from './json'
 // import { ShoppingCart } from './components/shoppingCart/shoppingCart'
 // import { PageHeader } from './components/pageHeader/pageHeader'
@@ -37,8 +37,7 @@ import './styles.css'
 // const footer = new PageFooter();
 // footer.hi();
 
-import { App } from "./pages/app/app";
+import { App } from './pages/app/app';
 
 const app = new App();
 app.run();
-

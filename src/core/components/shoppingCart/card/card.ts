@@ -1,54 +1,49 @@
-
-import { Component } from "../../../templates/components";
-import {products}  from '../../../../json'
-
-
-
+import { Component } from '../../../templates/components';
+import { products } from '../../../../json';
 
 export class Card extends Component {
-  constructor(tagName: string, className: string){
-    super(tagName, className)
+  constructor(tagName: string, className: string) {
+    super(tagName, className);
   }
 
-renderRemove(){
-  const remove = document.createElement('div');
-  remove.classList.add('shopping-cart__remove-card')
+  renderRemove() {
+    const remove = document.createElement('div');
+    remove.classList.add('shopping-cart__remove-card');
 
-  const p = document.createElement('p')
-  p.innerText ='Очистить корзину'
+    const p = document.createElement('p');
+    p.innerText = 'Очистить корзину';
 
-  remove.append(p)
-  return  remove
-}
+    remove.append(p);
+    return remove;
+  }
 
- renderPageHeader(){
+  renderPageHeader() {
+    let arrCart: string[] | undefined = [];
+    const items = localStorage.getItem('card');
 
-  let arrCart:string[] | undefined = []
- const items = localStorage.getItem('card')
+    if (arrCart) {
+      arrCart = items?.split(',');
+    }
 
-if(arrCart){
-  arrCart = items?.split(',')
-}
+    const fragment = new DocumentFragment();
 
-       const fragment = new DocumentFragment();
-
-       arrCart?.forEach((button) => {
-    const cardHTML = document.createElement('div');
-    cardHTML.classList.add('shopping-cart__card');
-    cardHTML.innerHTML = `
+    arrCart?.forEach((button) => {
+      const cardHTML = document.createElement('div');
+      cardHTML.classList.add('shopping-cart__card');
+      cardHTML.innerHTML = `
                  <div class="shopping-cart__img">
-                 <img src=${products[Number(button)-1].thumbnail} alt="">
+                 <img src=${products[Number(button) - 1].thumbnail} alt="">
                  </div>
                  <div class="shopping-cart__info">
                      <div class="shopping-cart__info-description">
-                         <h2 class="shopping-cart__info-title">${products[Number(button)-1].title}</h2>
-                         <p class="shopping-cart__info-article"> Артикул: (ГК)${products[Number(button)-1].id}</p>
+                         <h2 class="shopping-cart__info-title">${products[Number(button) - 1].title}</h2>
+                         <p class="shopping-cart__info-article"> Артикул: (ГК)${products[Number(button) - 1].id}</p>
                          <p class="shopping-cart__info-text">
-                         ${products[Number(button)-1].description}
+                         ${products[Number(button) - 1].description}
                          </p>
                      </div>
 
-                     <button class="shopping-cart__info-trash" data-delete=${products[Number(button)-1].id} >
+                     <button class="shopping-cart__info-trash" data-delete=${products[Number(button) - 1].id} >
                          <svg width="22" height="24" viewBox="0 0 22 24" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                              <path
@@ -72,11 +67,13 @@ if(arrCart){
                          <div class="shopping-cart__price-calc">
                              <span class="shopping-cart__price-calc-total-product">1</span>
                              <span class="shopping-cart__price-calc-multiplier">x</span>
-                             <span class="shopping-cart__price-calc-total-money">${products[Number(button)-1].price}</span>
+                             <span class="shopping-cart__price-calc-total-money">${
+                               products[Number(button) - 1].price
+                             }</span>
                              <span class="shopping-cart__price-calc-currency">руб</span>
                          </div>
                          <div class="shopping-cart__price-total">
-                             <span class="shopping-cart__price-">${(products[Number(button)-1].price)}</span>
+                             <span class="shopping-cart__price-">${products[Number(button) - 1].price}</span>
                              <span class="shopping-cart__price-calc-currency-bold">руб</span>
                          </div>
                      </div>
@@ -85,21 +82,20 @@ if(arrCart){
 
 
 
-`
+`;
 
-fragment.append(cardHTML);
-  })
-   return fragment
-}
+      fragment.append(cardHTML);
+    });
+    return fragment;
+  }
 
-
-  render (){
+  render() {
     // const  containerCard = document.createElement('div');
     // containerCard.className = 'shopping-cart__products'
     const containerCard = new DocumentFragment();
-    containerCard.append(this.renderRemove())
-    containerCard.append(this.renderPageHeader())
+    containerCard.append(this.renderRemove());
+    containerCard.append(this.renderPageHeader());
     this.container.append(containerCard);
-    return  this.container;
+    return this.container;
   }
 }

@@ -1,8 +1,7 @@
-import './filters.css'
+import './filters.css';
 
 export class Filters {
-
-    hi(){
-        console.log('its filters!');
-    }
+  hi() {
+    console.log('its filters!');
+  }
 }

@@ -1,8 +1,7 @@
-import './store.css'
+import './store.css';
 
 export class Store {
-
-    hi(){
-        console.log('its store!');
-    }
+  hi() {
+    console.log('its store!');
+  }
 }

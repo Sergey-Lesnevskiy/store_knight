@@ -1,8 +1,7 @@
-import './sortSection.css'
+import './sortSection.css';
 
 export class SortSection {
-
-    hi(){
-        console.log('its sort-section!');
-    }
+  hi() {
+    console.log('its sort-section!');
+  }
 }

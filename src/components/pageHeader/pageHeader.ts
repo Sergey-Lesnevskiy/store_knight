@@ -1,8 +1,7 @@
-import './pageHeader.css'
+import './pageHeader.css';
 
 export class PageHeader {
-
-    hi(){
-        console.log('its header!');
-    }
+  hi() {
+    console.log('its header!');
+  }
 }

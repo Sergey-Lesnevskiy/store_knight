@@ -3,172 +3,155 @@ import '../../components/pageFooter/pageFooter';
 import '../../components/storeItem/storeItem';
 import '../../components/filters/filters';
 import '../../components/pagination/pagination';
-import '../../components/sortSection/sortSection';
+import '../../components/sortSection/sortSection' ;
 import '../../components/store/store';
 import '../../components/categoryFilter/categoryFilter';
 import '../../components/filters/filters';
-import { products } from '../../json'
+import { products } from '../../json';
 
 import { CategoryFilters } from '../../core/components/mainCards/categoryFilter/categoryFilters';
-import { AsideFilters1 } from '../../core/components/mainCards/asideFilters/asideFilters';
+import { AsideFilters } from '../../core/components/mainCards/asideFilters/asideFilters';
 import { MainCard } from '../../core/components/mainCards/mainCard/mainCard';
 import { Header } from '../../core/components/header/Header';
 
 export class MainPage extends Page {
-  protected categoryFilter: CategoryFilters;
-  protected asideFilters: AsideFilters1;
+    protected categoryFilter: CategoryFilters;
+  protected asideFilters: AsideFilters;
   protected mainCard: MainCard;
   protected header: Header;
-
 
   constructor(id: string) {
     super(id);
 
     this.categoryFilter = new CategoryFilters('div', 'category-filter');
-    this.asideFilters = new AsideFilters1('div', 'page__wrapper');
-    this.mainCard = new MainCard('section', 'store')
+    this.asideFilters = new AsideFilters('div', 'page__wrapper');
+    this.mainCard = new MainCard('section', 'store');
     this.header = new Header('header', 'header');
-
   }
 
   listeningCategory() {
     document.querySelector('.category-filter__list')?.addEventListener('click', (e) => {
       //вызвать функцию сортировки
-      const el = e.target as HTMLInputElement
-      const category = el.getAttribute("data-category");
- 
+      const el = e.target as HTMLInputElement;
+      const category = el.getAttribute('data-category');
+
       //ввынести в отдельную функцию
-      const arr = products.filter(item => item.category === category)
+      const arr = products.filter((item) => item.category === category);
 
       const arr2: string[] = [];
-      arr.forEach(item => {
-        arr2.push(String(item.id))
-      })
+      arr.forEach((item) => {
+        arr2.push(String(item.id));
+      });
 
       localStorage.removeItem('type');
       localStorage.setItem('type', arr2.join(','));
 
-      const currentPageHTML = document.querySelector(`.store`)
+      const currentPageHTML = document.querySelector(`.store`);
 
       if (currentPageHTML) {
-        currentPageHTML.innerHTML = ''
+        currentPageHTML.innerHTML = '';
         currentPageHTML.replaceWith(this.mainCard.render());
-        this.listeningCartButton()
+        this.listeningCartButton();
       }
     });
   }
 
   listeningCartButton() {
-
-    let card: string | null = localStorage.getItem('card')
+    let card: string | null = localStorage.getItem('card');
 
     document.querySelector('.store')?.addEventListener('click', (e) => {
-      const el = e.target as HTMLInputElement
-      if (el.classList.contains("item__btn")) {
-
-        const type = el.getAttribute("data-card");
+      const el = e.target as HTMLInputElement;
+      if (el.classList.contains('item__btn')) {
+        const type = el.getAttribute('data-card');
         if (card) {
-          card = card + ',' + type
+          card = card + ',' + type;
         } else {
-          card = type 
+          card = type;
         }
         localStorage.setItem('card', String(card));
-  
-        const headerHTML = document.querySelector(`.header`)
-  
-        if(headerHTML){
-          headerHTML.innerHTML =''
+
+        const headerHTML = document.querySelector(`.header`);
+
+        if (headerHTML) {
+          headerHTML.innerHTML = '';
           headerHTML.replaceWith(this.header.render());
         }
         el.disabled = true;
       }
-
-
-     
-    })
-  }
-
-  searchProduct(){
-   const inputSearch =  document.querySelector('.search-filter__input')as HTMLInputElement
-
-  if(inputSearch){
-
-    inputSearch?.addEventListener('input', event => {
-      const target = event.target as HTMLInputElement;
-    
-      console.log(target.value);
-      const val = target.value.trim().toUpperCase()
-
-    const dataItemsText = document.getElementsByClassName('item__title') as HTMLCollectionOf<HTMLElement>;
-    const dataItems = document.getElementsByClassName('store__item item') as HTMLCollectionOf<HTMLElement>;
-     if(val !== ''){
-      for (let i = 0; i < dataItemsText.length; i++) {
-        if(dataItemsText[i].innerText.search(val)==-1){
-          dataItems[i].classList.add('hide')
-        }else{
-          dataItems[i].classList.remove('hide')
-        }
-      }
-     }else{
-      for (let i = 0; i < dataItems.length; i++) {
-       
-          dataItems[i].classList.remove('hide')
-        
-      }
-     }
     });
   }
-  }
 
-  listeningSortPrice(){
-    const iselectPrice =  document.querySelector('#sort-by')as HTMLInputElement
+  searchProduct() {
+    const inputSearch = document.querySelector('.search-filter__input') as HTMLInputElement;
 
- //забираем из 
-    if(iselectPrice){
-      iselectPrice.addEventListener('change',()=>{
-       const sortV:string | number = String(iselectPrice.value)
-        
-       let arrCart: number[] | undefined = []
-       const items = localStorage.getItem('type')
-      
-      if(arrCart){
-        arrCart = items?.split(',').map(Number)
-      }
+    if (inputSearch) {
+      inputSearch?.addEventListener('input', (event) => {
+        const target = event.target as HTMLInputElement;
 
-      const propdutArr =  products.filter(person => arrCart?.indexOf(person.id)!==-1)
-      
+        console.log(target.value);
+        const val = target.value.trim().toUpperCase();
 
-
-         if(sortV === 'title'){
-          propdutArr.sort((a,b)=>a[sortV].localeCompare(b[sortV]))
-
-         } else if(sortV === 'price'||sortV ==='rating'){
-          propdutArr.sort((a,b)=>a[sortV] - (b[sortV]))
-
-         }
-
-         //записываем в locale
-          const arr: string[] =[]
-
-          propdutArr.forEach(el=>{
-           arr.push(String(el.id))
-          })
-           localStorage.setItem('type',arr.join(','))
-
-         //записываем в locale
-         const currentPageHTML = document.querySelector(`.store`)
-
-         if (currentPageHTML) {
-           currentPageHTML.innerHTML = ''
-           currentPageHTML.replaceWith(this.mainCard.render());
-          //  this.listeningCartButton()
-         }
-
-      })
+        const dataItemsText = document.getElementsByClassName('item__title') as HTMLCollectionOf<HTMLElement>;
+        const dataItems = document.getElementsByClassName('store__item item') as HTMLCollectionOf<HTMLElement>;
+        if (val !== '') {
+          for (let i = 0; i < dataItemsText.length; i++) {
+            if (dataItemsText[i].innerText.search(val) == -1) {
+              dataItems[i].classList.add('hide');
+            } else {
+              dataItems[i].classList.remove('hide');
+            }
+          }
+        } else {
+          for (let i = 0; i < dataItems.length; i++) {
+            dataItems[i].classList.remove('hide');
+          }
+        }
+      });
     }
   }
 
+  listeningSortPrice() {
+    const iselectPrice = document.querySelector('#sort-by') as HTMLInputElement;
 
+    //забираем из
+    if (iselectPrice) {
+      iselectPrice.addEventListener('change', () => {
+        const sortV: string | number = String(iselectPrice.value);
+
+        let arrCart: number[] | undefined = [];
+        const items = localStorage.getItem('type');
+
+        if (arrCart) {
+          arrCart = items?.split(',').map(Number);
+        }
+
+        const propdutArr = products.filter((person) => arrCart?.indexOf(person.id) !== -1);
+
+        if (sortV === 'title') {
+          propdutArr.sort((a, b) => a[sortV].localeCompare(b[sortV]));
+        } else if (sortV === 'price' || sortV === 'rating') {
+          propdutArr.sort((a, b) => a[sortV] - b[sortV]);
+        }
+
+        //записываем в locale
+        const arr: string[] = [];
+
+        propdutArr.forEach((el) => {
+          arr.push(String(el.id));
+        });
+        localStorage.setItem('type', arr.join(','));
+
+        //записываем в locale
+        const currentPageHTML = document.querySelector(`.store`);
+
+        if (currentPageHTML) {
+          currentPageHTML.innerHTML = '';
+          currentPageHTML.replaceWith(this.mainCard.render());
+          //  this.listeningCartButton()
+        }
+      });
+    }
+  }
 
   render() {
     const PageContainer = document.createElement('div');

@@ -1,4 +1,3 @@
-
 .body.lock {
   overflow: hidden;
 }
@@ -22,7 +21,7 @@
   padding: 48px;
   font-size: 26px;
   color: var(--color-black);
-  background-image: linear-gradient(180deg, #FFD39F 20%, #F8EACA 80%);
+  background-image: linear-gradient(180deg, #ffd39f 20%, #f8eaca 80%);
   border: 6px solid var(--color-white);
   border-radius: 6px;
 }

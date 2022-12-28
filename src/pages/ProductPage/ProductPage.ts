@@ -1,8 +1,7 @@
-import { Page } from "../../core/templates/page";
-import './product.css'
+import { Page } from '../../core/templates/page';
+import './product.css';
 
 export class ProductPage extends Page {
-
   static TextObject = {
     MainTitle: `<div class="product">
     <div class="product__image">
@@ -45,15 +44,14 @@ export class ProductPage extends Page {
         <span class="product__price">12 870 руб</span>
       </div>
     </div>
-  </div>`
-  }
+  </div>`,
+  };
 
   constructor(id: string) {
     super(id);
   }
 
   render() {
-   
     this.container.innerHTML = ProductPage.TextObject.MainTitle;
     return this.container;
   }

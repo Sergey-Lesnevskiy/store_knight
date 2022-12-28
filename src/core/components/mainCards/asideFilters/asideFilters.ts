@@ -1,17 +1,17 @@
-import { Component } from "../../../templates/components";
-import {products}  from '../../../../json'
-import { MainCard } from "../mainCard/mainCard";
+import { Component } from '../../../templates/components';
+import { products } from '../../../../json';
+import { MainCard } from '../mainCard/mainCard';
 
- //<div class="shopping-cart__img" style="background-image: url('https://thumb.cloud.mail.ru/weblink/thumb/xw1/PuyU/pkmfmKmEd)">
+//<div class="shopping-cart__img" style="background-image: url('https://thumb.cloud.mail.ru/weblink/thumb/xw1/PuyU/pkmfmKmEd)">
 
-export class AsideFilters1 extends Component {
-  protected mainCard : MainCard;
-  constructor(tagName: string, className: string){
-    super(tagName, className)
-    this.mainCard = new MainCard('section', 'store')
+export class AsideFilters extends Component {
+  protected mainCard: MainCard;
+  constructor(tagName: string, className: string) {
+    super(tagName, className);
+    this.mainCard = new MainCard('section', 'store');
   }
 
- renderCart(){
+  renderCart() {
     const cardHTML = document.createElement('aside');
     cardHTML.classList.add('filters');
     cardHTML.innerHTML = `
@@ -99,20 +99,17 @@ export class AsideFilters1 extends Component {
 
     </div>
 
-`
-   this.container.append(cardHTML)
-}
- renderCart2(){
-      //  const pageHeader = document.createElement('div');
-      //  const fragment = new DocumentFragment();
+`;
+    this.container.append(cardHTML);
+  }
+  renderCart2() {
+    //  const pageHeader = document.createElement('div');
+    //  const fragment = new DocumentFragment();
     const cardHTML = document.createElement('div');
     cardHTML.classList.add('page__right-side');
 
-
-
-
-    const section  = document.createElement('section');
-    section.classList.add('sort')
+    const section = document.createElement('section');
+    section.classList.add('sort');
     section.innerHTML = `
       <div class="sort__by">
         <label for="sort-by__title">Сортировать по:</label>
@@ -161,10 +158,10 @@ export class AsideFilters1 extends Component {
           </select>
         </div>
       </div>
-  `
-  const pagination  = document.createElement('div');
-  pagination.classList.add('pagination')
-  pagination.innerHTML = `
+  `;
+    const pagination = document.createElement('div');
+    pagination.classList.add('pagination');
+    pagination.innerHTML = `
 
     <div class="pagination">
       <button class="pagination__btn pagination__btn--active">1</button>
@@ -177,11 +174,11 @@ export class AsideFilters1 extends Component {
         </svg>
       </button>
     </div>
-`
+`;
 
-    const pagination2  = document.createElement('div');
-    pagination2.classList.add('pagination')
-    pagination2.innerHTML =`
+    const pagination2 = document.createElement('div');
+    pagination2.classList.add('pagination');
+    pagination2.innerHTML = `
       <div class="pagination">
         <button class="pagination__btn pagination__btn--active">1</button>
         <button class="pagination__btn">2</button>
@@ -194,20 +191,20 @@ export class AsideFilters1 extends Component {
         </button>
       </div>
 
-`
+`;
 
-cardHTML.append(section)
-cardHTML.append(pagination)
-cardHTML.append(this.mainCard.render())
-cardHTML.append(pagination2)
+    cardHTML.append(section);
+    cardHTML.append(pagination);
+    cardHTML.append(this.mainCard.render());
+    cardHTML.append(pagination2);
 
-   this.container.append(cardHTML)
-}
+    this.container.append(cardHTML);
+  }
 
-  render (){
-      this.renderCart()
-      this.renderCart2()
+  render() {
+    this.renderCart();
+    this.renderCart2();
 
-    return  this.container;
+    return this.container;
   }
 }

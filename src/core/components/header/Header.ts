@@ -1,32 +1,29 @@
-import '../../../components/pageHeader/pageHeader'
-import { Component } from "../../templates/components";
-import { PageId } from "../../../pages/app/app";
+import '../../../components/pageHeader/pageHeader';
+import { Component } from '../../templates/components';
+import { PageId } from '../../../pages/app/app';
 
 export class Header extends Component {
-    constructor(tagName: string, className: string) {
-    super(tagName, className)
+  constructor(tagName: string, className: string) {
+    super(tagName, className);
   }
 
-  countThePrice(){
-    const id: string |null = localStorage.getItem('card')
-    if(!id){
-      return ''
-     }
+  countThePrice() {
+    const id: string | null = localStorage.getItem('card');
+    if (!id) {
+      return '';
+    }
 
-   let arr:string [] | undefined = [];
-   arr = id?.split(',')
-   
-    return `<span>${arr.length}</span>`
+    let arr: string[] | undefined = [];
+    arr = id?.split(',');
+
+    return `<span>${arr.length}</span>`;
   }
-  
 
   renderPageHeader() {
-    const spanCart = this.countThePrice()
+    const spanCart = this.countThePrice();
     const pageHeader = document.createElement('div');
-    pageHeader.classList.add('header__container')
-    pageHeader.innerHTML =
-
-      `<a href="#" class="header__logo">
+    pageHeader.classList.add('header__container');
+    pageHeader.innerHTML = `<a href="#" class="header__logo">
       <img src="./images/logo-store.svg" width="26" alt="store logotype">
     </a>
 
@@ -72,10 +69,9 @@ export class Header extends Component {
         </ul>
       </nav>
 
-    </div>`
+    </div>`;
 
-
-    this.container.append(pageHeader)
+    this.container.append(pageHeader);
   }
 
   render() {

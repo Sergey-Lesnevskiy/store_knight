@@ -1,107 +1,99 @@
 :root {
-    --color-main: #FF8906;
-    --color-secondary: #F25F4C;
-    --color-error: #E53170;
-    --color-success: #2CB67D;
-    --color-black: #0F0E17;
-    --color-gray-dark: #585858;
-    --color-gray: #A7A9BE;
-    --color-gray-light: #E6E7EC;
-    --color-white: #FFFEF8;
+  --color-main: #ff8906;
+  --color-secondary: #f25f4c;
+  --color-error: #e53170;
+  --color-success: #2cb67d;
+  --color-black: #0f0e17;
+  --color-gray-dark: #585858;
+  --color-gray: #a7a9be;
+  --color-gray-light: #e6e7ec;
+  --color-white: #fffef8;
 }
 
 @font-face {
-    font-family: "Roboto";
-    src: local("Roboto LightItalic"),
-        local("Roboto-LightItalic"),
-        url("./fonts/Roboto-LightItalic.woff2") format("woff2");
-    font-weight: normal;
-    font-display: swap;
+  font-family: 'Roboto';
+  src: local('Roboto LightItalic'), local('Roboto-LightItalic'), url('./fonts/Roboto-LightItalic.woff2') format('woff2');
+  font-weight: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Roboto";
-    src: local("Roboto Regular"),
-        local("Roboto-Regular"),
-        url("./fonts/Roboto-Regular.woff2") format("woff2");
-    font-weight: normal;
-    font-display: swap;
+  font-family: 'Roboto';
+  src: local('Roboto Regular'), local('Roboto-Regular'), url('./fonts/Roboto-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Roboto";
-    src: local("Roboto Bold"),
-        local("Roboto-Bold"),
-        url("./fonts/Roboto-Bold.woff2") format("woff2");
-    font-weight: bold;
-    font-display: swap;
+  font-family: 'Roboto';
+  src: local('Roboto Bold'), local('Roboto-Bold'), url('./fonts/Roboto-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Deutsch-Gothic";
-    src: local("DeutschGothicRegular"),
-        local("Deutsch-Gothic-Regular"),
-        url("./fonts/Deutsch-Gothic-Regular.woff") format("woff");
-    font-weight: normal;
-    font-display: swap;
+  font-family: 'Deutsch-Gothic';
+  src: local('DeutschGothicRegular'), local('Deutsch-Gothic-Regular'),
+    url('./fonts/Deutsch-Gothic-Regular.woff') format('woff');
+  font-weight: normal;
+  font-display: swap;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-img{
+img {
   width: 100%;
   height: 100%;
 }
 
 /*   Reset styles for button */
 button {
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 /*   Reset styles for input */
 input {
-    border: 1px solid var(--color-black);
-    background-image: none;
-    background-color: transparent;
-    box-shadow: none;
+  border: 1px solid var(--color-black);
+  background-image: none;
+  background-color: transparent;
+  box-shadow: none;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 98vh;
-    margin: 0;
-    margin-top: 120px;
-    font-family: "Roboto", Arial, sans-serif;
-    color: var(--color-white);
-    background-color: var(--color-black);
+  display: flex;
+  flex-direction: column;
+  min-height: 98vh;
+  margin: 0;
+  margin-top: 120px;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: var(--color-white);
+  background-color: var(--color-black);
 }
 
 footer {
-    margin-top: auto;
+  margin-top: auto;
 }
 
-[class$="__container"] {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 12px;
+[class$='__container'] {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 12px;
 }
-
 
 /* Для разделения секция фильтров(слева) / секция сортировки и товаров (справа) */
 .page {
-    padding-bottom: 60px;
+  padding-bottom: 60px;
 }
 .page__wrapper {
-    display: flex;
+  display: flex;
 }
 .page__right-side {
-    width: 100%;
-    margin-left: 20px;
+  width: 100%;
+  margin-left: 20px;
 }

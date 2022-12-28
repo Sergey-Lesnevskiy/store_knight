@@ -1,8 +1,8 @@
-import { Component } from "../../../templates/components";
+import { Component } from '../../../templates/components';
 
 export class CategoryFilters extends Component {
   constructor(tagName: string, className: string) {
-    super(tagName, className)
+    super(tagName, className);
   }
 
   renderCart() {
@@ -33,12 +33,12 @@ export class CategoryFilters extends Component {
         <input type="radio" id="exotic" name="category" data-category='houseHold'/>
         <label class="btn btn-default" for="exotic">Предметы быта</label>
       </li>
-`
-    this.container.append(cardHTML)
+`;
+    this.container.append(cardHTML);
   }
 
   render() {
-    this.renderCart()
+    this.renderCart();
     return this.container;
   }
 }

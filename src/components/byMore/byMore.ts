@@ -1,8 +1,7 @@
-import './byMore.css'
+import './byMore.css';
 
 export class ByMore {
-
-    hi(){
-        console.log('its bye-more!');
-    }
+  hi() {
+    console.log('its bye-more!');
+  }
 }

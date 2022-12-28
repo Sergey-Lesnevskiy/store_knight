@@ -1,8 +1,7 @@
-import './shoppingCart.css'
+import './shoppingCart.css';
 
 export class ShoppingCart {
-
-    hi(){
-        console.log('hi');
-    }
+  hi() {
+    console.log('hi');
+  }
 }

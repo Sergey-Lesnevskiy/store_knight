@@ -1,8 +1,7 @@
-import './categoryFilter.css'
+import './categoryFilter.css';
 
 export class CategoryFilter {
-
-    hi(){
-        console.log('its category-filter!');
-    }
+  hi() {
+    console.log('its category-filter!');
+  }
 }
