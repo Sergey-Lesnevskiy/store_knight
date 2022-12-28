@@ -117,8 +117,9 @@ export class AsideFilters1 extends Component {
       <div class="sort__by">
         <label for="sort-by__title">Сортировать по:</label>
         <select name="sort-by" id="sort-by">
+          <option disabled selected="selected" value="">Сортировать по</option>
           <option value="price">По цене</option>
-          <option value="alphabet">По алфавиту</option>
+          <option value="title">По алфавиту</option>
           <option value="rating">По рейтингу</option>
         </select>
       </div>
@@ -153,6 +154,7 @@ export class AsideFilters1 extends Component {
         <div class="sort__view-counts">
           <label for="sort-view">Сортировать по:</label>
           <select name="select" id="sort-view">
+
             <option value="price">9</option>
             <option value="alphabet">18</option>
             <option value="rating">36</option>

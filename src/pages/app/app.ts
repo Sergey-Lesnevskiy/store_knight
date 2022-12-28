@@ -38,6 +38,7 @@ export class App {
       App.renderNewPage(hash)
       this.initialPage.listeningCategory();
       this.initialPage.searchProduct();
+      this.initialPage.listeningSortPrice();
       this.cartPage.listeningOpenModal();
       this.cartPage.listeningDeleteOneCard();
     })
@@ -81,6 +82,7 @@ export class App {
     this.initialPage.listeningCategory();
     this.initialPage.listeningCartButton();
     this.initialPage.searchProduct();
+    this.initialPage.listeningSortPrice();
     App.container.append(this.footer.render())
   }
 }
