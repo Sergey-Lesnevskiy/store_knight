@@ -41,14 +41,19 @@
 .product__id {
   margin: 0;
   margin-top: 8px;
+  font-size: 14px;
   color: #797979;
 }
 
 .product__stock {
   margin: 0;
   margin-top: 4px;
-  font-size: 12px;
+  font-size: 14px;
   color: #3AA959;
+}
+
+.product__rating {
+  margin-top: 12px;
 }
 
 .product__stock span {
@@ -67,7 +72,8 @@
 .product__description p:first-child,
 .product__features p:first-child,
 .product__additionally p:first-child {
-  margin: 16px 0;
+  margin-top: 16px;
+  margin-bottom: 6px;
   font-weight: 700;
 }
 
