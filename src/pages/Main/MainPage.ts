@@ -36,7 +36,7 @@ export class MainPage extends Page {
       //вызвать функцию сортировки
       const el = e.target as HTMLInputElement
       const category = el.getAttribute("data-category");
-console.log(e.currentTarget);
+ 
       //ввынести в отдельную функцию
       const arr = products.filter(item => item.category === category)
 
@@ -64,20 +64,27 @@ console.log(e.currentTarget);
 
     document.querySelector('.store')?.addEventListener('click', (e) => {
       const el = e.target as HTMLInputElement
-      const type = el.getAttribute("data-card");
-      if (card) {
-        card = card + ',' + type
-      } else {
-        card = type
-      }
-      localStorage.setItem('card', String(card));
+      if (el.classList.contains("item__btn")) {
 
-      const headerHTML = document.querySelector(`.header`)
-
-      if(headerHTML){
-        headerHTML.innerHTML =''
-        headerHTML.replaceWith(this.header.render());
+        const type = el.getAttribute("data-card");
+        if (card) {
+          card = card + ',' + type
+        } else {
+          card = type 
+        }
+        localStorage.setItem('card', String(card));
+  
+        const headerHTML = document.querySelector(`.header`)
+  
+        if(headerHTML){
+          headerHTML.innerHTML =''
+          headerHTML.replaceWith(this.header.render());
+        }
+        el.disabled = true;
       }
+
+
+     
     })
   }
 
