@@ -18,23 +18,8 @@ constructor(id:string){
  this.cardScope= new CardScope('div', 'shopping-cart__products')
  this.header = new Header('header', 'header');
 }
-// пока пусть висит, но наверное она не нужна
 
-//  listeningClearCart(){
-//  const remove =  document.querySelector('.shopping-cart__remove-card')
-//  if(remove){
-//    remove.addEventListener('click', ()=>{
-//     localStorage.removeItem('card')
 
-//     const currentPageHTML = document.querySelector(`.shopping-cart__products`)
-
-//     if(currentPageHTML){
-//       currentPageHTML.innerHTML ='';
-//     }
-//   })
-//  }
-
-// }
 
 listeningDeleteOneCard(){
   const deleteCard =  document.querySelectorAll('.shopping-cart__info-trash')
@@ -66,6 +51,7 @@ listeningDeleteOneCard(){
      currentPageHTML.replaceWith(this.card.render());
      this.listeningDeleteOneCard()
    }
+
    const CurrntScopeHTML = document.querySelector(`.shopping-cart__products`)
 
    if(CurrntScopeHTML){

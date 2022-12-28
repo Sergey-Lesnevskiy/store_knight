@@ -55,6 +55,7 @@ if(items){
   products.forEach(el=>{
     arr.push(String(el.id))
   })
+  localStorage.setItem('type',arr.join(','))
 }
   
      

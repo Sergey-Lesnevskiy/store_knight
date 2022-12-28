@@ -36,7 +36,7 @@ export class MainPage extends Page {
       //вызвать функцию сортировки
       const el = e.target as HTMLInputElement
       const category = el.getAttribute("data-category");
-
+console.log(e.currentTarget);
       //ввынести в отдельную функцию
       const arr = products.filter(item => item.category === category)
 
@@ -71,7 +71,6 @@ export class MainPage extends Page {
         card = type
       }
       localStorage.setItem('card', String(card));
-
 
       const headerHTML = document.querySelector(`.header`)
 
@@ -110,37 +109,57 @@ export class MainPage extends Page {
         
       }
      }
-
-
     });
+  }
+  }
 
-      
-    //   const dataItems = document.getElementsByClassName('item__title') as HTMLCollectionOf<HTMLElement>;
-    //  if(val !== ''){
-    //   for (let i = 0; i < dataItems.length; i++) {
-    //     if(dataItems[i].innerText.search(val)==-1){
-    //       dataItems[i].classList.add('hide')
-    //     }else{
-    //       dataItems[i].classList.remove('hide')
-    //     }
-    //   }
+  listeningSortPrice(){
+    const iselectPrice =  document.querySelector('#sort-by')as HTMLInputElement
 
-     
-    
-    //  }else{
-    //   for (let i = 0; i < dataItems.length; i++) {
-       
-    //       dataItems[i].classList.remove('hide')
+ //забираем из 
+    if(iselectPrice){
+      iselectPrice.addEventListener('change',()=>{
+       const sortV:string | number = String(iselectPrice.value)
         
-    //   }
-    //  }
+       let arrCart: number[] | undefined = []
+       const items = localStorage.getItem('type')
+      
+      if(arrCart){
+        arrCart = items?.split(',').map(Number)
+      }
 
-   
-  }
-  
-    
-  }
+      const propdutArr =  products.filter(person => arrCart?.indexOf(person.id)!==-1)
+      
 
+
+         if(sortV === 'title'){
+          propdutArr.sort((a,b)=>a[sortV].localeCompare(b[sortV]))
+
+         } else if(sortV === 'price'||sortV ==='rating'){
+          propdutArr.sort((a,b)=>a[sortV] - (b[sortV]))
+
+         }
+
+         //записываем в locale
+          const arr: string[] =[]
+
+          propdutArr.forEach(el=>{
+           arr.push(String(el.id))
+          })
+           localStorage.setItem('type',arr.join(','))
+
+         //записываем в locale
+         const currentPageHTML = document.querySelector(`.store`)
+
+         if (currentPageHTML) {
+           currentPageHTML.innerHTML = ''
+           currentPageHTML.replaceWith(this.mainCard.render());
+          //  this.listeningCartButton()
+         }
+
+      })
+    }
+  }
 
 
 
