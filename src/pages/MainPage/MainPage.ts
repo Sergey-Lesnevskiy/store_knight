@@ -9,7 +9,7 @@ import '../../components/categoryFilter/categoryFilter';
 import '../../components/filters/filters';
 import { products } from '../../json';
 
-import { CategoryFilters } from '../../core/components/mainCards/categoryFilter/categoryFilters';
+import { CategoryFilters } from '../../core/components/filters/categoryFilters';
 import { AsideFilters } from '../../core/components/mainCards/asideFilters/asideFilters';
 import { MainCard } from '../../core/components/mainCards/mainCard/mainCard';
 import { Header } from '../../core/components/header/Header';
