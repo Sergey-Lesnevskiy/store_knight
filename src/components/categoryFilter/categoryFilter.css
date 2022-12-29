@@ -1,9 +1,11 @@
 .category-filter {
   margin-bottom: 24px;
 }
+
 .hide {
   display: none;
 }
+
 .category-filter__list {
   margin: 0;
   padding: 0;
@@ -59,11 +61,11 @@
   height: 100%;
   opacity: 0;
   cursor: pointer;
-  z-index: 1001;
+  z-index: 999;
 }
 
-.category-filter__item input[type='radio']:checked + label,
-.category-filter__item input[type='radio']:focus + label {
+.category-filter__item input[type='radio']:checked+label,
+.category-filter__item input[type='radio']:focus+label {
   font-weight: 700;
   line-height: 42px;
   color: var(--color-white);
