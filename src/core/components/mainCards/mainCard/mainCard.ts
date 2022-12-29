@@ -60,7 +60,7 @@ export class MainCard extends Component {
       const cardHTML = document.createElement('div');
       cardHTML.classList.add('store__item', 'item');
       cardHTML.innerHTML = `
-        <a class="item__link" href="#">
+        <a class="item__link" href="#product-page" data-card=${products[Number(button) - 1].id}>
           <div class="item__img">
             <img src='${products[Number(button) - 1].thumbnail}' alt="">
           </div>
