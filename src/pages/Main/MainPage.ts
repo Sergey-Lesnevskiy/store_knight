@@ -13,20 +13,23 @@ import { CategoryFilters } from '../../core/components/mainCards/categoryFilter/
 import { AsideFilters } from '../../core/components/mainCards/asideFilters/asideFilters';
 import { MainCard } from '../../core/components/mainCards/mainCard/mainCard';
 import { Header } from '../../core/components/header/Header';
+import { ProductCard } from '../../core/components/productCard/productCard';
 
 export class MainPage extends Page {
   protected categoryFilter: CategoryFilters;
   protected asideFilters: AsideFilters;
   protected mainCard: MainCard;
   protected header: Header;
+  protected productCard: ProductCard;
 
   constructor(id: string) {
     super(id);
-
+    this.productCard = new ProductCard('div', 'product');
     this.categoryFilter = new CategoryFilters('div', 'category-filter');
     this.asideFilters = new AsideFilters('div', 'page__wrapper');
     this.mainCard = new MainCard('section', 'store');
     this.header = new Header('header', 'header');
+
   }
 
   listeningCategory() {
@@ -52,11 +55,13 @@ export class MainPage extends Page {
     });
   }
 
-  listeningCartButton() {
-    let card: string | null = localStorage.getItem('card');
 
+  listeningCartButton() {
+    
+    let card: string | null = localStorage.getItem('card');
+    
     document.querySelector('.store')?.addEventListener('click', (e) => {
-      const el = e.target as HTMLInputElement;
+      const el = e.target as HTMLButtonElement;
       if (el.classList.contains('item__btn')) {
         const type = el.getAttribute('data-card');
         if (card) {
@@ -75,6 +80,23 @@ export class MainPage extends Page {
         el.disabled = true;
       }
     });
+  }
+ 
+   listeningCartLink(){
+    const linksA = document.querySelectorAll('.item__link')
+    linksA.forEach(item=>{
+      item.addEventListener('click',(e)=>{
+    
+        const el = e.currentTarget as HTMLLinkElement;
+         
+        localStorage.removeItem('cardProduct')
+         const type = el.getAttribute('data-card');
+        if(type) localStorage.setItem('cardProduct',type);
+        const url = el.href;
+        window.open(url, '_self');
+        e.preventDefault();
+      })
+    })
   }
 
   searchProduct() {
