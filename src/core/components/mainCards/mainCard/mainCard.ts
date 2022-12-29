@@ -6,8 +6,8 @@ export class MainCard extends Component {
     super(tagName, className);
   }
 
-  stars(raiting: number) {
-    switch (raiting) {
+  stars(rating: number) {
+    switch (rating) {
       case 1:
         return '⭐';
         break;
@@ -41,7 +41,7 @@ export class MainCard extends Component {
     }
   }
   renderCart() {
-    const items = localStorage.getItem('type');
+    const items = localStorage.getItem('filterItems');
     let arr: string[] = [];
     if (items) {
       arr = items?.split(',');
@@ -49,7 +49,7 @@ export class MainCard extends Component {
       products.forEach((el) => {
         arr.push(String(el.id));
       });
-      localStorage.setItem('type', arr.join(','));
+      localStorage.setItem('filterItems', arr.join(','));
     }
 
     const fragment = new DocumentFragment();
@@ -60,10 +60,10 @@ export class MainCard extends Component {
       const cardHTML = document.createElement('div');
       cardHTML.classList.add('store__item');
       cardHTML.classList.add('item');
-      cardHTML.innerHTML = `   
+      cardHTML.innerHTML = `
 
     <div class="item__img">
-       <img src='${products[Number(button) - 1].thumbnail}' alt=""> 
+      <img src='${products[Number(button) - 1].thumbnail}' alt="">
     </div>
     <div class="item__title">${products[Number(button) - 1].title}</div>
     <div class="item__stock">В наличии: <span>${products[Number(button) - 1].stock}</span></div>

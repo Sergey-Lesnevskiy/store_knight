@@ -3,7 +3,7 @@ import '../../components/pageFooter/pageFooter';
 import '../../components/storeItem/storeItem';
 import '../../components/filters/filters';
 import '../../components/pagination/pagination';
-import '../../components/sortSection/sortSection' ;
+import '../../components/sortSection/sortSection';
 import '../../components/store/store';
 import '../../components/categoryFilter/categoryFilter';
 import '../../components/filters/filters';
@@ -15,7 +15,7 @@ import { MainCard } from '../../core/components/mainCards/mainCard/mainCard';
 import { Header } from '../../core/components/header/Header';
 
 export class MainPage extends Page {
-    protected categoryFilter: CategoryFilters;
+  protected categoryFilter: CategoryFilters;
   protected asideFilters: AsideFilters;
   protected mainCard: MainCard;
   protected header: Header;
@@ -36,15 +36,11 @@ export class MainPage extends Page {
       const category = el.getAttribute('data-category');
 
       //ввынести в отдельную функцию
-      const arr = products.filter((item) => item.category === category);
+      const filterItems = products.filter((item) => item.category === category);
+      const filterItemsId = filterItems.map((item) => item.id);
 
-      const arr2: string[] = [];
-      arr.forEach((item) => {
-        arr2.push(String(item.id));
-      });
-
-      localStorage.removeItem('type');
-      localStorage.setItem('type', arr2.join(','));
+      localStorage.removeItem('filterItems');
+      localStorage.setItem('filterItems', filterItemsId.join(','));
 
       const currentPageHTML = document.querySelector(`.store`);
 
@@ -111,35 +107,35 @@ export class MainPage extends Page {
   }
 
   listeningSortPrice() {
-    const iselectPrice = document.querySelector('#sort-by') as HTMLInputElement;
+    const isSelectPrice = document.querySelector('#sort-by') as HTMLInputElement;
 
     //забираем из
-    if (iselectPrice) {
-      iselectPrice.addEventListener('change', () => {
-        const sortV: string | number = String(iselectPrice.value);
+    if (isSelectPrice) {
+      isSelectPrice.addEventListener('change', () => {
+        const sortV: string | number = String(isSelectPrice.value);
 
         let arrCart: number[] | undefined = [];
-        const items = localStorage.getItem('type');
+        const items = localStorage.getItem('filterItems');
 
         if (arrCart) {
           arrCart = items?.split(',').map(Number);
         }
 
-        const propdutArr = products.filter((person) => arrCart?.indexOf(person.id) !== -1);
+        const productArr = products.filter((person) => arrCart?.indexOf(person.id) !== -1);
 
         if (sortV === 'title') {
-          propdutArr.sort((a, b) => a[sortV].localeCompare(b[sortV]));
+          productArr.sort((a, b) => a[sortV].localeCompare(b[sortV]));
         } else if (sortV === 'price' || sortV === 'rating') {
-          propdutArr.sort((a, b) => a[sortV] - b[sortV]);
+          productArr.sort((a, b) => a[sortV] - b[sortV]);
         }
 
         //записываем в locale
         const arr: string[] = [];
 
-        propdutArr.forEach((el) => {
+        productArr.forEach((el) => {
           arr.push(String(el.id));
         });
-        localStorage.setItem('type', arr.join(','));
+        localStorage.setItem('filterItems', arr.join(','));
 
         //записываем в locale
         const currentPageHTML = document.querySelector(`.store`);

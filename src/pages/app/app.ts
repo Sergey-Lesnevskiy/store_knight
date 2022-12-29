@@ -16,7 +16,7 @@ export class App {
   private static container: HTMLElement = document.body;
   private header: Header;
   private footer: Footer;
-  private initialPage: MainPage;
+  private MainPage: MainPage;
   private cartPage: CartPage;
 
   //функция рендерит страницу в зависимости от смены url
@@ -34,16 +34,16 @@ export class App {
 
       const hash = window.location.hash.slice(1);
       App.renderNewPage(hash);
-      this.initialPage.listeningCategory();
-      this.initialPage.searchProduct();
-      this.initialPage.listeningSortPrice();
+      this.MainPage.listeningCategory();
+      this.MainPage.searchProduct();
+      this.MainPage.listeningSortPrice();
       this.cartPage.listeningOpenModal();
       this.cartPage.listeningDeleteOneCard();
     });
   }
 
   constructor() {
-    this.initialPage = new MainPage('main-page');
+    this.MainPage = new MainPage('main-page');
     this.header = new Header('header', 'header');
     this.footer = new Footer('footer', 'footer');
     this.cartPage = new CartPage('cartPage');
@@ -76,10 +76,10 @@ export class App {
     App.container.append(this.header.render());
     App.renderNewPage('main-page');
     this.enableRoutChange();
-    this.initialPage.listeningCategory();
-    this.initialPage.listeningCartButton();
-    this.initialPage.searchProduct();
-    this.initialPage.listeningSortPrice();
+    this.MainPage.listeningCategory();
+    this.MainPage.listeningCartButton();
+    this.MainPage.searchProduct();
+    this.MainPage.listeningSortPrice();
     App.container.append(this.footer.render());
   }
 }
