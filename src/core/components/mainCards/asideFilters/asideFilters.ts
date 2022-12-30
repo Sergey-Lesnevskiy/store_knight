@@ -41,26 +41,7 @@ export class AsideFilters extends Component {
       <div class="type-filter">
         <h3 class="type-filter__title">Тип:</h3>
         <ul class="type-filter__list">
-          <li class="type-filter__item">
-            <input type="checkbox" id="head">
-            <label for="head">Защита головы</label>
-          </li>
-          <li class="type-filter__item">
-            <input type="checkbox" id="body">
-            <label for="body">Защита корпуса</label>
-          </li>
-          <li class="type-filter__item">
-            <input type="checkbox" id="hand">
-            <label for="hand">Защита кистей</label>
-          </li>
-          <li class="type-filter__item">
-            <input type="checkbox" id="foot">
-            <label for="foot">Защита ног</label>
-          </li>
-          <li class="type-filter__item">
-            <input type="checkbox" id="other">
-            <label for="other">Прочие элементы</label>
-          </li>
+          <li class="type-filter__item">Выберите категорию</li>
         </ul>
       </div>
       <!-- Sales -->

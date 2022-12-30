@@ -9,7 +9,7 @@ export class CategoryFilters extends Component {
     this.container.innerHTML = `
       <ul class="category-filter__list">
         <li class="category-filter__item">
-          <input type="radio" id="all" name="category" data-category='all'/>
+          <input type="radio" id="all" name="category" data-category='all' checked/>
           <label class="btn btn-default" for="all">Все товары</label>
         </li>
         <li class="category-filter__item">
