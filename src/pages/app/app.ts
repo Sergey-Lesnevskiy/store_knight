@@ -1,5 +1,5 @@
 import { Page } from '../../core/templates/page';
-import { MainPage } from '../Main/MainPage';
+import { MainPage } from '../MainPage/MainPage';
 import { CartPage } from '../CartPage/CartPage';
 import { ProductPage } from '../ProductPage/ProductPage';
 import { ErrorPage } from '../ErrorPage/ErrorPage';

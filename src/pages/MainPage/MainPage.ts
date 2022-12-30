@@ -9,8 +9,9 @@ import '../../components/categoryFilter/categoryFilter';
 import '../../components/filters/filters';
 import { products } from '../../json';
 
-import { CategoryFilters } from '../../core/components/mainCards/categoryFilter/categoryFilters';
+import { CategoryFilters } from '../../core/components/filters/categoryFilters';
 import { AsideFilters } from '../../core/components/mainCards/asideFilters/asideFilters';
+import { TypeFilter } from '../../core/components/filters/typeFilter';
 import { MainCard } from '../../core/components/mainCards/mainCard/mainCard';
 import { Header } from '../../core/components/header/Header';
 import { ProductCard } from '../../core/components/productCard/productCard';
@@ -18,6 +19,7 @@ import { ProductCard } from '../../core/components/productCard/productCard';
 export class MainPage extends Page {
   protected categoryFilter: CategoryFilters;
   protected asideFilters: AsideFilters;
+  protected typeFilter: TypeFilter;
   protected mainCard: MainCard;
   protected header: Header;
   protected productCard: ProductCard;
@@ -27,9 +29,9 @@ export class MainPage extends Page {
     this.productCard = new ProductCard('div', 'product');
     this.categoryFilter = new CategoryFilters('div', 'category-filter');
     this.asideFilters = new AsideFilters('div', 'page__wrapper');
+    this.typeFilter = new TypeFilter();
     this.mainCard = new MainCard('section', 'store');
     this.header = new Header('header', 'header');
-
   }
 
   listeningCategory() {
@@ -52,14 +54,20 @@ export class MainPage extends Page {
         currentPageHTML.replaceWith(this.mainCard.render());
         this.listeningCartButton();
       }
+
+      const typeFilterContainerEl = document.querySelector(`.type-filter`);
+      const typeFilterEl = document.querySelector(`.type-filter__list`);
+      if (typeFilterContainerEl && typeFilterEl && category) {
+        typeFilterEl.innerHTML = '';
+        typeFilterEl.remove();
+        typeFilterContainerEl.append(this.typeFilter.render(category));
+      }
     });
   }
 
-
   listeningCartButton() {
-    
     let card: string | null = localStorage.getItem('card');
-    
+
     document.querySelector('.store')?.addEventListener('click', (e) => {
       const el = e.target as HTMLButtonElement;
       if (el.classList.contains('item__btn')) {
@@ -81,22 +89,21 @@ export class MainPage extends Page {
       }
     });
   }
- 
-   listeningCartLink(){
-    const linksA = document.querySelectorAll('.item__link')
-    linksA.forEach(item=>{
-      item.addEventListener('click',(e)=>{
-    
+
+  listeningCartLink() {
+    const linksA = document.querySelectorAll('.item__link');
+    linksA.forEach((item) => {
+      item.addEventListener('click', (e) => {
         const el = e.currentTarget as HTMLLinkElement;
-         
-        localStorage.removeItem('cardProduct')
-         const type = el.getAttribute('data-card');
-        if(type) localStorage.setItem('cardProduct',type);
+
+        localStorage.removeItem('cardProduct');
+        const type = el.getAttribute('data-card');
+        if (type) localStorage.setItem('cardProduct', type);
         const url = el.href;
         window.open(url, '_self');
         e.preventDefault();
-      })
-    })
+      });
+    });
   }
 
   searchProduct() {
