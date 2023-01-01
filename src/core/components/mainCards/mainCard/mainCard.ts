@@ -64,9 +64,10 @@ export class MainCard extends Component {
           <div class="item__img">
             <img src='${products[Number(button) - 1].thumbnail}' alt="">
           </div>
-          <div class="item__title">${products[Number(button) - 1].title}</div>
+          <h3 class="item__title">${products[Number(button) - 1].title}</h3>
           <div class="item__stock">В наличии: <span>${products[Number(button) - 1].stock}</span></div>
           <div class="item__rating">${star}</div>
+          <p class="item__description">${products[Number(button) - 1].description}</p>
           <div class="item__price">${products[Number(button) - 1].price} руб</div>
         </a>
         <button class="item__btn btn" data-card=${products[Number(button) - 1].id}>В корзину</button>
