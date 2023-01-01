@@ -7,24 +7,22 @@ export class ProductPage extends Page {
 
   constructor(id: string) {
     super(id);
-    this.productCard = new ProductCard('div', 'product');
+    this.productCard = new ProductCard('div', 'product__container');
   }
-//   changeRout()
-// {
-//  window.addEventListener('hashchange', () => {
-//   const currentPageHTML = document.querySelector(`.product`);
+  //   changeRout()
+  // {
+  //  window.addEventListener('hashchange', () => {
+  //   const currentPageHTML = document.querySelector(`.product`);
 
-//   if (currentPageHTML) {
-//     currentPageHTML.innerHTML = '';
-//   }
-//  })
+  //   if (currentPageHTML) {
+  //     currentPageHTML.innerHTML = '';
+  //   }
+  //  })
 
-// } 
+  // }
 
   render() {
-   
-   
-    this.container.append(this.productCard.render())
+    this.container.append(this.productCard.render());
     return this.container;
   }
 }
