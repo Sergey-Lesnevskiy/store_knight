@@ -37,6 +37,7 @@ export class App {
       this.MainPage.listeningCategory();
       this.MainPage.searchProduct();
       this.MainPage.listeningSortPrice();
+      this.MainPage.listeningSortView();
       this.MainPage.listeningCartLink();
       this.cartPage.listeningOpenModal();
       this.cartPage.listeningDeleteOneCard();
@@ -81,6 +82,7 @@ export class App {
     this.MainPage.listeningCartButton();
     this.MainPage.searchProduct();
     this.MainPage.listeningSortPrice();
+    this.MainPage.listeningSortView();
     this.MainPage.listeningCartLink();
     App.container.append(this.footer.render());
   }

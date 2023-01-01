@@ -178,6 +178,24 @@ export class MainPage extends Page {
     }
   }
 
+  listeningSortView() {
+    const storeSection = document.querySelector(`.store`);
+    const viewLineBtn = document.querySelectorAll('.sort__view-btn')[0] as HTMLInputElement;
+    const viewGridBtn = document.querySelectorAll('.sort__view-btn')[1] as HTMLInputElement;
+
+    viewLineBtn.addEventListener('click', function () {
+      this.classList.add('sort__view-btn--active');
+      viewGridBtn.classList.remove('sort__view-btn--active');
+      storeSection?.classList.add('store--line-view');
+    });
+
+    viewGridBtn.addEventListener('click', function () {
+      this.classList.add('sort__view-btn--active');
+      viewLineBtn.classList.remove('sort__view-btn--active');
+      storeSection?.classList.remove('store--line-view');
+    });
+  }
+
   render() {
     const PageContainer = document.createElement('div');
     PageContainer.classList.add('page__container');
