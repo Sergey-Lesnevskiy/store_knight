@@ -53,6 +53,7 @@ export class MainPage extends Page {
         currentPageHTML.innerHTML = '';
         currentPageHTML.replaceWith(this.mainCard.render());
         this.listeningCartButton();
+        this.listeningSortView();
       }
 
       const typeFilterContainerEl = document.querySelector(`.type-filter`);
@@ -135,43 +136,62 @@ export class MainPage extends Page {
     }
   }
 
-  listeningRange(){
+  listeningRange() {
     const priceInput = document.querySelectorAll('.price-filter__input-group input');
     const rangeInput = document.querySelectorAll('.price-filter__range-group input');
-    
-    const priceGap = 1;
-    rangeInput.forEach(input => {
-     input.addEventListener('input',(e)=>{
-       const minVal = parseInt((rangeInput[0]as HTMLInputElement).value)
-       const maxVal = parseInt((rangeInput[1]as HTMLInputElement).value)
- 
-       if(maxVal - minVal < priceGap){
-         const el = e.target as HTMLInputElement;
-         if(el.classList.contains('range-min')){
-           (rangeInput[0]as HTMLInputElement).value =String( maxVal - priceGap)
-         }else{
-           (rangeInput[1]as HTMLInputElement).value =String( maxVal - priceGap)
- 
-         }
-       }else{
-         (priceInput[0]as HTMLInputElement).value = String(minVal);
-         (priceInput[1]as HTMLInputElement).value = String(maxVal)
-         const dataItemsPrice = document.getElementsByClassName('item__price') as HTMLCollectionOf<HTMLElement>;
-         const dataItems = document.getElementsByClassName('store__item item') as HTMLCollectionOf<HTMLElement>;
-         for (let i = 0; i < dataItemsPrice.length; i++) {
-           if( Number(dataItemsPrice[i].innerText.slice(0, -3).trim()) > minVal && Number(dataItemsPrice[i].innerText.slice(0, -3).trim()) < maxVal){
-             dataItems[i].classList.remove('hide');
-           }else{
-             dataItems[i].classList.add('hide');
-           }
-          
-           }
-       }
-     })
-    });
- 
-   }
 
+    const priceGap = 1;
+    rangeInput.forEach((input) => {
+      input.addEventListener('input', (e) => {
+        const minVal = parseInt((rangeInput[0] as HTMLInputElement).value);
+        const maxVal = parseInt((rangeInput[1] as HTMLInputElement).value);
+
+        if (maxVal - minVal < priceGap) {
+          const el = e.target as HTMLInputElement;
+          if (el.classList.contains('range-min')) {
+            (rangeInput[0] as HTMLInputElement).value = String(maxVal - priceGap);
+          } else {
+            (rangeInput[1] as HTMLInputElement).value = String(maxVal - priceGap);
+          }
+        } else {
+          (priceInput[0] as HTMLInputElement).value = String(minVal);
+          (priceInput[1] as HTMLInputElement).value = String(maxVal);
+          const dataItemsPrice = document.getElementsByClassName('item__price') as HTMLCollectionOf<HTMLElement>;
+          const dataItems = document.getElementsByClassName('store__item item') as HTMLCollectionOf<HTMLElement>;
+          for (let i = 0; i < dataItemsPrice.length; i++) {
+            if (
+              Number(dataItemsPrice[i].innerText.slice(0, -3).trim()) > minVal &&
+              Number(dataItemsPrice[i].innerText.slice(0, -3).trim()) < maxVal
+            ) {
+              dataItems[i].classList.remove('hide');
+            } else {
+              dataItems[i].classList.add('hide');
+            }
+          }
+        }
+      });
+    });
+  }
+
+  listeningRangeStock() {
+    const priceInput = document.querySelector('.stock-filter__input');
+    const rangeInput = document.querySelector('.stock-filter__range');
+    rangeInput?.addEventListener('input', () => {
+      
+      const val = parseInt((rangeInput as HTMLInputElement).value);
+      (rangeInput as HTMLInputElement).value = String(val);
+      (priceInput as HTMLInputElement).value = String(val);
+      const dataItemsPrice = document.querySelectorAll('.item__stock span') as NodeListOf<HTMLElement>;
+      const dataItems = document.getElementsByClassName('store__item item') as HTMLCollectionOf<HTMLElement>;
+      for (let i = 0; i < dataItemsPrice.length; i++) {
+        if (Number(dataItemsPrice[i].innerText) <= val) {
+          dataItems[i].classList.remove('hide');
+        } else {
+          dataItems[i].classList.add('hide');
+        }
+      }
+    });
+  }
   listeningSortPrice() {
     const isSelectPrice = document.querySelector('#sort-by') as HTMLInputElement;
 
@@ -209,7 +229,6 @@ export class MainPage extends Page {
         if (currentPageHTML) {
           currentPageHTML.innerHTML = '';
           currentPageHTML.replaceWith(this.mainCard.render());
-          //  this.listeningCartButton()
         }
       });
     }
@@ -219,18 +238,20 @@ export class MainPage extends Page {
     const storeSection = document.querySelector(`.store`);
     const viewLineBtn = document.querySelectorAll('.sort__view-btn')[0] as HTMLInputElement;
     const viewGridBtn = document.querySelectorAll('.sort__view-btn')[1] as HTMLInputElement;
-
-    viewLineBtn.addEventListener('click', function () {
-      this.classList.add('sort__view-btn--active');
-      viewGridBtn.classList.remove('sort__view-btn--active');
-      storeSection?.classList.add('store--line-view');
-    });
-
-    viewGridBtn.addEventListener('click', function () {
-      this.classList.add('sort__view-btn--active');
-      viewLineBtn.classList.remove('sort__view-btn--active');
-      storeSection?.classList.remove('store--line-view');
-    });
+    if (viewLineBtn) {
+      viewLineBtn.addEventListener('click', function () {
+        this.classList.add('sort__view-btn--active');
+        viewGridBtn.classList.remove('sort__view-btn--active');
+        storeSection?.classList.add('store--line-view');
+      });
+    }
+    if (viewGridBtn) {
+      viewGridBtn.addEventListener('click', function () {
+        this.classList.add('sort__view-btn--active');
+        viewLineBtn.classList.remove('sort__view-btn--active');
+        storeSection?.classList.remove('store--line-view');
+      });
+    }
   }
 
   render() {
