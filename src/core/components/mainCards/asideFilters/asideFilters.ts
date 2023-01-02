@@ -1,5 +1,5 @@
 import { Component } from '../../../templates/components';
-import { products } from '../../../../json';
+
 import { MainCard } from '../mainCard/mainCard';
 
 //<div class="shopping-cart__img" style="background-image: url('https://thumb.cloud.mail.ru/weblink/thumb/xw1/PuyU/pkmfmKmEd)">
@@ -58,8 +58,8 @@ export class AsideFilters extends Component {
       <div class="stock-filter">
         <h3 class="stock-filter__title">В наличии:</h3>
         <div class="stock-filter__slider">
-          <input class="stock-filter__input" type="number" value="1" min="0" max="34"/>
-          <input class="stock-filter__range" type="range" value="1" min="0" max="34">
+          <input class="stock-filter__input" type="number" value="100" min="0" max="100"/>
+          <input class="stock-filter__range" type="range" value="100" min="0" max="100">
         </div>
       </div>
       <!-- Price -->

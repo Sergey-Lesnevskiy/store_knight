@@ -32,6 +32,7 @@ export class App {
       this.MainPage.listeningSortView();
       this.MainPage.listeningCartLink();
       this.MainPage.listeningRange();
+      this.MainPage.listeningRangeStock();
       this.cartPage.listeningOpenModal();
       this.cartPage.listeningDeleteOneCard();
     });
@@ -78,6 +79,7 @@ export class App {
     this.MainPage.listeningSortView();
     this.MainPage.listeningCartLink();
     this.MainPage.listeningRange();
+    this.MainPage.listeningRangeStock();
     App.container.append(this.footer.render());
   }
 }
