@@ -72,8 +72,8 @@ export class AsideFilters extends Component {
           </div>
 
           <div class="price-filter__range-group">
-            <input class="price-filter__range" type="range" value="1" min="0" max="999999">
-            <input class="price-filter__range" type="range" value="999999" min="0" max="999999">
+            <input class="price-filter__range range-min" type="range" value="1" min="0" max="999999">
+            <input class="price-filter__range range-max" type="range" value="999999" min="0" max="999999">
           </div>
         </div>
       </div>

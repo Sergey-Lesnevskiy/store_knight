@@ -22,15 +22,7 @@ export class App {
   //функция рендерит страницу в зависимости от смены url
   private enableRoutChange() {
     window.addEventListener('hashchange', () => {
-      //вынести в отдельную функцию
-      // const headerHTML = document.querySelector(`.header`)
-
-      // if(headerHTML){
-      //   headerHTML.innerHTML =''
-      //   headerHTML.replaceWith(this.header.render());
-      // }
-
-      //вынести в отдельную функцию
+   
 
       const hash = window.location.hash.slice(1);
       App.renderNewPage(hash);
@@ -39,6 +31,7 @@ export class App {
       this.MainPage.listeningSortPrice();
       this.MainPage.listeningSortView();
       this.MainPage.listeningCartLink();
+      this.MainPage.listeningRange();
       this.cartPage.listeningOpenModal();
       this.cartPage.listeningDeleteOneCard();
     });
@@ -84,6 +77,7 @@ export class App {
     this.MainPage.listeningSortPrice();
     this.MainPage.listeningSortView();
     this.MainPage.listeningCartLink();
+    this.MainPage.listeningRange();
     App.container.append(this.footer.render());
   }
 }
