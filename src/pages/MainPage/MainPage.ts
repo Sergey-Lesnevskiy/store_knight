@@ -135,6 +135,43 @@ export class MainPage extends Page {
     }
   }
 
+  listeningRange(){
+    const priceInput = document.querySelectorAll('.price-filter__input-group input');
+    const rangeInput = document.querySelectorAll('.price-filter__range-group input');
+    
+    const priceGap = 1;
+    rangeInput.forEach(input => {
+     input.addEventListener('input',(e)=>{
+       const minVal = parseInt((rangeInput[0]as HTMLInputElement).value)
+       const maxVal = parseInt((rangeInput[1]as HTMLInputElement).value)
+ 
+       if(maxVal - minVal < priceGap){
+         const el = e.target as HTMLInputElement;
+         if(el.classList.contains('range-min')){
+           (rangeInput[0]as HTMLInputElement).value =String( maxVal - priceGap)
+         }else{
+           (rangeInput[1]as HTMLInputElement).value =String( maxVal - priceGap)
+ 
+         }
+       }else{
+         (priceInput[0]as HTMLInputElement).value = String(minVal);
+         (priceInput[1]as HTMLInputElement).value = String(maxVal)
+         const dataItemsPrice = document.getElementsByClassName('item__price') as HTMLCollectionOf<HTMLElement>;
+         const dataItems = document.getElementsByClassName('store__item item') as HTMLCollectionOf<HTMLElement>;
+         for (let i = 0; i < dataItemsPrice.length; i++) {
+           if( Number(dataItemsPrice[i].innerText.slice(0, -3).trim()) > minVal && Number(dataItemsPrice[i].innerText.slice(0, -3).trim()) < maxVal){
+             dataItems[i].classList.remove('hide');
+           }else{
+             dataItems[i].classList.add('hide');
+           }
+          
+           }
+       }
+     })
+    });
+ 
+   }
+
   listeningSortPrice() {
     const isSelectPrice = document.querySelector('#sort-by') as HTMLInputElement;
 
