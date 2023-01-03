@@ -23,7 +23,7 @@ export class Header extends Component {
     const spanCart = this.countThePrice();
     const pageHeader = document.createElement('div');
     pageHeader.classList.add('header__container');
-    pageHeader.innerHTML = `<a href="#" class="header__logo">
+    pageHeader.innerHTML = `<a href="#${PageId.MainPage}" class="header__logo">
       <img src="./images/logo-store.svg" width="26" alt="store logotype">
     </a>
 
@@ -43,9 +43,6 @@ export class Header extends Component {
           </li>
           <li class="menu__item">
             <a href=#${PageId.CartPage} class="menu__link">Корзина</a>
-          </li>
-          <li class="menu__item">
-            <a href="#" class="menu__link">О нас</a>
           </li>
           <li class="menu__item">
             <a href="#" class="menu__link">
