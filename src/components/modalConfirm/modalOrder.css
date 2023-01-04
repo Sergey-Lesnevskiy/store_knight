@@ -96,6 +96,20 @@
   border-radius: 6px;
 }
 
+.form__field input:invalid {
+  border: 2px solid var(--color-error);
+}
+
+.form__field input:invalid:placeholder-shown {
+  border-width: 1px;
+  border-color: var(--color-black);
+}
+
+.form__field input::placeholder {
+  font-size: 14px;
+  color: var(--color-gray);
+}
+
 .form__field--card-id input {
   width: 90%;
 }
@@ -103,6 +117,7 @@
 .form__user-info {
   width: 50%;
 }
+
 .form__card-info {
   align-self: center;
   width: 50%;
@@ -118,6 +133,11 @@
 .form__card-info .form__field {
   margin-bottom: 18px;
 }
+
 .form__card-info label {
   color: var(--color-white);
+}
+
+.form__card-info input::placeholder {
+  font-size: 20px;
 }
