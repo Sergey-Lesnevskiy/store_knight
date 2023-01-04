@@ -57,7 +57,7 @@ export class ProductCard extends Component {
                 <button id="increment">+</button>
               </div>
             </div>
-            <button class="product__cart-btn">В корзину</button>
+            <button class="product__cart-btn" data-card=${products[items - 1].id}>В корзину</button>
             <span class="product__price">${products[items - 1].price} руб</span>
           </div>
         </div>

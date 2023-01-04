@@ -19,13 +19,14 @@ export class Card extends Component {
 
   renderPageHeader() {
     let arrCart: string[] | undefined = [];
+    
     const items = localStorage.getItem('card');
 
     if (arrCart) {
       arrCart = items?.split(',');
     }
-
     const fragment = new DocumentFragment();
+
 
     arrCart?.forEach((button) => {
       const cardHTML = document.createElement('div');

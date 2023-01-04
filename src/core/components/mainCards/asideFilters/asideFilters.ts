@@ -132,10 +132,9 @@ export class AsideFilters extends Component {
         <div class="sort__view-counts">
           <label for="sort-view">Сортировать по:</label>
           <select name="select" id="sort-view">
-
-            <option value="price">9</option>
-            <option value="alphabet">18</option>
-            <option value="rating">36</option>
+            <option value="9">9</option>
+            <option value="18">18</option>
+            <option value="36">36</option>
           </select>
         </div>
       </div>
@@ -143,41 +142,33 @@ export class AsideFilters extends Component {
     const pagination = document.createElement('div');
     pagination.classList.add('pagination');
     pagination.innerHTML = `
-
-    <div class="pagination">
       <button class="pagination__btn pagination__btn--active">1</button>
       <button class="pagination__btn">2</button>
       <button class="pagination__btn">3</button>
-      <button class="pagination__btn">
-        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.6 9.59999L24 16L17.6 22.4M8 9.59999L14.4 16L8 22.4" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
-    </div>
+    
 `;
 
-    const pagination2 = document.createElement('div');
-    pagination2.classList.add('pagination');
-    pagination2.innerHTML = `
-      <div class="pagination">
-        <button class="pagination__btn pagination__btn--active">1</button>
-        <button class="pagination__btn">2</button>
-        <button class="pagination__btn">3</button>
-        <button class="pagination__btn">
-          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.6 9.59999L24 16L17.6 22.4M8 9.59999L14.4 16L8 22.4" stroke="currentColor"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
-      </div>
+//     const pagination2 = document.createElement('div');
+//     pagination2.classList.add('pagination');
+//     pagination2.innerHTML = `
+      
+//         <button class="pagination__btn pagination__btn--active">1</button>
+//         <button class="pagination__btn">2</button>
+//         <button class="pagination__btn">3</button>
+//         <button class="pagination__btn">
+//           <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+//             <path d="M17.6 9.59999L24 16L17.6 22.4M8 9.59999L14.4 16L8 22.4" stroke="currentColor"
+//               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+//           </svg>
+//         </button>
+    
 
-`;
+// `;
 
     cardHTML.append(section);
     cardHTML.append(pagination);
     cardHTML.append(this.mainCard.render());
-    cardHTML.append(pagination2);
+    // cardHTML.append(pagination2);
 
     this.container.append(cardHTML);
   }
