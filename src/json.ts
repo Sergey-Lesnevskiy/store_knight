@@ -26,7 +26,7 @@ export const products = [
     price: 250000,
     discountPercentage: 10,
     rating: 8.69,
-    stock: 1,
+    stock: 2,
     category: 'armor',
     thumbnail:
       'https://donjon.ru/images/1c/b9/b9e1a96f-6f24-11ed-8368-002590a35116_3e23870f-70ad-11ed-8368-002590a35116.jpg',
@@ -43,7 +43,7 @@ export const products = [
     price: 10750,
     discountPercentage: 2,
     rating: 1.23,
-    stock: 100,
+    stock: 50,
     category: 'armor',
     thumbnail:
       'https://donjon.ru/images/1c/cf/cf3b7ab5-5eb0-11e9-872f-002590a35117_068ca3e9-b2b8-11e9-85a6-002590a35117.jpg',
@@ -79,7 +79,7 @@ export const products = [
     price: 17040,
     discountPercentage: 0,
     rating: 6.4,
-    stock: 4,
+    stock: 14,
     category: 'armor',
     thumbnail:
       'https://donjon.ru/images/1c/40/4003ac1d-2655-11ea-8458-002590a35117_a8c12f3c-c7c4-11ec-849c-002590a35116.jpg',
@@ -97,7 +97,7 @@ export const products = [
     price: 40810,
     discountPercentage: 10,
     rating: 5.4,
-    stock: 8,
+    stock: 28,
     category: 'armor',
     thumbnail:
       'https://donjon.ru/images/1c/9c/9c5aeaa9-31ec-11e4-9d7d-002590a35117_3a2a0ed5-64d5-11e8-887b-002590a35117.jpg',
@@ -115,7 +115,7 @@ export const products = [
     price: 3200,
     discountPercentage: 20,
     rating: 9.0,
-    stock: 1,
+    stock: 5,
     category: 'weapon',
     thumbnail:
       'https://donjon.ru/images/1c/4d/4d74b2bc-de84-11e3-9855-002590a35116_4ecbe23d-40a5-11eb-916f-002590a35116.jpg',
@@ -133,7 +133,7 @@ export const products = [
     price: 9200,
     discountPercentage: 20,
     rating: 7.0,
-    stock: 1,
+    stock: 4,
     category: 'weapon',
     thumbnail:
       'https://donjon.ru/images/1c/db/dbb01fca-5496-11ea-832c-002590a35117_e8b0fb9c-40a4-11eb-916f-002590a35116.jpg',
@@ -151,7 +151,7 @@ export const products = [
     price: 34080,
     discountPercentage: 10,
     rating: 9.0,
-    stock: 5,
+    stock: 9,
     category: 'weapon',
     thumbnail:
       'https://donjon.ru/images/1c/4e/4e0a9e11-2b1d-11e5-98c8-002590a35117_d911e247-e8b2-11e6-8654-002590a35116.jpg',
@@ -169,7 +169,7 @@ export const products = [
     price: 430,
     discountPercentage: 30,
     rating: 2.0,
-    stock: 100,
+    stock: 50,
     category: 'weapon',
     thumbnail:
       'https://donjon.ru/images/1c/6f/6f1ea543-2b1c-11e5-98c8-002590a35117_b259818c-2931-11ed-8915-002590a35116.jpg',
@@ -187,7 +187,7 @@ export const products = [
     price: 8000,
     discountPercentage: 20,
     rating: 5.0,
-    stock: 5,
+    stock: 25,
     category: 'weapon',
     thumbnail:
       'https://donjon.ru/images/1c/96/9635098e-0bb7-11e3-a40e-bc5ff462a210_3cdf8a50-bb81-11e6-8654-002590a35116.jpg',
@@ -205,7 +205,7 @@ export const products = [
     price: 7200,
     discountPercentage: 20,
     rating: 5.0,
-    stock: 5,
+    stock: 34,
     category: 'weapon',
     thumbnail:
       'https://donjon.ru/images/1c/96/96350992-0bb7-11e3-a40e-bc5ff462a210_0892544c-6102-11e9-872f-002590a35117.jpg',
@@ -259,7 +259,7 @@ export const products = [
     price: 6700,
     discountPercentage: 10,
     rating: 8.0,
-    stock: 4,
+    stock: 14,
     category: 'weapon',
     thumbnail:
       'https://donjon.ru/images/1c/4e/4e3dc7fd-e021-11ec-809d-002590a35116_572040d1-17de-11ed-8374-002590a35116.jpg',
@@ -277,7 +277,7 @@ export const products = [
     price: 7080,
     discountPercentage: 10,
     rating: 8.0,
-    stock: 2,
+    stock: 12,
     category: 'weapon',
     thumbnail:
       'https://donjon.ru/images/1c/96/963509b1-0bb7-11e3-a40e-bc5ff462a210_10b8af36-1de7-11eb-90b1-002590a35117.jpg',
@@ -295,7 +295,7 @@ export const products = [
     price: 3010,
     discountPercentage: 10,
     rating: 4.0,
-    stock: 4,
+    stock: 23,
     category: 'costumes',
     thumbnail:
       'https://donjon.ru/images/1c/9c/9cc1767f-0bb7-11e3-a40e-bc5ff462a210_f7c73545-b2b9-11e9-85a6-002590a35117.jpg',
@@ -312,7 +312,7 @@ export const products = [
     price: 190,
     discountPercentage: 0,
     rating: 1.0,
-    stock: 29,
+    stock: 45,
     category: 'costumes',
     thumbnail:
       'https://donjon.ru/images/1c/b2/b2501eff-0bb7-11e3-a40e-bc5ff462a210_ba2f30d5-2939-11e9-90d7-002590a35117.jpg',
@@ -348,7 +348,7 @@ export const products = [
     price: 3200,
     discountPercentage: 10,
     rating: 6.0,
-    stock: 4,
+    stock: 14,
     category: 'costumes',
     thumbnail:
       'https://donjon.ru/images/1c/a5/a525b8f8-0bb7-11e3-a40e-bc5ff462a210_eda13521-ec02-11e7-83b5-002590a35117.jpg',
@@ -385,7 +385,7 @@ export const products = [
     price: 3800,
     discountPercentage: 0,
     rating: 9.0,
-    stock: 1,
+    stock: 5,
     category: 'costumes',
     thumbnail:
       'https://donjon.ru/images/1c/a3/a384719d-c2da-11e6-8654-002590a35116_ef019ec9-cea7-11e6-8654-002590a35116.jpg',
@@ -403,7 +403,7 @@ export const products = [
     price: 1800,
     discountPercentage: 0,
     rating: 4.0,
-    stock: 2,
+    stock: 9,
     category: 'jewelry',
     thumbnail:
       'https://donjon.ru/images/1c/b2/b2adec16-58fe-11ec-8c93-002590a35116_d913a583-c67e-11ec-849c-002590a35116.jpg',
@@ -421,7 +421,7 @@ export const products = [
     price: 31700,
     discountPercentage: 0,
     rating: 4.0,
-    stock: 1,
+    stock: 11,
     category: 'jewelry',
     thumbnail:
       'https://donjon.ru/images/1c/ff/ff6e461b-e9b9-11e9-8392-002590a35117_5dec22cb-78e0-11ed-8368-002590a35116.jpg',
@@ -438,7 +438,7 @@ export const products = [
     price: 2250,
     discountPercentage: 0,
     rating: 4.0,
-    stock: 5,
+    stock: 42,
     category: 'jewelry',
     thumbnail:
       'https://donjon.ru/images/1c/b2/b2501f14-0bb7-11e3-a40e-bc5ff462a210_28042077-0172-11ed-85f1-002590a35116.jpg',
@@ -455,7 +455,7 @@ export const products = [
     price: 510,
     discountPercentage: 0,
     rating: 4.0,
-    stock: 2,
+    stock: 22,
     category: 'jewelry',
     thumbnail:
       'https://donjon.ru/images/1c/b2/b2501f8d-0bb7-11e3-a40e-bc5ff462a210_398de386-d42f-11ec-809d-002590a35116.jpg',
