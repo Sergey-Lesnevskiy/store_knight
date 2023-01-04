@@ -58,8 +58,8 @@ export class AsideFilters extends Component {
       <div class="stock-filter">
         <h3 class="stock-filter__title">В наличии:</h3>
         <div class="stock-filter__slider">
-          <input class="stock-filter__input" type="number" value="100" min="0" max="100"/>
-          <input class="stock-filter__range" type="range" value="100" min="0" max="100">
+          <input class="stock-filter__input" type="number" value="1" min="0" max="50"/>
+          <input class="stock-filter__range" type="range" value="1" min="0" max="50">
         </div>
       </div>
       <!-- Price -->
@@ -67,13 +67,13 @@ export class AsideFilters extends Component {
         <h3 class="price-filter__title">Цена:</h3>
         <div class="price-filter__slider">
           <div class="price-filter__input-group">
-            <input class="price-filter__input" type="number" value="1" min="0" max="999999"/>
-            <input class="price-filter__input" type="number" value="999999" min="0" max="999999"/>
+            <input class="price-filter__input" type="number" value="100" min="0" max="300000"/>
+            <input class="price-filter__input" type="number" value="30000" min="0" max="300000"/>
           </div>
 
           <div class="price-filter__range-group">
-            <input class="price-filter__range range-min" type="range" value="1" min="0" max="999999">
-            <input class="price-filter__range range-max" type="range" value="999999" min="0" max="999999">
+            <input class="price-filter__range range-min" type="range" value="100" min="0" max="300000" step="100">
+            <input class="price-filter__range range-max" type="range" value="300000" min="0" max="300000" step="100">
           </div>
         </div>
       </div>
@@ -146,13 +146,13 @@ export class AsideFilters extends Component {
       <button class="pagination__btn">2</button>
       <button class="pagination__btn">3</button>
       <button class="pagination__btn">4</button>
-    
+
 `;
 
 //     const pagination2 = document.createElement('div');
 //     pagination2.classList.add('pagination');
 //     pagination2.innerHTML = `
-      
+
 //         <button class="pagination__btn pagination__btn--active">1</button>
 //         <button class="pagination__btn">2</button>
 //         <button class="pagination__btn">3</button>
@@ -162,7 +162,7 @@ export class AsideFilters extends Component {
 //               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 //           </svg>
 //         </button>
-    
+
 
 // `;
 
