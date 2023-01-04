@@ -184,14 +184,14 @@ export class MainPage extends Page {
     const priceInput = document.querySelector('.stock-filter__input');
     const rangeInput = document.querySelector('.stock-filter__range');
     rangeInput?.addEventListener('input', () => {
-      
+
       const val = parseInt((rangeInput as HTMLInputElement).value);
       (rangeInput as HTMLInputElement).value = String(val);
       (priceInput as HTMLInputElement).value = String(val);
       const dataItemsPrice = document.querySelectorAll('.item__stock span') as NodeListOf<HTMLElement>;
       const dataItems = document.getElementsByClassName('store__item item') as HTMLCollectionOf<HTMLElement>;
       for (let i = 0; i < dataItemsPrice.length; i++) {
-        if (Number(dataItemsPrice[i].innerText) <= val) {
+        if (Number(dataItemsPrice[i].innerText) >= val) {
           dataItems[i].classList.remove('hide');
         } else {
           dataItems[i].classList.add('hide');
@@ -232,8 +232,8 @@ export class MainPage extends Page {
         localStorage.setItem('filterItems', arr.join(','));
 
         //записываем в locale
-        
-        
+
+
         let count: number = Number(sessionStorage.getItem('countCardPage'));
         const currentPageHTML = document.querySelector(`.store`);
         // добавил проверку сюда
@@ -273,7 +273,7 @@ export class MainPage extends Page {
       if (el.classList.contains('pagination__btn')) {
         document.querySelectorAll(`.pagination__btn`).forEach(el=>el.classList.remove('pagination__btn--active'))
        el.classList.add('pagination__btn--active')
-        
+
 
         const currentPageHTML = document.querySelector(`.store`);
 
@@ -286,7 +286,7 @@ export class MainPage extends Page {
       }
     })
   }
-    
+
   listeningCountView(){
     const isSelectCount = document.querySelector('#sort-view') as HTMLInputElement;
     if(isSelectCount){
@@ -311,8 +311,8 @@ export class MainPage extends Page {
       //убрать класс active на кнопках и вывести первую страницу
     })
     }
-    
-    
+
+
   }
 
   render() {
