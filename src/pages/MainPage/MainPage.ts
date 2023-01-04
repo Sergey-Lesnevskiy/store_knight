@@ -233,9 +233,11 @@ export class MainPage extends Page {
 
         //записываем в locale
         
-        const count: number = Number(sessionStorage.getItem('countCardPage'));
+        
+        let count: number = Number(sessionStorage.getItem('countCardPage'));
         const currentPageHTML = document.querySelector(`.store`);
-
+        // добавил проверку сюда
+        count===0?count=9:count;
         if (currentPageHTML) {
           currentPageHTML.innerHTML = '';
           currentPageHTML.replaceWith(this.mainCard.render(1, count));
