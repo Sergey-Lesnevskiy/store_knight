@@ -40,7 +40,9 @@ export class MainCard extends Component {
         break;
     }
   }
-  renderCart() {
+  renderCart( start:number= 1, sortCounts:number = 9 ) {
+    
+    const count = sessionStorage.getItem('countCardPage');
     const items = localStorage.getItem('filterItems');
     let arr: string[] = [];
     if (items) {
@@ -50,6 +52,16 @@ export class MainCard extends Component {
         arr.push(String(el.id));
       });
       localStorage.setItem('filterItems', arr.join(','));
+    }
+    if(count){
+       sortCounts = Number(count);
+    }
+   
+    if( start ){
+     arr = arr.slice(((start-1)*sortCounts),(start * sortCounts))
+    //  console.log((start-1)*sortCounts)
+    //  console.log(start * sortCounts)
+    //  console.log(arr)
     }
 
     const fragment = new DocumentFragment();
@@ -77,8 +89,8 @@ export class MainCard extends Component {
     this.container.append(fragment);
   }
 
-  render() {
-    this.renderCart();
+  render(start?:number, sortCounts?:number ) {
+    this.renderCart(start,sortCounts);
     return this.container;
   }
 }

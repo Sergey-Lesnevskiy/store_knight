@@ -47,11 +47,12 @@ export class MainPage extends Page {
       localStorage.removeItem('filterItems');
       localStorage.setItem('filterItems', filterItemsId.join(','));
 
+      const count: number = Number(sessionStorage.getItem('countCardPage'));
       const currentPageHTML = document.querySelector(`.store`);
 
       if (currentPageHTML) {
         currentPageHTML.innerHTML = '';
-        currentPageHTML.replaceWith(this.mainCard.render());
+        currentPageHTML.replaceWith(this.mainCard.render(1,count));
         this.listeningCartButton();
         this.listeningSortView();
       }
@@ -63,6 +64,12 @@ export class MainPage extends Page {
         typeFilterEl.remove();
         typeFilterContainerEl.append(this.typeFilter.render(category));
       }
+
+      //убрать класс active на кнопках и вывести первую страницу
+      const buttonPage = document.querySelectorAll(`.pagination__btn`)
+      buttonPage.forEach(el=>el.classList.remove('pagination__btn--active'))
+      buttonPage[0].classList.add('pagination__btn--active')
+      //убрать класс active на кнопках и вывести первую страницу
     });
   }
 
@@ -192,6 +199,7 @@ export class MainPage extends Page {
       }
     });
   }
+
   listeningSortPrice() {
     const isSelectPrice = document.querySelector('#sort-by') as HTMLInputElement;
 
@@ -224,11 +232,13 @@ export class MainPage extends Page {
         localStorage.setItem('filterItems', arr.join(','));
 
         //записываем в locale
+        
+        const count: number = Number(sessionStorage.getItem('countCardPage'));
         const currentPageHTML = document.querySelector(`.store`);
 
         if (currentPageHTML) {
           currentPageHTML.innerHTML = '';
-          currentPageHTML.replaceWith(this.mainCard.render());
+          currentPageHTML.replaceWith(this.mainCard.render(1, count));
         }
       });
     }
@@ -252,6 +262,55 @@ export class MainPage extends Page {
         storeSection?.classList.remove('store--line-view');
       });
     }
+  }
+
+  listeningPagination(){
+    const buttons = document.querySelector(`.pagination`);
+    buttons?.addEventListener('click',(e)=>{
+      const el = e.target as HTMLButtonElement;
+      if (el.classList.contains('pagination__btn')) {
+        document.querySelectorAll(`.pagination__btn`).forEach(el=>el.classList.remove('pagination__btn--active'))
+       el.classList.add('pagination__btn--active')
+        
+
+        const currentPageHTML = document.querySelector(`.store`);
+
+      if (currentPageHTML) {
+        currentPageHTML.innerHTML = '';
+        currentPageHTML.replaceWith(this.mainCard.render(Number(el.innerText)));
+        this.listeningCartButton();
+        this.listeningSortView();
+      }
+      }
+    })
+  }
+    
+  listeningCountView(){
+    const isSelectCount = document.querySelector('#sort-view') as HTMLInputElement;
+    if(isSelectCount){
+
+      let sortV: number = Number(isSelectCount.value);
+    isSelectCount.addEventListener('change', () => {
+      sortV = Number(isSelectCount.value);
+      sessionStorage.setItem('countCardPage',String(sortV))
+     const currentPageHTML = document.querySelector(`.store`);
+
+     if (currentPageHTML) {
+       currentPageHTML.innerHTML = '';
+       currentPageHTML.replaceWith(this.mainCard.render(1,sortV));
+       this.listeningCartButton();
+       this.listeningSortView();
+     }
+
+      //убрать класс active на кнопках и вывести первую страницу
+      const buttonPage = document.querySelectorAll(`.pagination__btn`)
+      buttonPage.forEach(el=>el.classList.remove('pagination__btn--active'))
+      buttonPage[0].classList.add('pagination__btn--active')
+      //убрать класс active на кнопках и вывести первую страницу
+    })
+    }
+    
+    
   }
 
   render() {

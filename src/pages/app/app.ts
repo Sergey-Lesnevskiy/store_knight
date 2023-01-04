@@ -18,6 +18,8 @@ export class App {
   private footer: Footer;
   private MainPage: MainPage;
   private cartPage: CartPage;
+  private ProductPage: ProductPage;
+
 
   //функция рендерит страницу в зависимости от смены url
   private enableRoutChange() {
@@ -32,9 +34,14 @@ export class App {
       this.MainPage.listeningSortView();
       this.MainPage.listeningCartLink();
       this.MainPage.listeningRange();
+      this.MainPage.listeningPagination();
       this.MainPage.listeningRangeStock();
+      //?
+      this.MainPage.listeningCountView();
+      //?
       this.cartPage.listeningOpenModal();
       this.cartPage.listeningDeleteOneCard();
+      this.ProductPage.listeningCartButton();
     });
   }
 
@@ -43,6 +50,7 @@ export class App {
     this.header = new Header('header', 'header');
     this.footer = new Footer('footer', 'footer');
     this.cartPage = new CartPage('cartPage');
+    this.ProductPage = new ProductPage('product-page');
   }
   //метод для смены страницы
   static renderNewPage(idPage: string) {
@@ -79,7 +87,12 @@ export class App {
     this.MainPage.listeningSortView();
     this.MainPage.listeningCartLink();
     this.MainPage.listeningRange();
+    
+    //?
+    this.MainPage.listeningCountView();
+    //?
     this.MainPage.listeningRangeStock();
+    this.MainPage.listeningPagination();
     App.container.append(this.footer.render());
   }
 }
