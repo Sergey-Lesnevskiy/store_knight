@@ -145,6 +145,7 @@ export class AsideFilters extends Component {
       <button class="pagination__btn pagination__btn--active">1</button>
       <button class="pagination__btn">2</button>
       <button class="pagination__btn">3</button>
+      <button class="pagination__btn">4</button>
     
 `;
 
