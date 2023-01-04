@@ -47,9 +47,9 @@ export class MainPage extends Page {
       localStorage.removeItem('filterItems');
       localStorage.setItem('filterItems', filterItemsId.join(','));
 
-      const count: number = Number(sessionStorage.getItem('countCardPage'));
+      let count: number = Number(sessionStorage.getItem('countCardPage'));
       const currentPageHTML = document.querySelector(`.store`);
-
+      count===0?count=9:count;
       if (currentPageHTML) {
         currentPageHTML.innerHTML = '';
         currentPageHTML.replaceWith(this.mainCard.render(1,count));
