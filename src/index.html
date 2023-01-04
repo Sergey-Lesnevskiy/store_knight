@@ -13,49 +13,100 @@
     <div class="modal">
       <div class="modal__content">
         <h2 class="modal__title">Оформление заказа</h2>
-        <form class="modal__form form">
+        <form class="modal__form form" id="order-form">
           <div class="form__user-info">
             <div class="form__field">
               <label for="user-name">Имя Фамилия</label>
-              <input type="text" id="user-name" />
+              <input
+                type="text"
+                name="user-name"
+                id="user-name"
+                placeholder="Например, Ян Янов"
+                pattern="[a-zA-Z\u0400-\u04ff\s]{5,32}"
+                title="Не менее 5 символов. Кириллица"
+                required
+                autofocus/>
             </div>
 
             <div class="form__field">
-              <label for="user-name">Номер телефона</label>
-              <input type="text" id="user-tel" />
+              <label for="user-tel">Номер телефона</label>
+              <input
+                type="tel"
+                name="user-tel"
+                id="user-tel"
+                placeholder="Например, +375-29-666-66-66"
+                pattern="[0-9\s\-\+]{9,18}"
+                title="Не менее 9 символов. Пример: 296666666 или +375-29-666-66-66"
+                required/>
             </div>
 
             <div class="form__field">
-              <label for="user-name">Адрес доставки</label>
-              <input type="text" id="user-adress" />
+              <label for="user-adress">Адрес доставки</label>
+              <input
+                type="text"
+                name="user-adress"
+                id="user-adress"
+                placeholder="Например, ул.Дуды, д.21, кв.17"
+                title="Не менее 12 символов. Пример: ул.Дуды, д.21, кв.17"
+                minlength="12"
+                required/>
             </div>
 
             <div class="form__field">
-              <label for="user-name">E-mail</label>
-              <input type="text" id="user-email" />
+              <label for="user-email">E-mail</label>
+              <input
+                type="email"
+                name="user-email"
+                id="user-email"
+                placeholder="Например, info@zona.media"
+                required/>
             </div>
           </div>
 
           <div class="form__card-info">
             <div class="form__field form__field--card-id">
               <label for="card-id">Номер карты</label>
-              <input type="text" id="card-id" />
+              <input
+                type="text"
+                inputmode="numeric"
+                name="card-id"
+                id="card-id"
+                placeholder="**** **** **** ****"
+                pattern="[0-9]{16}"
+                title="Длина: 16 символов"
+                required/>
             </div>
 
             <div class="form__card-info-wrapper">
               <div class="form__field">
                 <label for="card-date">Срок действия</label>
-                <input type="text" id="card-date" />
+                <input
+                  type="text"
+                  inputmode="numeric"
+                  name="card-date"
+                  id="card-date"
+                  placeholder="**/**"
+                  pattern="[0-9\/]{5}"
+                  title="Длина: 5 символа"
+                  required/>
               </div>
               <div class="form__field">
                 <label for="card-cvv">CVV</label>
-                <input type="text" id="card-cvv" />
+                <input
+                  type="text"
+                  inputmode="numeric"
+                  name="card-cvv"
+                  id="card-cvv"
+                  placeholder="***"
+                  pattern="\d{3}"
+                  title="Длина: 3 символа"
+                  required/>
               </div>
             </div>
           </div>
         </form>
 
-        <button class="modal__btn-confirm">Подтвердить</button>
+        <button class="modal__btn-confirm" type="submit" form="order-form">Подтвердить</button>
         <button class="modal__btn-close" aria-label="Close">×</button>
       </div>
     </div>
