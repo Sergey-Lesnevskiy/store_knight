@@ -41,7 +41,7 @@ export class MainCard extends Component {
     }
   }
   renderCart( start:number= 1, sortCounts:number = 9 ) {
-    
+
     const count = sessionStorage.getItem('countCardPage');
     const items = localStorage.getItem('filterItems');
     let arr: string[] = [];
@@ -56,7 +56,7 @@ export class MainCard extends Component {
     if(count){
        sortCounts = Number(count);
     }
-   
+
     if( start ){
      arr = arr.slice(((start-1)*sortCounts),(start * sortCounts))
     //  console.log((start-1)*sortCounts)
@@ -71,6 +71,7 @@ export class MainCard extends Component {
 
       const cardHTML = document.createElement('div');
       cardHTML.classList.add('store__item', 'item');
+      cardHTML.setAttribute('data-type', `${products[Number(button) - 1].type}`);
       cardHTML.innerHTML = `
         <a class="item__link" href="#product-page" data-card=${products[Number(button) - 1].id}>
           <div class="item__img">

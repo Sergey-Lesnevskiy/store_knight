@@ -24,11 +24,12 @@ export class App {
   //функция рендерит страницу в зависимости от смены url
   private enableRoutChange() {
     window.addEventListener('hashchange', () => {
-   
+
 
       const hash = window.location.hash.slice(1);
       App.renderNewPage(hash);
       this.MainPage.listeningCategory();
+      this.MainPage.listeningType();
       this.MainPage.searchProduct();
       this.MainPage.listeningSortPrice();
       this.MainPage.listeningSortView();
@@ -81,13 +82,14 @@ export class App {
     App.renderNewPage('main-page');
     this.enableRoutChange();
     this.MainPage.listeningCategory();
+    this.MainPage.listeningType();
     this.MainPage.listeningCartButton();
     this.MainPage.searchProduct();
     this.MainPage.listeningSortPrice();
     this.MainPage.listeningSortView();
     this.MainPage.listeningCartLink();
     this.MainPage.listeningRange();
-    
+
     //?
     this.MainPage.listeningCountView();
     //?
