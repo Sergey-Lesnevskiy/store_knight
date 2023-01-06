@@ -67,8 +67,8 @@ export class AsideFilters extends Component {
         <h3 class="price-filter__title">Цена:</h3>
         <div class="price-filter__slider">
           <div class="price-filter__input-group">
-            <input class="price-filter__input" type="number" value="100" min="0" max="300000"/>
-            <input class="price-filter__input" type="number" value="30000" min="0" max="300000"/>
+          <input class="price-filter__input input-min" type="number" value="100" min="0" max="300000"/>
+          <input class="price-filter__input input-max" type="number" value="300000" min="0" max="300000"/>
           </div>
 
           <div class="price-filter__range-group">

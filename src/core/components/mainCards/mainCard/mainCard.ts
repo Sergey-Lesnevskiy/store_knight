@@ -59,9 +59,7 @@ export class MainCard extends Component {
 
     if( start ){
      arr = arr.slice(((start-1)*sortCounts),(start * sortCounts))
-    //  console.log((start-1)*sortCounts)
-    //  console.log(start * sortCounts)
-    //  console.log(arr)
+   
     }
 
     const fragment = new DocumentFragment();
