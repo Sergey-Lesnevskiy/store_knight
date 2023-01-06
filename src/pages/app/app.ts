@@ -37,9 +37,7 @@ export class App {
       this.MainPage.listeningRange();
       this.MainPage.listeningPagination();
       this.MainPage.listeningRangeStock();
-      //?
       this.MainPage.listeningCountView();
-      //?
       this.cartPage.listeningOpenModal();
       this.cartPage.listeningDeleteOneCard();
       this.ProductPage.listeningCartButton();
@@ -89,10 +87,7 @@ export class App {
     this.MainPage.listeningSortView();
     this.MainPage.listeningCartLink();
     this.MainPage.listeningRange();
-
-    //?
     this.MainPage.listeningCountView();
-    //?
     this.MainPage.listeningRangeStock();
     this.MainPage.listeningPagination();
     App.container.append(this.footer.render());

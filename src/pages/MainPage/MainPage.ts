@@ -206,6 +206,37 @@ export class MainPage extends Page {
     const rangeInput = document.querySelectorAll('.price-filter__range-group input');
 
     const priceGap = 1;
+
+    priceInput.forEach(input =>{
+      input.addEventListener('input',(e)=>{
+        const minVal = parseInt((priceInput[0] as HTMLInputElement).value);
+        const maxVal = parseInt((priceInput[1] as HTMLInputElement).value);
+       
+        if(( maxVal - minVal >= priceGap ) && maxVal <= 300000 ){
+          const el = e.target as HTMLInputElement;
+          if(el.classList.contains('input-min')){
+            (rangeInput[0] as HTMLInputElement).value = String(minVal);
+            
+          }else{
+            (rangeInput[1] as HTMLInputElement).value = String(maxVal);
+          }
+          const dataItemsPrice = document.getElementsByClassName('item__price') as HTMLCollectionOf<HTMLElement>;
+          const dataItems = document.getElementsByClassName('store__item item') as HTMLCollectionOf<HTMLElement>;
+          for (let i = 0; i < dataItemsPrice.length; i++) {
+            if (
+              Number(dataItemsPrice[i].innerText.slice(0, -3).trim()) > minVal &&
+              Number(dataItemsPrice[i].innerText.slice(0, -3).trim()) < maxVal
+            ) {
+              dataItems[i].classList.remove('hide');
+            } else {
+              dataItems[i].classList.add('hide');
+            }
+          }
+        }
+      })
+    })
+
+
     rangeInput.forEach((input) => {
       input.addEventListener('input', (e) => {
         const minVal = parseInt((rangeInput[0] as HTMLInputElement).value);
@@ -241,8 +272,22 @@ export class MainPage extends Page {
   listeningRangeStock() {
     const priceInput = document.querySelector('.stock-filter__input');
     const rangeInput = document.querySelector('.stock-filter__range');
-    rangeInput?.addEventListener('input', () => {
 
+    priceInput?.addEventListener('input', () => {
+      const val = parseInt((priceInput as HTMLInputElement).value);
+      (rangeInput as HTMLInputElement).value = String(val);
+      (priceInput as HTMLInputElement).value = String(val);
+      const dataItemsPrice = document.querySelectorAll('.item__stock span') as NodeListOf<HTMLElement>;
+      const dataItems = document.getElementsByClassName('store__item item') as HTMLCollectionOf<HTMLElement>;
+      for (let i = 0; i < dataItemsPrice.length; i++) {
+        if (Number(dataItemsPrice[i].innerText) >= val) {
+          dataItems[i].classList.remove('hide');
+        } else {
+          dataItems[i].classList.add('hide');
+        }
+      }
+    });
+    rangeInput?.addEventListener('input', () => {
       const val = parseInt((rangeInput as HTMLInputElement).value);
       (rangeInput as HTMLInputElement).value = String(val);
       (priceInput as HTMLInputElement).value = String(val);
@@ -257,6 +302,7 @@ export class MainPage extends Page {
       }
     });
   }
+
 
   listeningSortPrice() {
     const isSelectPrice = document.querySelector('#sort-by') as HTMLInputElement;
