@@ -24,6 +24,10 @@ export class MainPage extends Page {
   protected header: Header;
   protected productCard: ProductCard;
 
+  // Массив для хранения типов при фильтрации по типу (так как одновременно может быть выбрано несколько)
+  protected checkedTypes: string[];
+  // Этот массив возможно нужно пушить в localStorage...
+
   constructor(id: string) {
     super(id);
     this.productCard = new ProductCard('div', 'product');
@@ -32,6 +36,8 @@ export class MainPage extends Page {
     this.typeFilter = new TypeFilter();
     this.mainCard = new MainCard('section', 'store');
     this.header = new Header('header', 'header');
+
+    this.checkedTypes = [];
   }
 
   listeningCategory() {
@@ -47,12 +53,14 @@ export class MainPage extends Page {
       localStorage.removeItem('filterItems');
       localStorage.setItem('filterItems', filterItemsId.join(','));
 
+      this.checkedTypes.length = 0;
+
       let count: number = Number(sessionStorage.getItem('countCardPage'));
       const currentPageHTML = document.querySelector(`.store`);
-      count===0?count=9:count;
+      count === 0 ? count = 9 : count;
       if (currentPageHTML) {
         currentPageHTML.innerHTML = '';
-        currentPageHTML.replaceWith(this.mainCard.render(1,count));
+        currentPageHTML.replaceWith(this.mainCard.render(1, count));
         this.listeningCartButton();
         this.listeningSortView();
       }
@@ -67,9 +75,59 @@ export class MainPage extends Page {
 
       //убрать класс active на кнопках и вывести первую страницу
       const buttonPage = document.querySelectorAll(`.pagination__btn`)
-      buttonPage.forEach(el=>el.classList.remove('pagination__btn--active'))
+      buttonPage.forEach(el => el.classList.remove('pagination__btn--active'))
       buttonPage[0].classList.add('pagination__btn--active')
       //убрать класс active на кнопках и вывести первую страницу
+    });
+  }
+
+  listeningType() {
+    const typeFilter = document.querySelector('.type-filter') as HTMLElement;
+    // Изначально, ДО клика, показываются все товары из категории
+    typeFilter.addEventListener('click', (e) => {
+      const el = e.target as HTMLInputElement;
+      if (el.hasAttribute('id') && el.checked) {
+        // При клике на чекбокс прячем все
+        const dataItems = document.getElementsByClassName('store__item') as HTMLCollectionOf<HTMLElement>;
+        for (const item of dataItems) item.classList.add('hide');
+
+        const type = el.nextElementSibling?.textContent;
+        // Добавляем значение типа в массив
+        if (type) this.checkedTypes.push(type);
+        // Показываем только отмеченные (значения из массива)
+        for (let i = 0; i < dataItems.length; i++) {
+          for (let j = 0; j < this.checkedTypes.length; j++) {
+            if (dataItems[i].getAttribute('data-type') === this.checkedTypes[j]) {
+              dataItems[i].classList.remove('hide')
+            }
+          }
+        }
+        // При снятии чекбокса
+      } else if (el.hasAttribute('id') && !el.checked) {
+        const dataItems = document.getElementsByClassName('store__item') as HTMLCollectionOf<HTMLElement>;
+        for (const item of dataItems) item.classList.add('hide');
+
+        const type = el.nextElementSibling?.textContent;
+        //  Удаляем из массива типов (checkedTypes) этот тип
+        if (type) {
+          const index = this.checkedTypes.indexOf(type);
+          this.checkedTypes.splice(index, 1);
+        }
+        // Показываем только отмеченные (значения из массива)
+        for (let i = 0; i < dataItems.length; i++) {
+          for (let j = 0; j < this.checkedTypes.length; j++) {
+            if (dataItems[i].getAttribute('data-type') === this.checkedTypes[j]) {
+              dataItems[i].classList.remove('hide')
+            }
+          }
+        }
+        // Если не выбран не один чекбокс - показываем все товары из категории
+        if (this.checkedTypes.length === 0) {
+          for (let i = 0; i < dataItems.length; i++) {
+            dataItems[i].classList.remove('hide')
+          }
+        }
+      }
     });
   }
 
@@ -237,7 +295,7 @@ export class MainPage extends Page {
         let count: number = Number(sessionStorage.getItem('countCardPage'));
         const currentPageHTML = document.querySelector(`.store`);
         // добавил проверку сюда
-        count===0?count=9:count;
+        count === 0 ? count = 9 : count;
         if (currentPageHTML) {
           currentPageHTML.innerHTML = '';
           currentPageHTML.replaceWith(this.mainCard.render(1, count));
@@ -266,50 +324,50 @@ export class MainPage extends Page {
     }
   }
 
-  listeningPagination(){
+  listeningPagination() {
     const buttons = document.querySelector(`.pagination`);
-    buttons?.addEventListener('click',(e)=>{
+    buttons?.addEventListener('click', (e) => {
       const el = e.target as HTMLButtonElement;
       if (el.classList.contains('pagination__btn')) {
-        document.querySelectorAll(`.pagination__btn`).forEach(el=>el.classList.remove('pagination__btn--active'))
-       el.classList.add('pagination__btn--active')
+        document.querySelectorAll(`.pagination__btn`).forEach(el => el.classList.remove('pagination__btn--active'))
+        el.classList.add('pagination__btn--active')
 
 
         const currentPageHTML = document.querySelector(`.store`);
 
-      if (currentPageHTML) {
-        currentPageHTML.innerHTML = '';
-        currentPageHTML.replaceWith(this.mainCard.render(Number(el.innerText)));
-        this.listeningCartButton();
-        this.listeningSortView();
-      }
+        if (currentPageHTML) {
+          currentPageHTML.innerHTML = '';
+          currentPageHTML.replaceWith(this.mainCard.render(Number(el.innerText)));
+          this.listeningCartButton();
+          this.listeningSortView();
+        }
       }
     })
   }
 
-  listeningCountView(){
+  listeningCountView() {
     const isSelectCount = document.querySelector('#sort-view') as HTMLInputElement;
-    if(isSelectCount){
+    if (isSelectCount) {
 
       let sortV: number = Number(isSelectCount.value);
-    isSelectCount.addEventListener('change', () => {
-      sortV = Number(isSelectCount.value);
-      sessionStorage.setItem('countCardPage',String(sortV))
-     const currentPageHTML = document.querySelector(`.store`);
+      isSelectCount.addEventListener('change', () => {
+        sortV = Number(isSelectCount.value);
+        sessionStorage.setItem('countCardPage', String(sortV))
+        const currentPageHTML = document.querySelector(`.store`);
 
-     if (currentPageHTML) {
-       currentPageHTML.innerHTML = '';
-       currentPageHTML.replaceWith(this.mainCard.render(1,sortV));
-       this.listeningCartButton();
-       this.listeningSortView();
-     }
+        if (currentPageHTML) {
+          currentPageHTML.innerHTML = '';
+          currentPageHTML.replaceWith(this.mainCard.render(1, sortV));
+          this.listeningCartButton();
+          this.listeningSortView();
+        }
 
-      //убрать класс active на кнопках и вывести первую страницу
-      const buttonPage = document.querySelectorAll(`.pagination__btn`)
-      buttonPage.forEach(el=>el.classList.remove('pagination__btn--active'))
-      buttonPage[0].classList.add('pagination__btn--active')
-      //убрать класс active на кнопках и вывести первую страницу
-    })
+        //убрать класс active на кнопках и вывести первую страницу
+        const buttonPage = document.querySelectorAll(`.pagination__btn`)
+        buttonPage.forEach(el => el.classList.remove('pagination__btn--active'))
+        buttonPage[0].classList.add('pagination__btn--active')
+        //убрать класс active на кнопках и вывести первую страницу
+      })
     }
 
 
