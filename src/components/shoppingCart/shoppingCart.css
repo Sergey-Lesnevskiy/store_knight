@@ -43,7 +43,7 @@
 .shopping-cart__img {
   width: 180px;
   height: 180px;
-  background-image: url('../../images/armor/chain_mail/chainMail2.jpg');
+  /* background-image: url('../../images/armor/chain_mail/chainMail2.jpg'); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
