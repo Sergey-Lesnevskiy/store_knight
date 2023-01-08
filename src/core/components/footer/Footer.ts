@@ -1,6 +1,6 @@
-import '../../../components/pageHeader/pageHeader';
+import './pageFooter.css';
 import { Component } from '../../templates/components';
-import { PageId } from '../../../pages/app/app';
+
 
 export class Footer extends Component {
   constructor(tagName: string, className: string) {

@@ -6,8 +6,6 @@
   border-radius: 6px;
 }
 
-.product__image {
-}
 
 .product__image-big {
   min-width: 380px;
@@ -78,8 +76,6 @@
   font-weight: 700;
 }
 
-.product__features {
-}
 
 .product__row {
   display: flex;

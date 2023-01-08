@@ -6,7 +6,7 @@ export abstract class Page {
     this.container.id = id;
   }
 
-  render() {
+  render(){
     return this.container;
   }
 }

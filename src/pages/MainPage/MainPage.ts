@@ -1,5 +1,5 @@
 import { Page } from '../../core/templates/page';
-import '../../components/pageFooter/pageFooter';
+// import '../../core/components/footer/';
 import '../../components/storeItem/storeItem';
 import '../../components/filters/filters';
 import '../../components/pagination/pagination';
@@ -89,7 +89,7 @@ export class MainPage extends Page {
       if (el.hasAttribute('id') && el.checked) {
         // При клике на чекбокс прячем все
         const dataItems = document.getElementsByClassName('store__item') as HTMLCollectionOf<HTMLElement>;
-        for (const item of dataItems) item.classList.add('hide');
+        for (const item of dataItems) item.classList.add('hideType');
 
         const type = el.nextElementSibling?.textContent;
         // Добавляем значение типа в массив
@@ -98,14 +98,14 @@ export class MainPage extends Page {
         for (let i = 0; i < dataItems.length; i++) {
           for (let j = 0; j < this.checkedTypes.length; j++) {
             if (dataItems[i].getAttribute('data-type') === this.checkedTypes[j]) {
-              dataItems[i].classList.remove('hide')
+              dataItems[i].classList.remove('hideType')
             }
           }
         }
         // При снятии чекбокса
       } else if (el.hasAttribute('id') && !el.checked) {
         const dataItems = document.getElementsByClassName('store__item') as HTMLCollectionOf<HTMLElement>;
-        for (const item of dataItems) item.classList.add('hide');
+        for (const item of dataItems) item.classList.add('hideType');
 
         const type = el.nextElementSibling?.textContent;
         //  Удаляем из массива типов (checkedTypes) этот тип
@@ -117,14 +117,14 @@ export class MainPage extends Page {
         for (let i = 0; i < dataItems.length; i++) {
           for (let j = 0; j < this.checkedTypes.length; j++) {
             if (dataItems[i].getAttribute('data-type') === this.checkedTypes[j]) {
-              dataItems[i].classList.remove('hide')
+              dataItems[i].classList.remove('hideType')
             }
           }
         }
         // Если не выбран не один чекбокс - показываем все товары из категории
         if (this.checkedTypes.length === 0) {
           for (let i = 0; i < dataItems.length; i++) {
-            dataItems[i].classList.remove('hide')
+            dataItems[i].classList.remove('hideType')
           }
         }
       }

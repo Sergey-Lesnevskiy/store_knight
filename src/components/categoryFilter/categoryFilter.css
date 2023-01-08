@@ -5,6 +5,9 @@
 .hide {
   display: none;
 }
+.hideType {
+  display: none;
+}
 
 .category-filter__list {
   margin: 0;
