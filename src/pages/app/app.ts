@@ -38,6 +38,7 @@ export class App {
       this.MainPage.listeningPagination();
       this.MainPage.listeningRangeStock();
       this.MainPage.listeningCountView();
+      this.MainPage.listeningCartButton();
       this.cartPage.listeningOpenModal();
       this.cartPage.listeningDeleteOneCard();
       this.ProductPage.listeningCartButton();
