@@ -26,7 +26,7 @@ export class ProductCard extends Component {
             <div class="product__image-small">
             <img src=${products[items - 1].images[1]} alt=""></div>
             <div class="product__image-small">
-            <img src=${products[items - 1].images[0]} alt=""></div>
+            <img src=${products[items - 1].images[2]} alt=""></div>
           </div>
         </div>
 

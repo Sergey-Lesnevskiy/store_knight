@@ -6,14 +6,18 @@
   border-radius: 6px;
 }
 
-.product__image {
-}
+
 
 .product__image-big {
   min-width: 380px;
   height: 380px;
   background-color: var(--color-success);
   border-radius: 6px;
+  overflow: hidden;
+  transition: 1s;
+}
+.product__image-big:hover{
+  transform: scale(1.1);
 }
 
 .product__image-thumbnails {
@@ -27,6 +31,11 @@
   height: 120px;
   background-color: var(--color-success);
   border-radius: 2px;
+  transition: 1s;
+}
+
+.product__image-small:hover{
+  transform: scale(1.2);
 }
 
 .product__info {
