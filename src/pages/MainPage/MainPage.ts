@@ -162,13 +162,16 @@ export class MainPage extends Page {
     const linksA = document.querySelectorAll('.item__link');
     linksA.forEach((item) => {
       item.addEventListener('click', (e) => {
+        e.preventDefault();
         const el = e.currentTarget as HTMLLinkElement;
+        
         localStorage.removeItem('cardProduct');
         const type = el.getAttribute('data-card');
         if (type) localStorage.setItem('cardProduct', type);
         const url = el.href;
+        console.log(url);
         window.open(url, '_self');
-        e.preventDefault();
+        
       });
     });
   }
