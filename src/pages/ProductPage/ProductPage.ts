@@ -17,7 +17,7 @@ export class ProductPage extends Page {
 
     document.querySelector('.product__cart-btn')?.addEventListener('click', (e) => {
       const el = e.target as HTMLButtonElement;
-      // if (el.classList.contains('item__btn')) {
+      
         const type = el.getAttribute('data-card');
         if (card) {
           card = card + ',' + type;
@@ -33,8 +33,25 @@ export class ProductPage extends Page {
           headerHTML.replaceWith(this.header.render());
         }
         el.disabled = true;
-      // }
+   
     });
+  }
+  listeningImage(){
+    const imgeBlock = document.querySelector('.product__image-thumbnails')as HTMLDivElement;
+    const imgeBig = document.querySelector('.product__image-big img') as HTMLImageElement;
+
+    if(imgeBlock){
+      imgeBlock.addEventListener('click',(e)=>{
+        const el = e.target as HTMLImageElement;
+        const type = el
+        const change = type.src
+
+        console.log(change);
+        if(imgeBig){
+          imgeBig.src = type.src
+        }
+      })
+    }
   }
 
   render() {

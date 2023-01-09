@@ -42,6 +42,7 @@ export class App {
       this.cartPage.listeningOpenModal();
       this.cartPage.listeningDeleteOneCard();
       this.ProductPage.listeningCartButton();
+      this.ProductPage.listeningImage();
     });
   }
 
