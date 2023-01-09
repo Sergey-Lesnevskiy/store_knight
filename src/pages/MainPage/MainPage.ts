@@ -57,7 +57,7 @@ export class MainPage extends Page {
 
       let count: number = Number(sessionStorage.getItem('countCardPage'));
       const currentPageHTML = document.querySelector(`.store`);
-      count === 0 ? count = 9 : count;
+      count === 0 ? (count = 9) : count;
       if (currentPageHTML) {
         currentPageHTML.innerHTML = '';
         currentPageHTML.replaceWith(this.mainCard.render(1, count));
@@ -74,61 +74,63 @@ export class MainPage extends Page {
       }
 
       //убрать класс active на кнопках и вывести первую страницу
-      const buttonPage = document.querySelectorAll(`.pagination__btn`)
-      buttonPage.forEach(el => el.classList.remove('pagination__btn--active'))
-      buttonPage[0].classList.add('pagination__btn--active')
+      const buttonPage = document.querySelectorAll(`.pagination__btn`);
+      buttonPage.forEach((el) => el.classList.remove('pagination__btn--active'));
+      buttonPage[0].classList.add('pagination__btn--active');
       //убрать класс active на кнопках и вывести первую страницу
     });
   }
 
   listeningType() {
     const typeFilter = document.querySelector('.type-filter') as HTMLElement;
-    // Изначально, ДО клика, показываются все товары из категории
-    typeFilter.addEventListener('click', (e) => {
-      const el = e.target as HTMLInputElement;
-      if (el.hasAttribute('id') && el.checked) {
-        // При клике на чекбокс прячем все
-        const dataItems = document.getElementsByClassName('store__item') as HTMLCollectionOf<HTMLElement>;
-        for (const item of dataItems) item.classList.add('hideType');
+    if (typeFilter) {
+      // Изначально, ДО клика, показываются все товары из категории
+      typeFilter.addEventListener('click', (e) => {
+        const el = e.target as HTMLInputElement;
+        if (el.hasAttribute('id') && el.checked) {
+          // При клике на чекбокс прячем все
+          const dataItems = document.getElementsByClassName('store__item') as HTMLCollectionOf<HTMLElement>;
+          for (const item of dataItems) item.classList.add('hideType');
 
-        const type = el.nextElementSibling?.textContent;
-        // Добавляем значение типа в массив
-        if (type) this.checkedTypes.push(type);
-        // Показываем только отмеченные (значения из массива)
-        for (let i = 0; i < dataItems.length; i++) {
-          for (let j = 0; j < this.checkedTypes.length; j++) {
-            if (dataItems[i].getAttribute('data-type') === this.checkedTypes[j]) {
-              dataItems[i].classList.remove('hideType')
-            }
-          }
-        }
-        // При снятии чекбокса
-      } else if (el.hasAttribute('id') && !el.checked) {
-        const dataItems = document.getElementsByClassName('store__item') as HTMLCollectionOf<HTMLElement>;
-        for (const item of dataItems) item.classList.add('hideType');
-
-        const type = el.nextElementSibling?.textContent;
-        //  Удаляем из массива типов (checkedTypes) этот тип
-        if (type) {
-          const index = this.checkedTypes.indexOf(type);
-          this.checkedTypes.splice(index, 1);
-        }
-        // Показываем только отмеченные (значения из массива)
-        for (let i = 0; i < dataItems.length; i++) {
-          for (let j = 0; j < this.checkedTypes.length; j++) {
-            if (dataItems[i].getAttribute('data-type') === this.checkedTypes[j]) {
-              dataItems[i].classList.remove('hideType')
-            }
-          }
-        }
-        // Если не выбран не один чекбокс - показываем все товары из категории
-        if (this.checkedTypes.length === 0) {
+          const type = el.nextElementSibling?.textContent;
+          // Добавляем значение типа в массив
+          if (type) this.checkedTypes.push(type);
+          // Показываем только отмеченные (значения из массива)
           for (let i = 0; i < dataItems.length; i++) {
-            dataItems[i].classList.remove('hideType')
+            for (let j = 0; j < this.checkedTypes.length; j++) {
+              if (dataItems[i].getAttribute('data-type') === this.checkedTypes[j]) {
+                dataItems[i].classList.remove('hideType');
+              }
+            }
+          }
+          // При снятии чекбокса
+        } else if (el.hasAttribute('id') && !el.checked) {
+          const dataItems = document.getElementsByClassName('store__item') as HTMLCollectionOf<HTMLElement>;
+          for (const item of dataItems) item.classList.add('hideType');
+
+          const type = el.nextElementSibling?.textContent;
+          //  Удаляем из массива типов (checkedTypes) этот тип
+          if (type) {
+            const index = this.checkedTypes.indexOf(type);
+            this.checkedTypes.splice(index, 1);
+          }
+          // Показываем только отмеченные (значения из массива)
+          for (let i = 0; i < dataItems.length; i++) {
+            for (let j = 0; j < this.checkedTypes.length; j++) {
+              if (dataItems[i].getAttribute('data-type') === this.checkedTypes[j]) {
+                dataItems[i].classList.remove('hideType');
+              }
+            }
+          }
+          // Если не выбран не один чекбокс - показываем все товары из категории
+          if (this.checkedTypes.length === 0) {
+            for (let i = 0; i < dataItems.length; i++) {
+              dataItems[i].classList.remove('hideType');
+            }
           }
         }
-      }
-    });
+      });
+    }
   }
 
   listeningCartButton() {
@@ -161,7 +163,6 @@ export class MainPage extends Page {
     linksA.forEach((item) => {
       item.addEventListener('click', (e) => {
         const el = e.currentTarget as HTMLLinkElement;
-
         localStorage.removeItem('cardProduct');
         const type = el.getAttribute('data-card');
         if (type) localStorage.setItem('cardProduct', type);
@@ -207,17 +208,16 @@ export class MainPage extends Page {
 
     const priceGap = 1;
 
-    priceInput.forEach(input =>{
-      input.addEventListener('input',(e)=>{
+    priceInput.forEach((input) => {
+      input.addEventListener('input', (e) => {
         const minVal = parseInt((priceInput[0] as HTMLInputElement).value);
         const maxVal = parseInt((priceInput[1] as HTMLInputElement).value);
-       
-        if(( maxVal - minVal >= priceGap ) && maxVal <= 300000 ){
+
+        if (maxVal - minVal >= priceGap && maxVal <= 300000) {
           const el = e.target as HTMLInputElement;
-          if(el.classList.contains('input-min')){
+          if (el.classList.contains('input-min')) {
             (rangeInput[0] as HTMLInputElement).value = String(minVal);
-            
-          }else{
+          } else {
             (rangeInput[1] as HTMLInputElement).value = String(maxVal);
           }
           const dataItemsPrice = document.getElementsByClassName('item__price') as HTMLCollectionOf<HTMLElement>;
@@ -233,9 +233,8 @@ export class MainPage extends Page {
             }
           }
         }
-      })
-    })
-
+      });
+    });
 
     rangeInput.forEach((input) => {
       input.addEventListener('input', (e) => {
@@ -272,13 +271,16 @@ export class MainPage extends Page {
   listeningRangeStock() {
     const priceInput = document.querySelector('.stock-filter__input');
     const rangeInput = document.querySelector('.stock-filter__range');
+    
+    const dataItemsPrice = document.querySelectorAll('.item__stock span') as NodeListOf<HTMLElement>;
+    const dataItems = document.getElementsByClassName('store__item item') as HTMLCollectionOf<HTMLElement>;
+
 
     priceInput?.addEventListener('input', () => {
       const val = parseInt((priceInput as HTMLInputElement).value);
       (rangeInput as HTMLInputElement).value = String(val);
       (priceInput as HTMLInputElement).value = String(val);
-      const dataItemsPrice = document.querySelectorAll('.item__stock span') as NodeListOf<HTMLElement>;
-      const dataItems = document.getElementsByClassName('store__item item') as HTMLCollectionOf<HTMLElement>;
+    
       for (let i = 0; i < dataItemsPrice.length; i++) {
         if (Number(dataItemsPrice[i].innerText) >= val) {
           dataItems[i].classList.remove('hide');
@@ -291,8 +293,8 @@ export class MainPage extends Page {
       const val = parseInt((rangeInput as HTMLInputElement).value);
       (rangeInput as HTMLInputElement).value = String(val);
       (priceInput as HTMLInputElement).value = String(val);
-      const dataItemsPrice = document.querySelectorAll('.item__stock span') as NodeListOf<HTMLElement>;
-      const dataItems = document.getElementsByClassName('store__item item') as HTMLCollectionOf<HTMLElement>;
+      // const dataItemsPrice = document.querySelectorAll('.item__stock span') as NodeListOf<HTMLElement>;
+      // const dataItems = document.getElementsByClassName('store__item item') as HTMLCollectionOf<HTMLElement>;
       for (let i = 0; i < dataItemsPrice.length; i++) {
         if (Number(dataItemsPrice[i].innerText) >= val) {
           dataItems[i].classList.remove('hide');
@@ -302,7 +304,6 @@ export class MainPage extends Page {
       }
     });
   }
-
 
   listeningSortPrice() {
     const isSelectPrice = document.querySelector('#sort-by') as HTMLInputElement;
@@ -337,11 +338,10 @@ export class MainPage extends Page {
 
         //записываем в locale
 
-
         let count: number = Number(sessionStorage.getItem('countCardPage'));
         const currentPageHTML = document.querySelector(`.store`);
         // добавил проверку сюда
-        count === 0 ? count = 9 : count;
+        count === 0 ? (count = 9) : count;
         if (currentPageHTML) {
           currentPageHTML.innerHTML = '';
           currentPageHTML.replaceWith(this.mainCard.render(1, count));
@@ -375,9 +375,8 @@ export class MainPage extends Page {
     buttons?.addEventListener('click', (e) => {
       const el = e.target as HTMLButtonElement;
       if (el.classList.contains('pagination__btn')) {
-        document.querySelectorAll(`.pagination__btn`).forEach(el => el.classList.remove('pagination__btn--active'))
-        el.classList.add('pagination__btn--active')
-
+        document.querySelectorAll(`.pagination__btn`).forEach((el) => el.classList.remove('pagination__btn--active'));
+        el.classList.add('pagination__btn--active');
 
         const currentPageHTML = document.querySelector(`.store`);
 
@@ -388,17 +387,16 @@ export class MainPage extends Page {
           this.listeningSortView();
         }
       }
-    })
+    });
   }
 
   listeningCountView() {
     const isSelectCount = document.querySelector('#sort-view') as HTMLInputElement;
     if (isSelectCount) {
-
       let sortV: number = Number(isSelectCount.value);
       isSelectCount.addEventListener('change', () => {
         sortV = Number(isSelectCount.value);
-        sessionStorage.setItem('countCardPage', String(sortV))
+        sessionStorage.setItem('countCardPage', String(sortV));
         const currentPageHTML = document.querySelector(`.store`);
 
         if (currentPageHTML) {
@@ -409,14 +407,12 @@ export class MainPage extends Page {
         }
 
         //убрать класс active на кнопках и вывести первую страницу
-        const buttonPage = document.querySelectorAll(`.pagination__btn`)
-        buttonPage.forEach(el => el.classList.remove('pagination__btn--active'))
-        buttonPage[0].classList.add('pagination__btn--active')
+        const buttonPage = document.querySelectorAll(`.pagination__btn`);
+        buttonPage.forEach((el) => el.classList.remove('pagination__btn--active'));
+        buttonPage[0].classList.add('pagination__btn--active');
         //убрать класс active на кнопках и вывести первую страницу
-      })
+      });
     }
-
-
   }
 
   render() {

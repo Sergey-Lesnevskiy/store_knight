@@ -61,6 +61,7 @@ export class CartPage extends Page {
           headerHTML.innerHTML = '';
           headerHTML.replaceWith(this.header.render());
         }
+        this.listeningOpenModal()
       });
     }
   }
@@ -68,7 +69,9 @@ export class CartPage extends Page {
   listeningOpenModal() {
     const modal = document.querySelector('.shopping-cart__button');
     if (modal) {
+   
       modal.addEventListener('click', () => {
+       
         document.querySelector('.modal')?.classList.add('modal--show');
         document.querySelector('body')?.classList.add('lock');
         this.listeningCloseModal();

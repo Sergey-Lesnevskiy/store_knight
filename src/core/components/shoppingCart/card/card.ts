@@ -60,7 +60,7 @@ export class Card extends Component {
                          <div class="shopping-cart__counts-title"><span>Колличество</span> (шт.)</div>
                          <div class="shopping-cart__counts-input">
                            <button id="decrement">-</button>
-                           <input type="text" id="input" readonly>
+                           <input type="text" id="input" readonly value='1'>
                            <button id="increment">+</button>
                          </div>
                        </div>
