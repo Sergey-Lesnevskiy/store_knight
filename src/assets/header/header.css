@@ -1,0 +1,13 @@
+.header__container{
+  display: flex;
+  height: 35px;
+  width: 350px;
+  justify-content: space-between;
+}
+.header{
+  margin-bottom: 50px;
+}
+.btn{
+  border-radius: 20px;
+  width: 150px;
+}

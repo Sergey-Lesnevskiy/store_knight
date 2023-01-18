@@ -1,0 +1,12 @@
+.wrapper__createCar,
+.wrapper__updateCar,
+.button__control{
+  margin-bottom: 10px;
+  width: 350px;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.btn__control{
+  width: 50px;
+}
