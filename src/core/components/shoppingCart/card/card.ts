@@ -6,7 +6,7 @@ export class Card extends Component {
     super(tagName, className);
   }
 
-  renderRemove() {
+  renderRemove(): HTMLElement {
     const remove = document.createElement('div');
     remove.classList.add('shopping-cart__remove-card');
 
@@ -17,17 +17,14 @@ export class Card extends Component {
     return remove;
   }
 
-  renderPageHeader() {
+  renderPageHeader(): DocumentFragment {
     let arrCart: string[] | undefined = [];
-    
     const items = localStorage.getItem('card');
 
     if (arrCart) {
       arrCart = items?.split(',');
     }
     const fragment = new DocumentFragment();
-
-
     arrCart?.forEach((button) => {
       const cardHTML = document.createElement('div');
       cardHTML.classList.add('shopping-cart__card');
@@ -80,9 +77,6 @@ export class Card extends Component {
                      </div>
                  </div>
              </div>
-
-
-
 `;
 
       fragment.append(cardHTML);
@@ -90,9 +84,7 @@ export class Card extends Component {
     return fragment;
   }
 
-  render() {
-    // const  containerCard = document.createElement('div');
-    // containerCard.className = 'shopping-cart__products'
+  render(): HTMLElement {
     const containerCard = new DocumentFragment();
     containerCard.append(this.renderRemove());
     containerCard.append(this.renderPageHeader());

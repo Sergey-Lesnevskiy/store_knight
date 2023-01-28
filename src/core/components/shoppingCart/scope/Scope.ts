@@ -6,7 +6,7 @@ export class CardScope extends Component {
     super(tagName, className);
   }
 
-  countThePrice() {
+  countThePrice(): number {
     const id: string | null = localStorage.getItem('card');
     if (!id) {
       return 0;
@@ -21,7 +21,7 @@ export class CardScope extends Component {
     });
     return count;
   }
-  countDiscount() {
+  countDiscount(): number {
     const id: string | null = localStorage.getItem('card');
     if (!id) {
       return 0;
@@ -36,7 +36,7 @@ export class CardScope extends Component {
     return count;
   }
 
-  renderPage1() {
+  renderPage1(): void {
     const allScope = this.countThePrice();
     const discount = this.countDiscount();
 
@@ -64,13 +64,11 @@ export class CardScope extends Component {
                  <button class="shopping-cart__button">Оформить заказ</button>
              </div>
          </div>
-
-
 `;
     this.container.append(scope);
   }
 
-  render() {
+  render(): HTMLElement {
     this.renderPage1();
 
     return this.container;

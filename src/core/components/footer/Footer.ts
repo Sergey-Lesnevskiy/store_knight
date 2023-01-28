@@ -1,13 +1,12 @@
 import './pageFooter.css';
 import { Component } from '../../templates/components';
 
-
 export class Footer extends Component {
   constructor(tagName: string, className: string) {
     super(tagName, className);
   }
 
-  renderPageFooter() {
+  renderPageFooter(): void {
     const pageFooter = document.createElement('div');
     pageFooter.classList.add('footer__container');
     pageFooter.innerHTML = `
@@ -23,7 +22,7 @@ export class Footer extends Component {
     this.container.append(pageFooter);
   }
 
-  render() {
+  render(): HTMLElement {
     this.renderPageFooter();
     return this.container;
   }

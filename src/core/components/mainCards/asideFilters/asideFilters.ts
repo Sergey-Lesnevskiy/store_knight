@@ -1,8 +1,5 @@
 import { Component } from '../../../templates/components';
-
 import { MainCard } from '../mainCard/mainCard';
-
-//<div class="shopping-cart__img" style="background-image: url('https://thumb.cloud.mail.ru/weblink/thumb/xw1/PuyU/pkmfmKmEd)">
 
 export class AsideFilters extends Component {
   protected mainCard: MainCard;
@@ -11,7 +8,7 @@ export class AsideFilters extends Component {
     this.mainCard = new MainCard('section', 'store');
   }
 
-  renderCart() {
+  renderCart(): void {
     const cardHTML = document.createElement('aside');
     cardHTML.classList.add('filters');
     cardHTML.innerHTML = `
@@ -31,7 +28,6 @@ export class AsideFilters extends Component {
             stroke="#FFFEF8" stroke-width="2" stroke-linecap="round" />
         </svg></button>
     </div>
-
     <div class="filters__body">
       <!-- Search -->
       <div class="search-filter">
@@ -70,22 +66,18 @@ export class AsideFilters extends Component {
           <input class="price-filter__input input-min" type="number" value="100" min="0" max="300000"/>
           <input class="price-filter__input input-max" type="number" value="300000" min="0" max="300000"/>
           </div>
-
           <div class="price-filter__range-group">
             <input class="price-filter__range range-min" type="range" value="100" min="0" max="300000" step="100">
             <input class="price-filter__range range-max" type="range" value="300000" min="0" max="300000" step="100">
           </div>
         </div>
       </div>
-
     </div>
 
 `;
     this.container.append(cardHTML);
   }
-  renderCart2() {
-    //  const pageHeader = document.createElement('div');
-    //  const fragment = new DocumentFragment();
+  renderCart2(): void {
     const cardHTML = document.createElement('div');
     cardHTML.classList.add('page__right-side');
 
@@ -101,11 +93,9 @@ export class AsideFilters extends Component {
           <option value="rating">По рейтингу</option>
         </select>
       </div>
-
       <div class="sort__info">
         <p>Товаров <span>9</span> из <span>31</span></p>
       </div>
-
       <div class="sort__view">
         <button class="sort__view-btn">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -146,35 +136,16 @@ export class AsideFilters extends Component {
       <button class="pagination__btn">2</button>
       <button class="pagination__btn">3</button>
       <button class="pagination__btn">4</button>
-
 `;
-
-//     const pagination2 = document.createElement('div');
-//     pagination2.classList.add('pagination');
-//     pagination2.innerHTML = `
-
-//         <button class="pagination__btn pagination__btn--active">1</button>
-//         <button class="pagination__btn">2</button>
-//         <button class="pagination__btn">3</button>
-//         <button class="pagination__btn">
-//           <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-//             <path d="M17.6 9.59999L24 16L17.6 22.4M8 9.59999L14.4 16L8 22.4" stroke="currentColor"
-//               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-//           </svg>
-//         </button>
-
-
-// `;
 
     cardHTML.append(section);
     cardHTML.append(pagination);
     cardHTML.append(this.mainCard.render());
-    // cardHTML.append(pagination2);
 
     this.container.append(cardHTML);
   }
 
-  render() {
+  render(): HTMLElement {
     this.renderCart();
     this.renderCart2();
 

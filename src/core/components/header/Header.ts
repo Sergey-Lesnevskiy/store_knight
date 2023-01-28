@@ -7,7 +7,7 @@ export class Header extends Component {
     super(tagName, className);
   }
 
-  countThePrice() {
+  countThePrice(): HTMLElement | string {
     const id: string | null = localStorage.getItem('card');
     if (!id) {
       return '';
@@ -19,7 +19,7 @@ export class Header extends Component {
     return `<span>${arr.length}</span>`;
   }
 
-  renderPageHeader() {
+  renderPageHeader(): void {
     const spanCart = this.countThePrice();
     const pageHeader = document.createElement('div');
     pageHeader.classList.add('header__container');
@@ -71,7 +71,7 @@ export class Header extends Component {
     this.container.append(pageHeader);
   }
 
-  render() {
+  render(): HTMLElement {
     this.renderPageHeader();
     return this.container;
   }

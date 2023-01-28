@@ -7,7 +7,7 @@ export class ErrorPage extends Page {
     super(id);
     this.errorType = errorType;
   }
-  render() {
+  render(): HTMLElement {
     this.container.innerHTML = `
     <section class="error">
       <div class="error__container">
