@@ -1,0 +1,183 @@
+.shopping-cart {
+  padding-top: 42px;
+}
+
+.shopping-cart__remove-card {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 25px;
+  margin: 10px 0px;
+}
+
+.shopping-cart__container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 18px;
+}
+
+.shopping-cart__products {
+  position: relative;
+}
+
+.shopping-cart__remove-card {
+  position: absolute;
+  top: -45px;
+  right: 0;
+}
+
+.shopping-cart__remove-card p {
+  font-size: 16px;
+}
+
+.shopping-cart__card {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 26px;
+  padding: 18px;
+  color: var(--color-black);
+  background-image: linear-gradient(180deg, #ffd39f 20%, #f8eaca 80%);
+  border-radius: 6px;
+}
+
+.shopping-cart__img {
+  width: 180px;
+  height: 180px;
+  /* background-image: url('../../images/armor/chain_mail/chainMail2.jpg'); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 6px;
+}
+
+.shopping-cart__info {
+  position: relative;
+  width: 80%;
+  margin-left: 18px;
+}
+
+.shopping-cart__info-title {
+  margin: 0;
+  margin-top: 0.5rem;
+  font-size: 20px;
+}
+
+.shopping-cart__info-article {
+  margin: 0;
+  margin-top: 0.2rem;
+  font-size: 14px;
+  color: #797979;
+}
+
+.shopping-cart__info-text {
+  margin-bottom: 21px;
+}
+
+.shopping-cart__info-trash {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.shopping-cart__price-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shopping-cart__counts-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  margin-top: 2px;
+  border-radius: 6px;
+  background-color: var(--color-white);
+}
+
+.shopping-cart__counts button,
+.shopping-cart__counts input {
+  outline: none;
+  border: none;
+  padding: 0.4rem;
+  font-size: 1rem;
+}
+
+.shopping-cart__counts input {
+  width: 42px;
+}
+
+.shopping-cart__price-calc {
+  margin-left: auto;
+  font-size: 14px;
+  color: #797979;
+}
+
+.shopping-cart__price-total {
+  min-width: 160px;
+  padding-left: 1rem;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: right;
+  color: var(--color-secondary);
+}
+
+.shopping-cart__score {
+  align-self: start;
+  padding: 32px 24px;
+  background-color: var(--color-white);
+  border-radius: 6px;
+}
+
+.shopping-cart__all-scope-wrapper,
+.shopping-cart__promo-wrapper,
+.shopping-cart__total-wrapper,
+.shopping-cart__promo-input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: var(--color-black);
+}
+
+.shopping-cart__total-wrapper {
+  margin-bottom: 140px;
+}
+
+.shopping-cart__promo-wrapper {
+  margin-bottom: 40px;
+}
+
+.shopping-cart__total-title {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.shopping-cart__total-number {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.shopping-cart__promo-input-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.shopping-cart__promo-input {
+  width: 50%;
+  padding: 0.5rem;
+  background-color: var(--color-gray-light);
+  border: 2px solid var(--color-black);
+  border-radius: 6px;
+}
+
+.shopping-cart__button {
+  width: 100%;
+  padding: 1rem 0;
+  background: var(--color-main);
+  font-size: 18px;
+  border-radius: 6px;
+}
