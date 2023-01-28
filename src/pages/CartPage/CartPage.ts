@@ -17,7 +17,7 @@ export class CartPage extends Page {
     this.header = new Header('header', 'header');
   }
 
-  listeningDeleteOneCard() {
+  listeningDeleteOneCard(): void {
     const deleteCard = document.querySelectorAll('.shopping-cart__info-trash');
 
     for (let i = 0; i < deleteCard.length; i++) {
@@ -61,24 +61,22 @@ export class CartPage extends Page {
           headerHTML.innerHTML = '';
           headerHTML.replaceWith(this.header.render());
         }
-        this.listeningOpenModal()
+        this.listeningOpenModal();
       });
     }
   }
   //modal
-  listeningOpenModal() {
+  listeningOpenModal(): void {
     const modal = document.querySelector('.shopping-cart__button');
     if (modal) {
-   
       modal.addEventListener('click', () => {
-       
         document.querySelector('.modal')?.classList.add('modal--show');
         document.querySelector('body')?.classList.add('lock');
         this.listeningCloseModal();
       });
     }
   }
-  listeningCloseModal() {
+  listeningCloseModal(): void {
     const crose = document.querySelector('.modal__btn-close');
     if (crose) {
       crose.addEventListener('click', (e) => {
@@ -89,7 +87,7 @@ export class CartPage extends Page {
     }
   }
   //modal
-  render() {
+  render(): HTMLElement {
     const containerCard = document.createElement('div');
     containerCard.className = 'shopping-cart';
     const containerCard2 = document.createElement('div');

@@ -20,12 +20,8 @@ export class App {
   private cartPage: CartPage;
   private ProductPage: ProductPage;
 
-
-  //функция рендерит страницу в зависимости от смены url
-  private enableRoutChange() {
+  private enableRoutChange(): void {
     window.addEventListener('hashchange', () => {
-
-
       const hash = window.location.hash.slice(1);
       App.renderNewPage(hash);
       this.MainPage.listeningCategory();
@@ -54,7 +50,7 @@ export class App {
     this.ProductPage = new ProductPage('product-page');
   }
   //метод для смены страницы
-  static renderNewPage(idPage: string) {
+  static renderNewPage(idPage: string): void {
     const currentPageHTML = document.querySelector('main');
     if (currentPageHTML) {
       currentPageHTML.remove();
@@ -70,14 +66,13 @@ export class App {
     } else {
       page = new ErrorPage(idPage, '404');
     }
-
     if (page) {
       const pageHTML = page.render();
       App.container.append(pageHTML);
     }
   }
 
-  run() {
+  run(): void {
     App.container.append(this.header.render());
     App.renderNewPage('main-page');
     this.enableRoutChange();

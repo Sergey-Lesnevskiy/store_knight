@@ -6,7 +6,7 @@ export class MainCard extends Component {
     super(tagName, className);
   }
 
-  stars(rating: number) {
+  stars(rating: number): string | undefined {
     switch (rating) {
       case 1:
         return '⭐';
@@ -40,8 +40,7 @@ export class MainCard extends Component {
         break;
     }
   }
-  renderCart( start:number= 1, sortCounts:number = 9 ) {
-
+  renderCart(start: number = 1, sortCounts: number = 9): void {
     const count = sessionStorage.getItem('countCardPage');
     const items = localStorage.getItem('filterItems');
     let arr: string[] = [];
@@ -53,13 +52,12 @@ export class MainCard extends Component {
       });
       localStorage.setItem('filterItems', arr.join(','));
     }
-    if(count){
-       sortCounts = Number(count);
+    if (count) {
+      sortCounts = Number(count);
     }
 
-    if( start ){
-     arr = arr.slice(((start-1)*sortCounts),(start * sortCounts))
-   
+    if (start) {
+      arr = arr.slice((start - 1) * sortCounts, start * sortCounts);
     }
 
     const fragment = new DocumentFragment();
@@ -88,8 +86,8 @@ export class MainCard extends Component {
     this.container.append(fragment);
   }
 
-  render(start?:number, sortCounts?:number ) {
-    this.renderCart(start,sortCounts);
+  render(start?: number, sortCounts?: number): HTMLElement {
+    this.renderCart(start, sortCounts);
     return this.container;
   }
 }

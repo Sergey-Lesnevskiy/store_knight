@@ -40,7 +40,7 @@ export class MainPage extends Page {
     this.checkedTypes = [];
   }
 
-  listeningCategory() {
+  listeningCategory(): void {
     document.querySelector('.category-filter__list')?.addEventListener('click', (e) => {
       //вызвать функцию сортировки
       const el = e.target as HTMLInputElement;
@@ -81,7 +81,7 @@ export class MainPage extends Page {
     });
   }
 
-  listeningType() {
+  listeningType(): void {
     const typeFilter = document.querySelector('.type-filter') as HTMLElement;
     if (typeFilter) {
       // Изначально, ДО клика, показываются все товары из категории
@@ -133,7 +133,7 @@ export class MainPage extends Page {
     }
   }
 
-  listeningCartButton() {
+  listeningCartButton(): void {
     let card: string | null = localStorage.getItem('card');
 
     document.querySelector('.store')?.addEventListener('click', (e) => {
@@ -158,25 +158,22 @@ export class MainPage extends Page {
     });
   }
 
-  listeningCartLink() {
+  listeningCartLink(): void {
     const linksA = document.querySelectorAll('.item__link');
     linksA.forEach((item) => {
       item.addEventListener('click', (e) => {
         e.preventDefault();
         const el = e.currentTarget as HTMLLinkElement;
-        
         localStorage.removeItem('cardProduct');
         const type = el.getAttribute('data-card');
         if (type) localStorage.setItem('cardProduct', type);
         const url = el.href;
-        console.log(url);
         window.open(url, '_self');
-        
       });
     });
   }
 
-  searchProduct() {
+  searchProduct(): void {
     const inputSearch = document.querySelector('.search-filter__input') as HTMLInputElement;
 
     if (inputSearch) {
@@ -205,7 +202,7 @@ export class MainPage extends Page {
     }
   }
 
-  listeningRange() {
+  listeningRange(): void {
     const priceInput = document.querySelectorAll('.price-filter__input-group input');
     const rangeInput = document.querySelectorAll('.price-filter__range-group input');
 
@@ -271,19 +268,15 @@ export class MainPage extends Page {
     });
   }
 
-  listeningRangeStock() {
+  listeningRangeStock(): void {
     const priceInput = document.querySelector('.stock-filter__input');
     const rangeInput = document.querySelector('.stock-filter__range');
-    
     const dataItemsPrice = document.querySelectorAll('.item__stock span') as NodeListOf<HTMLElement>;
     const dataItems = document.getElementsByClassName('store__item item') as HTMLCollectionOf<HTMLElement>;
-
-
     priceInput?.addEventListener('input', () => {
       const val = parseInt((priceInput as HTMLInputElement).value);
       (rangeInput as HTMLInputElement).value = String(val);
       (priceInput as HTMLInputElement).value = String(val);
-    
       for (let i = 0; i < dataItemsPrice.length; i++) {
         if (Number(dataItemsPrice[i].innerText) >= val) {
           dataItems[i].classList.remove('hide');
@@ -296,8 +289,7 @@ export class MainPage extends Page {
       const val = parseInt((rangeInput as HTMLInputElement).value);
       (rangeInput as HTMLInputElement).value = String(val);
       (priceInput as HTMLInputElement).value = String(val);
-      // const dataItemsPrice = document.querySelectorAll('.item__stock span') as NodeListOf<HTMLElement>;
-      // const dataItems = document.getElementsByClassName('store__item item') as HTMLCollectionOf<HTMLElement>;
+
       for (let i = 0; i < dataItemsPrice.length; i++) {
         if (Number(dataItemsPrice[i].innerText) >= val) {
           dataItems[i].classList.remove('hide');
@@ -308,7 +300,7 @@ export class MainPage extends Page {
     });
   }
 
-  listeningSortPrice() {
+  listeningSortPrice(): void {
     const isSelectPrice = document.querySelector('#sort-by') as HTMLInputElement;
 
     //забираем из
@@ -340,7 +332,6 @@ export class MainPage extends Page {
         localStorage.setItem('filterItems', arr.join(','));
 
         //записываем в locale
-
         let count: number = Number(sessionStorage.getItem('countCardPage'));
         const currentPageHTML = document.querySelector(`.store`);
         // добавил проверку сюда
@@ -353,7 +344,7 @@ export class MainPage extends Page {
     }
   }
 
-  listeningSortView() {
+  listeningSortView(): void {
     const storeSection = document.querySelector(`.store`);
     const viewLineBtn = document.querySelectorAll('.sort__view-btn')[0] as HTMLInputElement;
     const viewGridBtn = document.querySelectorAll('.sort__view-btn')[1] as HTMLInputElement;
@@ -373,7 +364,7 @@ export class MainPage extends Page {
     }
   }
 
-  listeningPagination() {
+  listeningPagination(): void {
     const buttons = document.querySelector(`.pagination`);
     buttons?.addEventListener('click', (e) => {
       const el = e.target as HTMLButtonElement;
@@ -393,7 +384,7 @@ export class MainPage extends Page {
     });
   }
 
-  listeningCountView() {
+  listeningCountView(): void {
     const isSelectCount = document.querySelector('#sort-view') as HTMLInputElement;
     if (isSelectCount) {
       let sortV: number = Number(isSelectCount.value);
@@ -418,7 +409,7 @@ export class MainPage extends Page {
     }
   }
 
-  render() {
+  render(): HTMLElement {
     const PageContainer = document.createElement('div');
     PageContainer.classList.add('page__container');
     PageContainer.append(this.categoryFilter.render());

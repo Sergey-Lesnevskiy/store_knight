@@ -12,49 +12,48 @@ export class ProductPage extends Page {
     this.productCard = new ProductCard('div', 'product__container');
     this.header = new Header('header', 'header');
   }
-  listeningCartButton() {
+  listeningCartButton(): void {
     let card: string | null = localStorage.getItem('card');
 
     document.querySelector('.product__cart-btn')?.addEventListener('click', (e) => {
       const el = e.target as HTMLButtonElement;
-      
-        const type = el.getAttribute('data-card');
-        if (card) {
-          card = card + ',' + type;
-        } else {
-          card = type;
-        }
-        localStorage.setItem('card', String(card));
 
-        const headerHTML = document.querySelector(`.header`);
+      const type = el.getAttribute('data-card');
+      if (card) {
+        card = card + ',' + type;
+      } else {
+        card = type;
+      }
+      localStorage.setItem('card', String(card));
 
-        if (headerHTML) {
-          headerHTML.innerHTML = '';
-          headerHTML.replaceWith(this.header.render());
-        }
-        el.disabled = true;
-   
+      const headerHTML = document.querySelector(`.header`);
+
+      if (headerHTML) {
+        headerHTML.innerHTML = '';
+        headerHTML.replaceWith(this.header.render());
+      }
+      el.disabled = true;
     });
   }
-  listeningImage(){
-    const imgeBlock = document.querySelector('.product__image-thumbnails')as HTMLDivElement;
+  listeningImage(): void {
+    const imgeBlock = document.querySelector('.product__image-thumbnails') as HTMLDivElement;
     const imgeBig = document.querySelector('.product__image-big img') as HTMLImageElement;
 
-    if(imgeBlock){
-      imgeBlock.addEventListener('click',(e)=>{
+    if (imgeBlock) {
+      imgeBlock.addEventListener('click', (e) => {
         const el = e.target as HTMLImageElement;
-        const type = el
-        const change = type.src
+        const type = el;
+        const change = type.src;
 
         console.log(change);
-        if(imgeBig){
-          imgeBig.src = type.src
+        if (imgeBig) {
+          imgeBig.src = type.src;
         }
-      })
+      });
     }
   }
 
-  render() {
+  render(): HTMLElement {
     this.container.append(this.productCard.render());
     return this.container;
   }

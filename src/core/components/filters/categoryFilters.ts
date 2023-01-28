@@ -5,7 +5,7 @@ export class CategoryFilters extends Component {
     super(tagName, className);
   }
 
-  render() {
+  render(): HTMLElement {
     this.container.innerHTML = `
       <ul class="category-filter__list">
         <li class="category-filter__item">

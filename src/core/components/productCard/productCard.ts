@@ -5,17 +5,10 @@ export class ProductCard extends Component {
   constructor(tagName: string, className: string) {
     super(tagName, className);
   }
-
-  renderProductCard() {
-    // const currentPageHTML = document.querySelector(`.product`);
-
-    //     if (currentPageHTML) {
-    //       currentPageHTML.innerHTML = '';
-    //     }
-
+  renderProductCard(): HTMLElement {
     const items: number = Number(localStorage.getItem('cardProduct'));
     this.container.innerHTML = `
-    <div class="product">
+  <div class="product">
         <div class="product__image">
           <div class="product__image-big">
           <img src=${products[items - 1].thumbnail} alt="">
@@ -29,7 +22,6 @@ export class ProductCard extends Component {
             <img src=${products[items - 1].images[2]} alt=""></div>
           </div>
         </div>
-
         <div class="product__info">
           <h2 class="product__title">${products[items - 1].title} (ЛАП)</h2>
           <p class="product__id">Артикул: ${products[items - 1].id}</p>
@@ -65,8 +57,7 @@ export class ProductCard extends Component {
     `;
     return this.container;
   }
-
-  render() {
+  render(): HTMLElement {
     this.renderProductCard();
     return this.container;
   }

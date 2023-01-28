@@ -44,7 +44,7 @@ export class TypeFilter {
     }
   }
 
-  private createTypeItem(item: string[]) {
+  private createTypeItem(item: string[]): HTMLElement {
     const typeItem = document.createElement('li');
     typeItem.classList.add('type-filter__item');
 
@@ -60,7 +60,7 @@ export class TypeFilter {
     return typeItem;
   }
 
-  public render(category: string) {
+  public render(category: string): HTMLElement {
     const typeList = this.getTypes(category);
     if (typeList !== null) {
       const fragment = new DocumentFragment();
